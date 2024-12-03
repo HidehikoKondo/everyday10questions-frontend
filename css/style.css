@@ -1,0 +1,36 @@
+/* h1 span {
+    font-size: 20px;
+    display: block;
+}
+
+h1 {
+    font-size: 80px;
+} */
+
+body {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* コンテナのスタイル */
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* ボタンを均等に配置 */
+    align-items: center;
+    /* ボタンを縦方向で中央揃え */
+
+}
+
+/* ボタンのスタイル */
+.button-container ons-button {
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+}
+
+footer {
+    text-align: center;
+}
