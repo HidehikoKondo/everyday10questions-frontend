@@ -2,69 +2,133 @@
 <html>
 
 <head>
-    <title>毎日10問</title>
+    <title>毎日10問 英訳 中1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 
     <!-- Onsen UI -->
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
-    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
-
-
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+    <ons-splitter>
+        <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+            <ons-page>
+                <p>学年選択</p>
+                <ons-list>
+                    <ons-list-item onclick="fn.load('')" tappable>中1</ons-list-item>
+                    <ons-list-item onclick="fn.load('')" tappable>中2</ons-list-item>
+                    <ons-list-item onclick="fn.load('')" tappable>中3</ons-list-item>
+                    <ons-list-item onclick="fn.load('')" tappable>高1</ons-list-item>
+                    <ons-list-item onclick="fn.load('')" tappable>高2</ons-list-item>
+                    <ons-list-item onclick="fn.load('')" tappable>高3</ons-list-item>
+                </ons-list>
+                <p>メニュー</p>
 
-    <ons-page>
+                <ons-list>
+                    <ons-list-item onclick="fn.load('home.html')" tappable>ホーム</ons-list-item>
+                    <ons-list-item onclick="fn.load('settings.html')" tappable>設定</ons-list-item>
+                </ons-list>
+            </ons-page>
+        </ons-splitter-side>
 
-        <h1><span>毎日10問</span>英訳</h1>
-        <button class="fab"><i class="zmdi zmdi-info"></i></button>
+        <ons-splitter-content>
+            <ons-navigator id="myNavigator">
+                <ons-page>
+                    <!-- ナビゲーションバーの追加 -->
+                    <ons-toolbar>
+                        <div class="left">
+                            <ons-toolbar-button onclick="menu.open()">
+                                <ons-icon icon="md-menu"></ons-icon>
+                            </ons-toolbar-button>
+                        </div>
+                        <div class="center">毎日10問 英訳 中1</div>
+                    </ons-toolbar>
 
-        <!-- 中学のボタン -->
-        <div class="button-container">
-            <ons-button>中1</ons-button>
-            <ons-button>中2</ons-button>
-            <ons-button>中3</ons-button>
-        </div>
+                    <!-- <h1><span>毎日10問</span>英訳</h1>
+                    <button class="fab"><i class="zmdi zmdi-info"></i></button> -->
 
-        <!-- 高校のボタン -->
-        <div class="button-container">
-            <ons-button>高1</ons-button>
-            <ons-button>高2</ons-button>
-            <ons-button>高3</ons-button>
-        </div>
-        <div style="height: 200px; padding: 1px 0 0 0;">
-            <div class="card">
-                <h2 class="card__title">正解</h2>
-                <div class="card__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.</div>
-            </div>
-        </div>
-        <div style="height: 200px; padding: 1px 0 0 0;">
-            <div class="card">
-                <h2 class="card__title">解説</h2>
-                <div class="card__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.</div>
-            </div>
-        </div>
-        <footer>
-            &copy;UDONKONET
-        </footer>
+                    <!-- 中学のプルダウンメニュー -->
+                    <!-- <div class="button-container">
+                        <ons-select id="junior-high-select" onchange="handleSelectChange(event)">
+                            <option value="" disabled selected>学年を選択</option>
+                            <option value="中1">中1</option>
+                            <option value="中2">中2</option>
+                            <option value="中3">中3</option>
+                            <option value="高1">高1</option>
+                            <option value="高2">高2</option>
+                            <option value="高3">高3</option>
 
-    </ons-page>
-    <!-- <ons-page>
-        <h1>page2</h1>
-    </ons-page> -->
+                        </ons-select>
+                    </div> -->
+
+                    <!-- 見出し付きカードの追加 -->
+                    <div style="height: 200px; padding: 1px 0 0 0;">
+                        <div class="card">
+                            <h2 class="card__title">問題1</h2>
+                            <div class="card__content">
+                                <p>これは彼のペンです。</p>
+                                <!-- ヒントボタンの追加 -->
+                                <ons-fab position="top right" onclick="showHint()">
+                                    <ons-icon icon="md-help"></ons-icon>
+                                </ons-fab>
+                            </div>
+                        </div>
+
+                        <!-- 答え合わせボタンの追加 -->
+                        <ons-button onclick="showAnswer()">答え合わせ</ons-button>
+
+                    </div>
+
+
+                    <!-- 回答カードの追加 -->
+                    <div id="answer-card" style="height: 200px; padding: 1px 0 0 0; display: none;">
+                        <div class="card">
+                            <h2 class="card__title">回答</h2>
+                            <div class="card__content">
+                                <p>This is his pen.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ダイアログの追加 -->
+                    <ons-dialog id="hint-dialog">
+                        <div style="text-align: center; padding: 10px;">
+                            <p>これはヒントです。</p>
+                            <ons-button onclick="hideHint()">閉じる</ons-button>
+                        </div>
+                    </ons-dialog>
+
+                    <script>
+                        function handleSelectChange(event) {
+                            const selectedValue = event.target.value;
+                            console.log("選択された値:", selectedValue);
+                            // 必要に応じて、選択された値に基づいて処理を追加
+                        }
+
+                        function showHint() {
+                            document.getElementById('hint-dialog').show();
+                        }
+
+                        function hideHint() {
+                            document.getElementById('hint-dialog').hide();
+                        }
+
+                        function showAnswer() {
+                            document.getElementById('answer-card').style.display = 'block';
+                        }
+                    </script>
+                </ons-page>
+            </ons-navigator>
+        </ons-splitter-content>
+    </ons-splitter>
 </body>
-
-<script src="script.js"></script>
 
 </html>
