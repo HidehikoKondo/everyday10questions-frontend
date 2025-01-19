@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>毎日10問 英訳 中1</title>
+    <title>毎日10問</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Onsen UI -->
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 
-    <!-- css -->
+    <!-- カスタムCSS -->
     <link rel="stylesheet" href="css/style.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -23,24 +23,74 @@
             <ons-page>
                 <p>学年選択</p>
                 <ons-list>
-                    <ons-list-item onclick="fn.load('')" tappable>中1</ons-list-item>
-                    <ons-list-item onclick="fn.load('')" tappable>中2</ons-list-item>
-                    <ons-list-item onclick="fn.load('')" tappable>中3</ons-list-item>
-                    <ons-list-item onclick="fn.load('')" tappable>高1</ons-list-item>
-                    <ons-list-item onclick="fn.load('')" tappable>高2</ons-list-item>
-                    <ons-list-item onclick="fn.load('')" tappable>高3</ons-list-item>
+                    <ons-list-item tappable>
+                        <label class="left">
+                            <ons-radio name="grade" input-id="junior1"></ons-radio>
+                        </label>
+                        <label for="junior1" class="center">
+                            中1
+                        </label>
+                    </ons-list-item>
+                    <ons-list-item tappable>
+                        <label class="left">
+                            <ons-radio name="grade" input-id="junior2"></ons-radio>
+                        </label>
+                        <label for="junior2" class="center">
+                            中2
+                        </label>
+                    </ons-list-item>
+                    <ons-list-item tappable>
+                        <label class="left">
+                            <ons-radio name="grade" input-id="junior3"></ons-radio>
+                        </label>
+                        <label for="junior3" class="center">
+                            中3
+                        </label>
+                    </ons-list-item>
+                    <ons-list-item tappable>
+                        <label class="left">
+                            <ons-radio name="grade" input-id="high1"></ons-radio>
+                        </label>
+                        <label for="high1" class="center">
+                            高1
+                        </label>
+                    </ons-list-item>
+                    <ons-list-item tappable>
+                        <label class="left">
+                            <ons-radio name="grade" input-id="high2"></ons-radio>
+                        </label>
+                        <label for="high2" class="center">
+                            高2
+                        </label>
+                    </ons-list-item>
+                    <ons-list-item tappable>
+                        <label class="left">
+                            <ons-radio name="grade" input-id="high3"></ons-radio>
+                        </label>
+                        <label for="high3" class="center">
+                            高3
+                        </label>
+                    </ons-list-item>
                 </ons-list>
                 <p>メニュー</p>
+                <ons-list>
+                    <ons-list-item onclick="fn.load('home.html')" tappable>毎日10問シリーズ</ons-list-item>
+                    <ons-list-item onclick="fn.load('home.html')" tappable>7日連続チャレンジ</ons-list-item>
+                    <ons-list-item onclick="fn.load('settings.html')" tappable>設定</ons-list-item>
+                    <ons-list-item onclick="fn.load('home.html')" tappable>開発者</ons-list-item>
+                </ons-list>
+                <!-- フッターの追加 -->
+                <p>Copyright</p>
 
                 <ons-list>
-                    <ons-list-item onclick="fn.load('home.html')" tappable>ホーム</ons-list-item>
-                    <ons-list-item onclick="fn.load('settings.html')" tappable>設定</ons-list-item>
-                </ons-list>
+                    <ons-list-item onclick="window.location.href='https://udonko.net/'"
+                        tappable>&copy;&nbsp;UDONKONET</ons-list-item>
+
             </ons-page>
         </ons-splitter-side>
 
         <ons-splitter-content>
-            <ons-navigator id="myNavigator">
+            <ons-navigator id=" myNavigator">
                 <ons-page>
                     <!-- ナビゲーションバーの追加 -->
                     <ons-toolbar>
@@ -52,51 +102,43 @@
                         <div class="center">毎日10問 英訳 中1</div>
                     </ons-toolbar>
 
-                    <!-- <h1><span>毎日10問</span>英訳</h1>
-                    <button class="fab"><i class="zmdi zmdi-info"></i></button> -->
-
-                    <!-- 中学のプルダウンメニュー -->
-                    <!-- <div class="button-container">
-                        <ons-select id="junior-high-select" onchange="handleSelectChange(event)">
-                            <option value="" disabled selected>学年を選択</option>
-                            <option value="中1">中1</option>
-                            <option value="中2">中2</option>
-                            <option value="中3">中3</option>
-                            <option value="高1">高1</option>
-                            <option value="高2">高2</option>
-                            <option value="高3">高3</option>
-
-                        </ons-select>
-                    </div> -->
+                    <h1>今日の出題範囲：Be動詞</h1>
+                    次の英文を英訳しましょう。
 
                     <!-- 見出し付きカードの追加 -->
-                    <div style="height: 200px; padding: 1px 0 0 0;">
-                        <div class="card">
+                    <ons-card>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
                             <h2 class="card__title">問題1</h2>
-                            <div class="card__content">
-                                <p>これは彼のペンです。</p>
-                                <!-- ヒントボタンの追加 -->
-                                <ons-fab position="top right" onclick="showHint()">
-                                    <ons-icon icon="md-help"></ons-icon>
-                                </ons-fab>
-                            </div>
+                            <!-- ヒントボタンの追加 -->
+                            <ons-button onclick="showHint()">ヒント</ons-button>
                         </div>
+                        <div class="card__content">
+                            <p>これは彼のペンです。</p>
+                        </div>
+                    </ons-card>
 
-                        <!-- 答え合わせボタンの追加 -->
-                        <ons-button onclick="showAnswer()">答え合わせ</ons-button>
-
-                    </div>
-
+                    <!-- 答え合わせボタンの追加 -->
+                    <ons-button id="check-answer-button" modifier="large" onclick="showAnswer()">答え合わせ</ons-button>
 
                     <!-- 回答カードの追加 -->
-                    <div id="answer-card" style="height: 200px; padding: 1px 0 0 0; display: none;">
-                        <div class="card">
-                            <h2 class="card__title">回答</h2>
-                            <div class="card__content">
-                                <p>This is his pen.</p>
-                            </div>
+                    <ons-card id="answer-card" style="display: none;">
+                        <h2 class="card__title">解答</h2>
+                        <div class="card__content">
+                            <p>This is his pen.</p>
                         </div>
-                    </div>
+                    </ons-card>
+
+                    <!-- 解説カードの追加 -->
+                    <ons-card id="explanation-card" style="display: none;">
+                        <h2 class="card__title">解説</h2>
+                        <div class="card__content">
+                            <p>「これは彼のペンです。」という文の英訳です。主語は「これは」、動詞は「です」、所有格の「彼の」が続きます。</p>
+                        </div>
+                    </ons-card>
+
+                    <!-- 次の問題ボタンの追加 -->
+                    <ons-button id="next-question-button" style="display: none;"
+                        onclick="nextQuestion()">次の問題</ons-button>
 
                     <!-- ダイアログの追加 -->
                     <ons-dialog id="hint-dialog">
@@ -123,6 +165,14 @@
 
                         function showAnswer() {
                             document.getElementById('answer-card').style.display = 'block';
+                            document.getElementById('explanation-card').style.display = 'block';
+                            document.getElementById('next-question-button').style.display = 'block';
+                            document.getElementById('check-answer-button').style.display = 'none'; // 答え合わせボタンを非表示にする
+                        }
+
+                        function nextQuestion() {
+                            // 次の問題を表示するための処理をここに追加
+                            console.log("次の問題に進みます");
                         }
                     </script>
                 </ons-page>
