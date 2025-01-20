@@ -74,23 +74,18 @@
                 </ons-list>
                 <p>メニュー</p>
                 <ons-list>
-                    <ons-list-item onclick="fn.load('home.html')" tappable>毎日10問シリーズ</ons-list-item>
-                    <ons-list-item onclick="fn.load('home.html')" tappable>7日連続チャレンジ</ons-list-item>
+                    <ons-list-item onclick="fn.load('home.html')" tappable>ホーム</ons-list-item>
                     <ons-list-item onclick="fn.load('settings.html')" tappable>設定</ons-list-item>
-                    <ons-list-item onclick="fn.load('home.html')" tappable>開発者</ons-list-item>
                 </ons-list>
                 <!-- フッターの追加 -->
-                <p>Copyright</p>
-
-                <ons-list>
-                    <ons-list-item onclick="window.location.href='https://udonko.net/'"
-                        tappable>&copy;&nbsp;UDONKONET</ons-list-item>
-
+                <ons-toolbar modifier="transparent" class="footer">
+                    <div class="center">UDONKONET</div>
+                </ons-toolbar>
             </ons-page>
         </ons-splitter-side>
 
         <ons-splitter-content>
-            <ons-navigator id=" myNavigator">
+            <ons-navigator id="myNavigator">
                 <ons-page>
                     <!-- ナビゲーションバーの追加 -->
                     <ons-toolbar>
@@ -108,12 +103,12 @@
                     <!-- 見出し付きカードの追加 -->
                     <ons-card>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h2 class="card__title">問題1</h2>
+                            <h2 class="card__title" id="question-title">問題1</h2>
                             <!-- ヒントボタンの追加 -->
                             <ons-button onclick="showHint()">ヒント</ons-button>
                         </div>
                         <div class="card__content">
-                            <p>これは彼のペンです。</p>
+                            <p id="question-text">これは彼のペンです。</p>
                         </div>
                     </ons-card>
 
@@ -122,9 +117,9 @@
 
                     <!-- 回答カードの追加 -->
                     <ons-card id="answer-card" style="display: none;">
-                        <h2 class="card__title">解答</h2>
+                        <h2 class="card__title">回答</h2>
                         <div class="card__content">
-                            <p>This is his pen.</p>
+                            <p id="answer-text">This is his pen.</p>
                         </div>
                     </ons-card>
 
@@ -132,7 +127,7 @@
                     <ons-card id="explanation-card" style="display: none;">
                         <h2 class="card__title">解説</h2>
                         <div class="card__content">
-                            <p>「これは彼のペンです。」という文の英訳です。主語は「これは」、動詞は「です」、所有格の「彼の」が続きます。</p>
+                            <p id="explanation-text">「これは彼のペンです。」という文の英訳です。主語は「これは」、動詞は「です」、所有格の「彼の」が続きます。</p>
                         </div>
                     </ons-card>
 
@@ -149,6 +144,23 @@
                     </ons-dialog>
 
                     <script>
+                        const questions = [
+                            { question: "これは彼のペンです。", answer: "This is his pen.", explanation: "「これは彼のペンです。」という文の英訳です。主語は「これは」、動詞は「です」、所有格の「彼の」が続きます。" },
+                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+
+                            // 他の問題をここに追加
+                        ];
+
+                        let currentQuestionIndex = 0;
+
                         function handleSelectChange(event) {
                             const selectedValue = event.target.value;
                             console.log("選択された値:", selectedValue);
@@ -171,8 +183,20 @@
                         }
 
                         function nextQuestion() {
-                            // 次の問題を表示するための処理をここに追加
-                            console.log("次の問題に進みます");
+                            currentQuestionIndex++;
+                            if (currentQuestionIndex < questions.length) {
+                                document.getElementById('question-title').textContent = `問題${currentQuestionIndex + 1}`;
+                                document.getElementById('question-text').textContent = questions[currentQuestionIndex].question;
+                                document.getElementById('answer-text').textContent = questions[currentQuestionIndex].answer;
+                                document.getElementById('explanation-text').textContent = questions[currentQuestionIndex].explanation;
+
+                                document.getElementById('answer-card').style.display = 'none';
+                                document.getElementById('explanation-card').style.display = 'none';
+                                document.getElementById('next-question-button').style.display = 'none';
+                                document.getElementById('check-answer-button').style.display = 'block';
+                            } else {
+                                ons.notification.alert('これで全ての問題が終了しました。');
+                            }
                         }
                     </script>
                 </ons-page>
