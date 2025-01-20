@@ -74,8 +74,8 @@
                 </ons-list>
                 <p>メニュー</p>
                 <ons-list>
-                    <ons-list-item onclick="fn.load('home.html')" tappable>ホーム</ons-list-item>
-                    <ons-list-item onclick="fn.load('settings.html')" tappable>設定</ons-list-item>
+                    <ons-list-item onclick="fn.load('daily10questions-page.html')" tappable>毎日10問シリーズ</ons-list-item>
+                    <ons-list-item onclick="fn.load('7dayschallenge-page.html')" tappable>7日連続チャレンジ</ons-list-item>
                 </ons-list>
                 <!-- フッターの追加 -->
                 <ons-toolbar modifier="transparent" class="footer">
@@ -84,9 +84,9 @@
             </ons-page>
         </ons-splitter-side>
 
-        <ons-splitter-content>
+        <ons-splitter-content id="content">
             <ons-navigator id="myNavigator">
-                <ons-page>
+                <ons-page id="main-page">
                     <!-- ナビゲーションバーの追加 -->
                     <ons-toolbar>
                         <div class="left">
@@ -142,67 +142,52 @@
                             <ons-button onclick="hideHint()">閉じる</ons-button>
                         </div>
                     </ons-dialog>
-
-                    <script>
-                        const questions = [
-                            { question: "これは彼のペンです。", answer: "This is his pen.", explanation: "「これは彼のペンです。」という文の英訳です。主語は「これは」、動詞は「です」、所有格の「彼の」が続きます。" },
-                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-                            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-
-                            // 他の問題をここに追加
-                        ];
-
-                        let currentQuestionIndex = 0;
-
-                        function handleSelectChange(event) {
-                            const selectedValue = event.target.value;
-                            console.log("選択された値:", selectedValue);
-                            // 必要に応じて、選択された値に基づいて処理を追加
-                        }
-
-                        function showHint() {
-                            document.getElementById('hint-dialog').show();
-                        }
-
-                        function hideHint() {
-                            document.getElementById('hint-dialog').hide();
-                        }
-
-                        function showAnswer() {
-                            document.getElementById('answer-card').style.display = 'block';
-                            document.getElementById('explanation-card').style.display = 'block';
-                            document.getElementById('next-question-button').style.display = 'block';
-                            document.getElementById('check-answer-button').style.display = 'none'; // 答え合わせボタンを非表示にする
-                        }
-
-                        function nextQuestion() {
-                            currentQuestionIndex++;
-                            if (currentQuestionIndex < questions.length) {
-                                document.getElementById('question-title').textContent = `問題${currentQuestionIndex + 1}`;
-                                document.getElementById('question-text').textContent = questions[currentQuestionIndex].question;
-                                document.getElementById('answer-text').textContent = questions[currentQuestionIndex].answer;
-                                document.getElementById('explanation-text').textContent = questions[currentQuestionIndex].explanation;
-
-                                document.getElementById('answer-card').style.display = 'none';
-                                document.getElementById('explanation-card').style.display = 'none';
-                                document.getElementById('next-question-button').style.display = 'none';
-                                document.getElementById('check-answer-button').style.display = 'block';
-                            } else {
-                                ons.notification.alert('これで全ての問題が終了しました。');
-                            }
-                        }
-                    </script>
                 </ons-page>
             </ons-navigator>
         </ons-splitter-content>
     </ons-splitter>
+
+    <!-- 毎日10問シリーズのページ -->
+    <template id="daily10questions-page.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>戻る</ons-back-button>
+                </div>
+                <div class="center">毎日10問シリーズ</div>
+            </ons-toolbar>
+            <p>ここに毎日10問シリーズの内容が表示されます。</p>
+        </ons-page>
+    </template>
+
+    <!-- 7日連続チャレンジのページ -->
+    <template id="7dayschallenge-page.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>戻る</ons-back-button>
+                </div>
+                <div class="center">7日連続チャレンジ</div>
+            </ons-toolbar>
+            <p>ここに7日連続チャレンジの内容が表示されます。</p>
+        </ons-page>
+    </template>
+
+    <script>
+        window.fn = {};
+
+        window.fn.open = function () {
+            var menu = document.getElementById('menu');
+            menu.open();
+        };
+
+        window.fn.load = function (page) {
+            var content = document.getElementById('content');
+            var menu = document.getElementById('menu');
+            content.load(page)
+                .then(menu.close.bind(menu));
+        };
+    </script>
 </body>
 
 </html>
