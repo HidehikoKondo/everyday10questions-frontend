@@ -1,3 +1,5 @@
+
+
 function fetchGASData() {
     const url = 'https://script.google.com/macros/s/AKfycbw-18UJfH0RQSG2MvBtPHL6Kq5Xh8p8zb16D2HwLZQIbYUwZGXDe3yrMS2wIGKOI-hqcQ/exec'; // GASのデプロイURL
 
@@ -44,3 +46,22 @@ window.fn.load = function (page) {
     content.load(page)
         .then(menu.close.bind(menu));
 };
+
+function loadJSONFile() {
+    fetch('./questions/english_questions.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('JSON file data:', data); // JSONファイルの内容をコンソールに出力
+        })
+        .catch(error => {
+            console.error('Error loading JSON file:', error);
+        });
+}
+
+// 関数を実行
+loadJSONFile();
