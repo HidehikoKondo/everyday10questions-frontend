@@ -25,7 +25,8 @@
                 <ons-list>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="junior1"></ons-radio>
+                            <ons-radio name="grade" input-id="junior1" checked onclick="getSelectedGrade();"
+                                class="checkbox"></ons-radio>
                         </label>
                         <label for="junior1" class="center">
                             中1
@@ -33,7 +34,7 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="junior2"></ons-radio>
+                            <ons-radio name="grade" input-id="junior2" class="checkbox"></ons-radio>
                         </label>
                         <label for="junior2" class="center">
                             中2
@@ -41,7 +42,7 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="junior3"></ons-radio>
+                            <ons-radio name="grade" input-id="junior3" class="checkbox"></ons-radio>
                         </label>
                         <label for="junior3" class="center">
                             中3
@@ -49,7 +50,7 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="high1"></ons-radio>
+                            <ons-radio name="grade" input-id="high1" class="checkbox"></ons-radio>
                         </label>
                         <label for="high1" class="center">
                             高1
@@ -57,7 +58,7 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="high2"></ons-radio>
+                            <ons-radio name="grade" input-id="high2" class="checkbox"></ons-radio>
                         </label>
                         <label for="high2" class="center">
                             高2
@@ -65,7 +66,7 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="high3"></ons-radio>
+                            <ons-radio name="grade" input-id="high3" class="checkbox"></ons-radio>
                         </label>
                         <label for="high3" class="center">
                             高3
@@ -306,6 +307,21 @@
                 ons.notification.alert('これで全ての問題が終了しました。');
             }
         }
+
+
+        //選択した学年を取得
+        function getSelectedGrade() {
+            console.log("学年？");
+            let checkboxes = document.getElementsByClassName('checkbox');
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    console.log('Checked Grade ID:', checkboxes[i].getAttribute('input-id'));
+                    break;
+                }
+            }
+
+        }
+
     </script>
 
     <script>
@@ -323,6 +339,7 @@
                 .then(menu.close.bind(menu));
         };
     </script>
+
 </body>
 
 </html>
