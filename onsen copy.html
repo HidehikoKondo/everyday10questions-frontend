@@ -219,20 +219,53 @@
 
 
     <script>
-        const questions = [
-            { question: "これは彼のペンです。", answer: "This is his pen.", explanation: "「これは彼のペンです。」という文の英訳です。主語は「これは」、動詞は「です」、所有格の「彼の」が続きます。" },
-            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-            { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
 
-            // 他の問題をここに追加
-        ];
+        function loadJSONFile() {
+            return fetch('./questions/english_questions.json')
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    return data;
+                })
+                .catch(function (error) {
+                    console.error('Error loading JSON file:', error);
+                });
+        }
+
+        //学年選択
+        let grade = "中2";
+
+        //学年別の問題を取得
+        let questions = [];
+
+        loadJSONFile().then(function (q) {
+            questions = q[grade];
+            questions.forEach(function (question, index) {
+                console.log('Question ' + (index + 1) + ':', question);
+            });
+        });
+
+
+
+
+        // const questions = [
+        //     { question: "これは彼のペンです。", answer: "This is his pen.", explanation: "「これは彼のペンです。」という文の英訳です。主語は「これは」、動詞は「です」、所有格の「彼の」が続きます。" },
+        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+
+        //     // 他の問題をここに追加
+        // ];
 
         let currentQuestionIndex = 0;
 
@@ -261,9 +294,9 @@
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
                 document.getElementById('question-title').textContent = `問題${currentQuestionIndex + 1}`;
-                document.getElementById('question-text').textContent = questions[currentQuestionIndex].question;
-                document.getElementById('answer-text').textContent = questions[currentQuestionIndex].answer;
-                document.getElementById('explanation-text').textContent = questions[currentQuestionIndex].explanation;
+                document.getElementById('question-text').textContent = questions[currentQuestionIndex].Question;
+                document.getElementById('answer-text').textContent = questions[currentQuestionIndex].Answer;
+                document.getElementById('explanation-text').textContent = questions[currentQuestionIndex].Explanation;
 
                 document.getElementById('answer-card').style.display = 'none';
                 document.getElementById('explanation-card').style.display = 'none';
