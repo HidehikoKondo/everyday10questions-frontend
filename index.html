@@ -34,7 +34,8 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="junior2" class="checkbox"></ons-radio>
+                            <ons-radio name="grade" input-id="junior2" class="checkbox"
+                                onclick="getSelectedGrade();"></ons-radio>
                         </label>
                         <label for="junior2" class="center">
                             中2
@@ -42,7 +43,8 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="junior3" class="checkbox"></ons-radio>
+                            <ons-radio name="grade" input-id="junior3" class="checkbox"
+                                onclick="getSelectedGrade();"></ons-radio>
                         </label>
                         <label for="junior3" class="center">
                             中3
@@ -50,7 +52,8 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="high1" class="checkbox"></ons-radio>
+                            <ons-radio name="grade" input-id="high1" class="checkbox"
+                                onclick="getSelectedGrade();"></ons-radio>
                         </label>
                         <label for="high1" class="center">
                             高1
@@ -58,7 +61,8 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="high2" class="checkbox"></ons-radio>
+                            <ons-radio name="grade" input-id="high2" class="checkbox"
+                                onclick="getSelectedGrade();"></ons-radio>
                         </label>
                         <label for="high2" class="center">
                             高2
@@ -66,7 +70,8 @@
                     </ons-list-item>
                     <ons-list-item tappable>
                         <label class="left">
-                            <ons-radio name="grade" input-id="high3" class="checkbox"></ons-radio>
+                            <ons-radio name="grade" input-id="high3" class="checkbox"
+                                onclick="getSelectedGrade();"></ons-radio>
                         </label>
                         <label for="high3" class="center">
                             高3
@@ -220,7 +225,32 @@
 
 
     <script>
+        //学年の初期値
+        let grade = "junior1";
 
+        //学年別の問題を取得
+        let questions = [];
+
+        //ハンバーガーメニュー
+        humbargerMenu()
+
+        //onload時に問題文読み込み
+        loadQuestions(grade);
+
+        //学年ごとに問題文の読み込み
+        function loadQuestions(gakunen) {
+
+            loadJSONFile().then(function (q) {
+                questions = q[gakunen];
+                console.log(questions); // 問題文の内容をコンソールに表示
+
+                // questions.forEach(function (question, index) {
+                //     console.log('Question ' + (index + 1) + ':', question);
+                // });
+            });
+        }
+
+        //問題文のjsonファイルを読み込み
         function loadJSONFile() {
             return fetch('./questions/english_questions.json')
                 .then(function (response) {
@@ -237,18 +267,27 @@
                 });
         }
 
-        //学年選択
-        let grade = "中2";
 
-        //学年別の問題を取得
-        let questions = [];
+        //選択した学年を取得
+        function getSelectedGrade() {
+            let checkboxes = document.getElementsByClassName('checkbox');
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    //console.log('Checked Grade ID:', checkboxes[i].getAttribute('input-id'));
+                    grade = checkboxes[i].getAttribute('input-id');
+                    console.log(grade);
+                    break;
+                }
+            }
 
-        loadJSONFile().then(function (q) {
-            questions = q[grade];
-            questions.forEach(function (question, index) {
-                console.log('Question ' + (index + 1) + ':', question);
-            });
-        });
+            //選択したが学年の問題に更新
+            loadQuestions(grade);
+            //第１問に更新
+            firstQuestion();
+        }
+
+
+
 
 
 
@@ -276,21 +315,19 @@
             // 必要に応じて、選択された値に基づいて処理を追加
         }
 
-        function showHint() {
-            document.getElementById('hint-dialog').show();
+        //第１問
+        function firstQuestion() {
+            document.getElementById('question-title').textContent = `問題${1}`;
+            document.getElementById('question-text').textContent = questions[0].Question;
+            document.getElementById('answer-text').textContent = questions[0].Answer;
+            document.getElementById('explanation-text').textContent = questions[0].Explanation;
+            document.getElementById('answer-card').style.display = 'none';
+            document.getElementById('explanation-card').style.display = 'none';
+            document.getElementById('next-question-button').style.display = 'none';
+            document.getElementById('check-answer-button').style.display = 'block';
         }
 
-        function hideHint() {
-            document.getElementById('hint-dialog').hide();
-        }
-
-        function showAnswer() {
-            document.getElementById('answer-card').style.display = 'block';
-            document.getElementById('explanation-card').style.display = 'block';
-            document.getElementById('next-question-button').style.display = 'block';
-            document.getElementById('check-answer-button').style.display = 'none'; // 答え合わせボタンを非表示にする
-        }
-
+        //次の問題
         function nextQuestion() {
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
@@ -298,7 +335,6 @@
                 document.getElementById('question-text').textContent = questions[currentQuestionIndex].Question;
                 document.getElementById('answer-text').textContent = questions[currentQuestionIndex].Answer;
                 document.getElementById('explanation-text').textContent = questions[currentQuestionIndex].Explanation;
-
                 document.getElementById('answer-card').style.display = 'none';
                 document.getElementById('explanation-card').style.display = 'none';
                 document.getElementById('next-question-button').style.display = 'none';
@@ -308,36 +344,43 @@
             }
         }
 
-
-        //選択した学年を取得
-        function getSelectedGrade() {
-            console.log("学年？");
-            let checkboxes = document.getElementsByClassName('checkbox');
-            for (let i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    console.log('Checked Grade ID:', checkboxes[i].getAttribute('input-id'));
-                    break;
-                }
-            }
-
+        //ヒントを表示
+        function showHint() {
+            document.getElementById('hint-dialog').show();
         }
 
-    </script>
+        //ヒントを隠す
+        function hideHint() {
+            document.getElementById('hint-dialog').hide();
+        }
 
-    <script>
-        window.fn = {};
+        //答え合わせ
+        function showAnswer() {
+            document.getElementById('answer-card').style.display = 'block';
+            document.getElementById('explanation-card').style.display = 'block';
+            document.getElementById('next-question-button').style.display = 'block';
+            document.getElementById('check-answer-button').style.display = 'none'; // 答え合わせボタンを非表示にする
+        }
 
-        window.fn.open = function () {
-            var menu = document.getElementById('menu');
-            menu.open();
-        };
 
-        window.fn.load = function (page) {
-            var content = document.getElementById('content');
-            var menu = document.getElementById('menu');
-            content.load(page)
-                .then(menu.close.bind(menu));
-        };
+        function humbargerMenu() {
+            // ハンバーガーメニューの表示・非表示を制御する関数
+            window.fn = {};
+
+            window.fn.open = function () {
+                var menu = document.getElementById('menu');
+                menu.open();
+            };
+
+            window.fn.load = function (page) {
+                var content = document.getElementById('content');
+                var menu = document.getElementById('menu');
+                content.load(page)
+                    .then(menu.close.bind(menu));
+            };
+        }
+
+
     </script>
 
 </body>

@@ -1,1 +1,434 @@
-{"中1":[{"Scope":"疑問文","Question":"今は何時ですか？","Answer":"What time is it now?wwwww","Hint":"現在時刻を尋ねる疑問文を英語で書きましょう。","Explanation":"現在時刻を尋ねるには、What time is it now? を使います。"},{"Scope":"疑問文","Question":"あなたのお名前は何ですか？","Answer":"What is your name?","Hint":"相手の名前を尋ねる疑問文を英語で書きましょう。","Explanation":"相手の氏名を尋ねるには、What is your name? を使います。"},{"Scope":"疑問文","Question":"あなたはいくつですか？","Answer":"How old are you?","Hint":"年齢を尋ねる疑問文を英語で書きましょう。","Explanation":"年齢を尋ねるには、How old are you? を使います。"},{"Scope":"疑問文","Question":"どこに住んでいますか？","Answer":"Where do you live?","Hint":"居住地を尋ねる疑問文を英語で書きましょう。","Explanation":"居住地を尋ねるには、Where do you live? を使います。"},{"Scope":"疑問文","Question":"あなたの好きな食べ物はなんですか？","Answer":"What is your favorite food?","Hint":"好きな食べ物を尋ねる疑問文を英語で書きましょう。","Explanation":"好きな食べ物を尋ねるには、What is your favorite food? を使います。"},{"Scope":"疑問文","Question":"あなたは英語が好きですか？","Answer":"Do you like English?","Hint":"英語が好きかどうか尋ねる疑問文を英語で書きましょう。","Explanation":"英語が好きかどうか尋ねるには、Do you like English? を使います。"},{"Scope":"疑問文","Question":"あなたは何か飲み物を飲みたいですか？","Answer":"What do you want to drink?","Hint":"飲み物を尋ねる疑問文を英語で書きましょう。","Explanation":"飲み物を尋ねるには、What do you want to drink? を使います。"},{"Scope":"疑問文","Question":"あなたはピアノを弾けますか？","Answer":"Can you play the piano?","Hint":"ピアノを弾けるかどうか尋ねる疑問文を英語で書きましょう。","Explanation":"ピアノを弾けるかどうか尋ねるには、Can you play the piano? を使います。"},{"Scope":"疑問文","Question":"今日は何曜日ですか？","Answer":"What day is it today?","Hint":"今日が何曜日かを尋ねる疑問文を英語で書きましょう。","Explanation":"曜日を尋ねるには、What day is it today? を使います。"},{"Scope":"疑問文","Question":"あなたはここに何をしているのですか？","Answer":"Why are you here?","Hint":"ここにいる理由を尋ねる疑問文を英語で書きましょう。","Explanation":"理由を尋ねる場合には、Why are you here? のようにWhyを使って表現します。"}],"中2":[{"Scope":"There is/are 構文","Question":"箱の中に猫が1匹います。","Answer":"There is a cat in the box.","Hint":"猫は1匹です。","Explanation":"「猫が1匹いる」は、単数扱いなのでThere isを使います。"},{"Scope":"There is/are 構文","Question":"机の上にたくさんの本があります。","Answer":"There are many books on the desk.","Hint":"本は複数です。","Explanation":"「たくさんの本がある」は、複数扱いなのでThere areを使います。"},{"Scope":"There is/are 構文","Question":"テーブルの上にペンが1本あります。","Answer":"There is a pen on the table.","Hint":"ペンは1本です。","Explanation":"「ペンが1本ある」は、単数扱いなのでThere isを使います。"},{"Scope":"There is/are 構文","Question":"かごの中にリンゴがいくつかあります。","Answer":"There are some apples in the basket.","Hint":"リンゴは複数です。","Explanation":"「リンゴがいくつかある」は、複数扱いなのでThere areを使います。"},{"Scope":"There is/are 構文","Question":"公園に大きな木が1本あります。","Answer":"There is a big tree in the park.","Hint":"木は1本です。","Explanation":"「大きな木が1本ある」は、単数扱いなのでThere isを使います。"},{"Scope":"There is/are 構文","Question":"空に鳥が5羽います。","Answer":"There are five birds in the sky.","Hint":"鳥は5羽います。","Explanation":"「鳥が5羽いる」は、複数扱いなのでThere areを使います。"},{"Scope":"There is/are 構文","Question":"庭にきれいな花が1輪あります。","Answer":"There is a beautiful flower in the garden.","Hint":"花は1輪です。","Explanation":"「きれいな花が1輪ある」は、単数扱いなのでThere isを使います。"},{"Scope":"There is/are 構文","Question":"庭に犬が2匹います。","Answer":"There are two dogs in the yard.","Hint":"犬は2匹です。","Explanation":"「犬が2匹いる」は、複数扱いなのでThere areを使います。"},{"Scope":"There is/are 構文","Question":"私のコンピューターに問題が1つあります。","Answer":"There is a problem with my computer.","Hint":"問題は1つです。","Explanation":"「問題が1つある」は、単数扱いなのでThere isを使います。"},{"Scope":"There is/are 構文","Question":"夜空にたくさんの星があります。","Answer":"There are many stars in the night sky.","Hint":"星はたくさんあります。","Explanation":"「たくさんの星がある」は、複数扱いなのでThere areを使います。"}],"中3":[{"Scope":"間接疑問文","Question":"駅がどこにあるか知っていますか？","Answer":"Do you know where the station is?","Hint":"駅はどこにあるか知っていますか？を英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhere、主語はthe station、動詞はisです。Do you knowは間接疑問文を導く動詞です。"},{"Scope":"間接疑問文","Question":"電車は何時に出発するか分かりません。","Answer":"I don't know what time the train leaves.","Hint":"電車は何時に出発するか分かりませんを英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhat time、主語はthe train、動詞はleavesです。I don't knowは間接疑問文を導く動詞です。"},{"Scope":"間接疑問文","Question":"公園への行き方を教えてくれませんか？","Answer":"Could you tell me how I can get to the park?","Hint":"公園への行き方を教えてくれませんか？を英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はhow、主語はI、動詞はcan getです。Could you tell meは間接疑問文を導く表現です。"},{"Scope":"間接疑問文","Question":"なぜ彼がそんなに悲しいのか不思議です。","Answer":"I wonder why he is so sad.","Hint":"なぜ彼がそんなに悲しいのか不思議ですを英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhy、主語はhe、動詞はisです。I wonderは間接疑問文を導く表現です。"},{"Scope":"間接疑問文","Question":"何を食べたいか教えてください。","Answer":"Please tell me what you want to eat.","Hint":"何を食べたいか教えてくださいを英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhat、主語はyou、動詞はwantです。Please tell meは間接疑問文を導く表現です。"},{"Scope":"間接疑問文","Question":"私は彼に窓を割ったのは誰かと尋ねました。","Answer":"I asked him who broke the window.","Hint":"私は彼に窓を割ったのは誰かと尋ねましたを英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwho、主語はhe、動詞はbrokeです。I asked himは間接疑問文を導く表現です。"},{"Scope":"間接疑問文","Question":"クラスに何人の生徒がいるか知っていますか？","Answer":"Do you know how many students are in the class?","Hint":"クラスに何人の生徒がいるか知っていますか？を英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はhow many、主語はstudents、動詞はareです。Do you knowは間接疑問文を導く動詞です。"},{"Scope":"間接疑問文","Question":"映画は何時に始まるか知りたいです。","Answer":"I want to know when the movie starts.","Hint":"映画は何時に始まるか知りたいですを英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhen、主語はthe movie、動詞はstartsです。I want to knowは間接疑問文を導く動詞です。"},{"Scope":"間接疑問文","Question":"彼女は私に好きな科目が何かを尋ねました。","Answer":"She asked me what my favorite subject was.","Hint":"彼女は私に好きな科目が何かを尋ねましたを英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhat、主語はmy favorite subject、動詞はwasです。She asked meは間接疑問文を導く表現です。"},{"Scope":"間接疑問文","Question":"どちらに郵便局があるか教えていただけますか？","Answer":"Could you tell me which way is the post office?","Hint":"どちらに郵便局があるか教えていただけますか？を英訳してみましょう。","Explanation":"間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhich way、主語はthe post office、動詞はisです。Could you tell meは間接疑問文を導く表現です。"}],"高1":[{"Scope":"関係代名詞","Question":"これはジャックが建てた家です。","Answer":"This is the house that Jack built.","Hint":"関係代名詞thatを使って英訳しましょう。","Explanation":"「that」は関係代名詞で、先行詞「house」を修飾しています。主格の関係代名詞なので、関係詞節の中で主語として機能しています。"},{"Scope":"関係代名詞","Question":"図書館から借りた本はとても面白いです。","Answer":"The book which I borrowed from the library is very interesting.","Hint":"関係代名詞whichを使って英訳しましょう。","Explanation":"「which」は関係代名詞で、先行詞「book」を修飾しています。主格の関係代名詞として使えますが、ここでは目的格の関係代名詞として用いられています。"},{"Scope":"関係代名詞","Question":"歌っている女の子は私の妹です。","Answer":"The girl who is singing is my sister.","Hint":"関係代名詞whoを使って英訳しましょう。","Explanation":"「who」は関係代名詞で、先行詞「girl」を修飾しています。主格の関係代名詞なので、関係詞節の中で主語として機能しています。"},{"Scope":"関係代名詞","Question":"私は父親が医者の少年を知っています。","Answer":"I know a boy whose father is a doctor.","Hint":"関係代名詞whoseを使って英訳しましょう。","Explanation":"「whose」は関係代名詞で、先行詞「boy」を修飾しています。「father」を所有格で修飾しています。"},{"Scope":"関係代名詞","Question":"私が生まれた街は美しいです。","Answer":"The city where I was born is beautiful.","Hint":"関係副詞whereを使って英訳しましょう。","Explanation":"「where」は関係副詞で、先行詞「city」を修飾しています。「I was born」という副詞節を導いています。"},{"Scope":"関係代名詞","Question":"これが私がここにいる理由です。","Answer":"This is the reason why I am here.","Hint":"関係副詞whyを使って英訳しましょう。","Explanation":"「why」は関係副詞で、先行詞「reason」を修飾しています。「I am here」という副詞節を導いています。"},{"Scope":"関係代名詞","Question":"彼に会った日は晴れていました。","Answer":"The day when I met him was sunny.","Hint":"関係副詞whenを使って英訳しましょう。","Explanation":"「when」は関係副詞で、先行詞「day」を修飾しています。「I met him」という副詞節を導いています。"},{"Scope":"関係代名詞","Question":"アメリカに住んでいる友達がいます。","Answer":"I have a friend who lives in America.","Hint":"関係代名詞を使って英訳してください。","Explanation":"「who」は関係代名詞で先行詞「friend」を修飾し、主格として機能しています。"},{"Scope":"関係代名詞","Question":"昨夜見た映画は怖かったです。","Answer":"The movie that I watched last night was scary.","Hint":"関係代名詞を使って英訳してください。","Explanation":"「that」は関係代名詞で先行詞「movie」を修飾し、目的格として機能しています。"},{"Scope":"関係代名詞","Question":"とても可愛かった犬が、私に吠えました。","Answer":"The dog, which was very cute, barked at me.","Hint":"非制限用法の関係代名詞を使って英訳してください。","Explanation":"「which」は非制限用法の関係代名詞で、先行詞「dog」を補足説明的に修飾しています。"}],"高2":[{"Scope":"比較","Question":"今年の収穫は去年の収穫よりはるかに多いです。","Answer":"This year's harvest is much greater than last year's.","Hint":"今年の収穫と去年の収穫を比較する際に、どちらが多いかを述べています。","Explanation":"「今年」と「去年」の収穫を比較しているので、比較級を用います。muchは比較級を強調する副詞です。"},{"Scope":"比較","Question":"私の兄は私より背が高いです。","Answer":"My brother is taller than I am.","Hint":"兄弟の身長差について述べています。","Explanation":"「私」と「兄」の身長を比較しているので、比較級を用います。thanの後に続くIは省略せずにI amと書くのが自然です。"},{"Scope":"比較","Question":"この問題はあの問題より簡単です。","Answer":"This problem is easier than that one.","Hint":"2つの問題の難易度を比較しています。","Explanation":"2つの問題を比較しているので、比較級を用います。"},{"Scope":"比較","Question":"彼女は彼ほど勤勉ではありません。","Answer":"She is less diligent than he is.","Hint":"2人の勤勉さを比較し、どちらが劣っているかを述べています。","Explanation":"「彼女」と「彼」の勤勉さを比較し、彼女の方が勤勉でないことを述べているので、less diligentを使います。"},{"Scope":"比較","Question":"東京の人口は京都の人口より多いです。","Answer":"The population of Tokyo is larger than that of Kyoto.","Hint":"2つの都市の人口を比較しています。","Explanation":"東京と京都の人口を比較しているので、比較級を用います。"},{"Scope":"比較","Question":"この本はあの本よりおもしろいです。","Answer":"This book is more interesting than that one.","Hint":"2冊の本の面白さを比較しています。","Explanation":"2冊の本を比較し、どちらが面白い方を述べているので、more interestingを使います。"},{"Scope":"比較","Question":"この街は私の故郷より騒がしいです。","Answer":"This city is noisier than my hometown.","Hint":"都市と故郷の騒音レベルを比較しています。","Explanation":"この都市と故郷の騒がしさについて比較しているので、比較級を用います。"},{"Scope":"比較","Question":"彼は父親ほど背が高くありません。","Answer":"He is not as tall as his father.","Hint":"父親と息子の身長を比較しています。","Explanation":"「彼」と「父親」の身長を比較し、彼の方が背が低いことを述べているので、as tall asを用います。"},{"Scope":"比較","Question":"この車はあの車の2倍の値段です。","Answer":"This car is twice as expensive as that one.","Hint":"2台の車の値段を比較し、倍数的な違いを述べています。","Explanation":"2台の車の値段を比較し、片方がもう片方の2倍の値段であることを述べているので、twice as expensive asを用います。"},{"Scope":"比較","Question":"赤いドレスは青いドレスよりきれいです。","Answer":"The red dress is more beautiful than the blue one.","Hint":"色の異なる2つのドレスを比較し、どちらが美しいかを述べています。","Explanation":"2つのドレスの美しさを比較しているので、more beautifulを用います。"}],"高3":[{"Scope":"不定詞と動名詞","Question":"英語を学ぶことは重要です。","Answer":"To learn English is important.","Hint":"「英語を学ぶこと」は主語として使われています。","Explanation":"「英語を学ぶこと」は名詞的用法なので、不定詞を用いる。"},{"Scope":"不定詞と動名詞","Question":"私は海外旅行をしたいです。","Answer":"I want to travel abroad.","Hint":"「～したい」という願望を表す表現に注目しましょう。","Explanation":"「海外旅行をする」という目的を表すために不定詞を用いる。"},{"Scope":"不定詞と動名詞","Question":"彼はその本を読み終えました。","Answer":"He finished reading the book.","Hint":"「～を終える」という表現に注目しましょう。","Explanation":"「本を読む」という動作の完了を表すために動名詞を用いる。"},{"Scope":"不定詞と動名詞","Question":"私はあなたに会うのを楽しみに待っています。","Answer":"I am looking forward to seeing you.","Hint":"「～を楽しみに待つ」という表現はどのような構文でしたか？","Explanation":"「あなたに会うこと」を目的を表すために動名詞を用いる。「look forward to ~ing」は固定表現。"},{"Scope":"不定詞と動名詞","Question":"彼女はピアノが得意です。","Answer":"She is good at playing the piano.","Hint":"「～が得意だ」という表現に注目しましょう。","Explanation":"「ピアノを弾くこと」が得意であることを表すために動名詞を用いる。"},{"Scope":"不定詞と動名詞","Question":"この問題を解くのは難しいです。","Answer":"It is difficult to solve this problem.","Hint":"「この問題を解くこと」はどのような品詞として機能していますか？","Explanation":"「この問題を解くこと」が主語となるため、不定詞を用いる。"},{"Scope":"不定詞と動名詞","Question":"私の趣味は切手を集めることです。","Answer":"My hobby is collecting stamps.","Hint":"「私の趣味は～です」という文で、「～すること」は名詞的役割を果たしています。","Explanation":"「切手を集めること」が趣味であることを表すために動名詞を用いる。"},{"Scope":"不定詞と動名詞","Question":"遅れてすみません。","Answer":"Excuse me for being late.","Hint":"「～することを謝罪する」という表現はどのような構文でしたか？","Explanation":"「遅れたこと」に対して謝罪するため、動名詞を用いる。"},{"Scope":"不定詞と動名詞","Question":"私は間違いをするのを避けます。","Answer":"I avoid making mistakes.","Hint":"「～することを避ける」という表現はどのような構文でしたか？","Explanation":"「間違いをすること」を避けることを表すために動名詞を用いる。"},{"Scope":"不定詞と動名詞","Question":"彼女は毎日バイオリンの練習をしました。","Answer":"She practiced playing the violin every day.","Hint":"毎日繰り返された動作を表すために、どのような動詞と組み合わせますか？","Explanation":"「バイオリンを弾く」という動作を繰り返すことを表すために動名詞を用いる。"}]}
+{
+    "junior1": [
+        {
+            "Scope": "疑問文",
+            "Question": "今は何時ですか？",
+            "Answer": "What time is it now?wwwww",
+            "Hint": "現在時刻を尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "現在時刻を尋ねるには、What time is it now? を使います。"
+        },
+        {
+            "Scope": "疑問文",
+            "Question": "あなたのお名前は何ですか？",
+            "Answer": "What is your name?",
+            "Hint": "相手の名前を尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "相手の氏名を尋ねるには、What is your name? を使います。"
+        },
+        {
+            "Scope": "疑問文",
+            "Question": "あなたはいくつですか？",
+            "Answer": "How old are you?",
+            "Hint": "年齢を尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "年齢を尋ねるには、How old are you? を使います。"
+        },
+        {
+            "Scope": "疑問文",
+            "Question": "どこに住んでいますか？",
+            "Answer": "Where do you live?",
+            "Hint": "居住地を尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "居住地を尋ねるには、Where do you live? を使います。"
+        },
+        {
+            "Scope": "疑問文",
+            "Question": "あなたの好きな食べ物はなんですか？",
+            "Answer": "What is your favorite food?",
+            "Hint": "好きな食べ物を尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "好きな食べ物を尋ねるには、What is your favorite food? を使います。"
+        },
+        {
+            "Scope": "疑問文",
+            "Question": "あなたは英語が好きですか？",
+            "Answer": "Do you like English?",
+            "Hint": "英語が好きかどうか尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "英語が好きかどうか尋ねるには、Do you like English? を使います。"
+        },
+        {
+            "Scope": "疑問文",
+            "Question": "あなたは何か飲み物を飲みたいですか？",
+            "Answer": "What do you want to drink?",
+            "Hint": "飲み物を尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "飲み物を尋ねるには、What do you want to drink? を使います。"
+        },
+        {
+            "Scope": "疑問文",
+            "Question": "あなたはピアノを弾けますか？",
+            "Answer": "Can you play the piano?",
+            "Hint": "ピアノを弾けるかどうか尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "ピアノを弾けるかどうか尋ねるには、Can you play the piano? を使います。"
+        },
+        {
+            "Scope": "疑問文",
+            "Question": "今日は何曜日ですか？",
+            "Answer": "What day is it today?",
+            "Hint": "今日が何曜日かを尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "曜日を尋ねるには、What day is it today? を使います。"
+        },
+        {
+            "Scope": "疑問文",
+            "Question": "あなたはここに何をしているのですか？",
+            "Answer": "Why are you here?",
+            "Hint": "ここにいる理由を尋ねる疑問文を英語で書きましょう。",
+            "Explanation": "理由を尋ねる場合には、Why are you here? のようにWhyを使って表現します。"
+        }
+    ],
+    "junior2": [
+        {
+            "Scope": "There is/are 構文",
+            "Question": "箱の中に猫が1匹います。",
+            "Answer": "There is a cat in the box.",
+            "Hint": "猫は1匹です。",
+            "Explanation": "「猫が1匹いる」は、単数扱いなのでThere isを使います。"
+        },
+        {
+            "Scope": "There is/are 構文",
+            "Question": "机の上にたくさんの本があります。",
+            "Answer": "There are many books on the desk.",
+            "Hint": "本は複数です。",
+            "Explanation": "「たくさんの本がある」は、複数扱いなのでThere areを使います。"
+        },
+        {
+            "Scope": "There is/are 構文",
+            "Question": "テーブルの上にペンが1本あります。",
+            "Answer": "There is a pen on the table.",
+            "Hint": "ペンは1本です。",
+            "Explanation": "「ペンが1本ある」は、単数扱いなのでThere isを使います。"
+        },
+        {
+            "Scope": "There is/are 構文",
+            "Question": "かごの中にリンゴがいくつかあります。",
+            "Answer": "There are some apples in the basket.",
+            "Hint": "リンゴは複数です。",
+            "Explanation": "「リンゴがいくつかある」は、複数扱いなのでThere areを使います。"
+        },
+        {
+            "Scope": "There is/are 構文",
+            "Question": "公園に大きな木が1本あります。",
+            "Answer": "There is a big tree in the park.",
+            "Hint": "木は1本です。",
+            "Explanation": "「大きな木が1本ある」は、単数扱いなのでThere isを使います。"
+        },
+        {
+            "Scope": "There is/are 構文",
+            "Question": "空に鳥が5羽います。",
+            "Answer": "There are five birds in the sky.",
+            "Hint": "鳥は5羽います。",
+            "Explanation": "「鳥が5羽いる」は、複数扱いなのでThere areを使います。"
+        },
+        {
+            "Scope": "There is/are 構文",
+            "Question": "庭にきれいな花が1輪あります。",
+            "Answer": "There is a beautiful flower in the garden.",
+            "Hint": "花は1輪です。",
+            "Explanation": "「きれいな花が1輪ある」は、単数扱いなのでThere isを使います。"
+        },
+        {
+            "Scope": "There is/are 構文",
+            "Question": "庭に犬が2匹います。",
+            "Answer": "There are two dogs in the yard.",
+            "Hint": "犬は2匹です。",
+            "Explanation": "「犬が2匹いる」は、複数扱いなのでThere areを使います。"
+        },
+        {
+            "Scope": "There is/are 構文",
+            "Question": "私のコンピューターに問題が1つあります。",
+            "Answer": "There is a problem with my computer.",
+            "Hint": "問題は1つです。",
+            "Explanation": "「問題が1つある」は、単数扱いなのでThere isを使います。"
+        },
+        {
+            "Scope": "There is/are 構文",
+            "Question": "夜空にたくさんの星があります。",
+            "Answer": "There are many stars in the night sky.",
+            "Hint": "星はたくさんあります。",
+            "Explanation": "「たくさんの星がある」は、複数扱いなのでThere areを使います。"
+        }
+    ],
+    "junior3": [
+        {
+            "Scope": "間接疑問文",
+            "Question": "駅がどこにあるか知っていますか？",
+            "Answer": "Do you know where the station is?",
+            "Hint": "駅はどこにあるか知っていますか？を英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhere、主語はthe station、動詞はisです。Do you knowは間接疑問文を導く動詞です。"
+        },
+        {
+            "Scope": "間接疑問文",
+            "Question": "電車は何時に出発するか分かりません。",
+            "Answer": "I don't know what time the train leaves.",
+            "Hint": "電車は何時に出発するか分かりませんを英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhat time、主語はthe train、動詞はleavesです。I don't knowは間接疑問文を導く動詞です。"
+        },
+        {
+            "Scope": "間接疑問文",
+            "Question": "公園への行き方を教えてくれませんか？",
+            "Answer": "Could you tell me how I can get to the park?",
+            "Hint": "公園への行き方を教えてくれませんか？を英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はhow、主語はI、動詞はcan getです。Could you tell meは間接疑問文を導く表現です。"
+        },
+        {
+            "Scope": "間接疑問文",
+            "Question": "なぜ彼がそんなに悲しいのか不思議です。",
+            "Answer": "I wonder why he is so sad.",
+            "Hint": "なぜ彼がそんなに悲しいのか不思議ですを英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhy、主語はhe、動詞はisです。I wonderは間接疑問文を導く表現です。"
+        },
+        {
+            "Scope": "間接疑問文",
+            "Question": "何を食べたいか教えてください。",
+            "Answer": "Please tell me what you want to eat.",
+            "Hint": "何を食べたいか教えてくださいを英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhat、主語はyou、動詞はwantです。Please tell meは間接疑問文を導く表現です。"
+        },
+        {
+            "Scope": "間接疑問文",
+            "Question": "私は彼に窓を割ったのは誰かと尋ねました。",
+            "Answer": "I asked him who broke the window.",
+            "Hint": "私は彼に窓を割ったのは誰かと尋ねましたを英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwho、主語はhe、動詞はbrokeです。I asked himは間接疑問文を導く表現です。"
+        },
+        {
+            "Scope": "間接疑問文",
+            "Question": "クラスに何人の生徒がいるか知っていますか？",
+            "Answer": "Do you know how many students are in the class?",
+            "Hint": "クラスに何人の生徒がいるか知っていますか？を英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はhow many、主語はstudents、動詞はareです。Do you knowは間接疑問文を導く動詞です。"
+        },
+        {
+            "Scope": "間接疑問文",
+            "Question": "映画は何時に始まるか知りたいです。",
+            "Answer": "I want to know when the movie starts.",
+            "Hint": "映画は何時に始まるか知りたいですを英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhen、主語はthe movie、動詞はstartsです。I want to knowは間接疑問文を導く動詞です。"
+        },
+        {
+            "Scope": "間接疑問文",
+            "Question": "彼女は私に好きな科目が何かを尋ねました。",
+            "Answer": "She asked me what my favorite subject was.",
+            "Hint": "彼女は私に好きな科目が何かを尋ねましたを英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhat、主語はmy favorite subject、動詞はwasです。She asked meは間接疑問文を導く表現です。"
+        },
+        {
+            "Scope": "間接疑問文",
+            "Question": "どちらに郵便局があるか教えていただけますか？",
+            "Answer": "Could you tell me which way is the post office?",
+            "Hint": "どちらに郵便局があるか教えていただけますか？を英訳してみましょう。",
+            "Explanation": "間接疑問文は疑問詞＋主語＋動詞の語順になります。疑問詞はwhich way、主語はthe post office、動詞はisです。Could you tell meは間接疑問文を導く表現です。"
+        }
+    ],
+    "high1": [
+        {
+            "Scope": "関係代名詞",
+            "Question": "これはジャックが建てた家です。",
+            "Answer": "This is the house that Jack built.",
+            "Hint": "関係代名詞thatを使って英訳しましょう。",
+            "Explanation": "「that」は関係代名詞で、先行詞「house」を修飾しています。主格の関係代名詞なので、関係詞節の中で主語として機能しています。"
+        },
+        {
+            "Scope": "関係代名詞",
+            "Question": "図書館から借りた本はとても面白いです。",
+            "Answer": "The book which I borrowed from the library is very interesting.",
+            "Hint": "関係代名詞whichを使って英訳しましょう。",
+            "Explanation": "「which」は関係代名詞で、先行詞「book」を修飾しています。主格の関係代名詞として使えますが、ここでは目的格の関係代名詞として用いられています。"
+        },
+        {
+            "Scope": "関係代名詞",
+            "Question": "歌っている女の子は私の妹です。",
+            "Answer": "The girl who is singing is my sister.",
+            "Hint": "関係代名詞whoを使って英訳しましょう。",
+            "Explanation": "「who」は関係代名詞で、先行詞「girl」を修飾しています。主格の関係代名詞なので、関係詞節の中で主語として機能しています。"
+        },
+        {
+            "Scope": "関係代名詞",
+            "Question": "私は父親が医者の少年を知っています。",
+            "Answer": "I know a boy whose father is a doctor.",
+            "Hint": "関係代名詞whoseを使って英訳しましょう。",
+            "Explanation": "「whose」は関係代名詞で、先行詞「boy」を修飾しています。「father」を所有格で修飾しています。"
+        },
+        {
+            "Scope": "関係代名詞",
+            "Question": "私が生まれた街は美しいです。",
+            "Answer": "The city where I was born is beautiful.",
+            "Hint": "関係副詞whereを使って英訳しましょう。",
+            "Explanation": "「where」は関係副詞で、先行詞「city」を修飾しています。「I was born」という副詞節を導いています。"
+        },
+        {
+            "Scope": "関係代名詞",
+            "Question": "これが私がここにいる理由です。",
+            "Answer": "This is the reason why I am here.",
+            "Hint": "関係副詞whyを使って英訳しましょう。",
+            "Explanation": "「why」は関係副詞で、先行詞「reason」を修飾しています。「I am here」という副詞節を導いています。"
+        },
+        {
+            "Scope": "関係代名詞",
+            "Question": "彼に会った日は晴れていました。",
+            "Answer": "The day when I met him was sunny.",
+            "Hint": "関係副詞whenを使って英訳しましょう。",
+            "Explanation": "「when」は関係副詞で、先行詞「day」を修飾しています。「I met him」という副詞節を導いています。"
+        },
+        {
+            "Scope": "関係代名詞",
+            "Question": "アメリカに住んでいる友達がいます。",
+            "Answer": "I have a friend who lives in America.",
+            "Hint": "関係代名詞を使って英訳してください。",
+            "Explanation": "「who」は関係代名詞で先行詞「friend」を修飾し、主格として機能しています。"
+        },
+        {
+            "Scope": "関係代名詞",
+            "Question": "昨夜見た映画は怖かったです。",
+            "Answer": "The movie that I watched last night was scary.",
+            "Hint": "関係代名詞を使って英訳してください。",
+            "Explanation": "「that」は関係代名詞で先行詞「movie」を修飾し、目的格として機能しています。"
+        },
+        {
+            "Scope": "関係代名詞",
+            "Question": "とても可愛かった犬が、私に吠えました。",
+            "Answer": "The dog, which was very cute, barked at me.",
+            "Hint": "非制限用法の関係代名詞を使って英訳してください。",
+            "Explanation": "「which」は非制限用法の関係代名詞で、先行詞「dog」を補足説明的に修飾しています。"
+        }
+    ],
+    "high2": [
+        {
+            "Scope": "比較",
+            "Question": "今年の収穫は去年の収穫よりはるかに多いです。",
+            "Answer": "This year's harvest is much greater than last year's.",
+            "Hint": "今年の収穫と去年の収穫を比較する際に、どちらが多いかを述べています。",
+            "Explanation": "「今年」と「去年」の収穫を比較しているので、比較級を用います。muchは比較級を強調する副詞です。"
+        },
+        {
+            "Scope": "比較",
+            "Question": "私の兄は私より背が高いです。",
+            "Answer": "My brother is taller than I am.",
+            "Hint": "兄弟の身長差について述べています。",
+            "Explanation": "「私」と「兄」の身長を比較しているので、比較級を用います。thanの後に続くIは省略せずにI amと書くのが自然です。"
+        },
+        {
+            "Scope": "比較",
+            "Question": "この問題はあの問題より簡単です。",
+            "Answer": "This problem is easier than that one.",
+            "Hint": "2つの問題の難易度を比較しています。",
+            "Explanation": "2つの問題を比較しているので、比較級を用います。"
+        },
+        {
+            "Scope": "比較",
+            "Question": "彼女は彼ほど勤勉ではありません。",
+            "Answer": "She is less diligent than he is.",
+            "Hint": "2人の勤勉さを比較し、どちらが劣っているかを述べています。",
+            "Explanation": "「彼女」と「彼」の勤勉さを比較し、彼女の方が勤勉でないことを述べているので、less diligentを使います。"
+        },
+        {
+            "Scope": "比較",
+            "Question": "東京の人口は京都の人口より多いです。",
+            "Answer": "The population of Tokyo is larger than that of Kyoto.",
+            "Hint": "2つの都市の人口を比較しています。",
+            "Explanation": "東京と京都の人口を比較しているので、比較級を用います。"
+        },
+        {
+            "Scope": "比較",
+            "Question": "この本はあの本よりおもしろいです。",
+            "Answer": "This book is more interesting than that one.",
+            "Hint": "2冊の本の面白さを比較しています。",
+            "Explanation": "2冊の本を比較し、どちらが面白い方を述べているので、more interestingを使います。"
+        },
+        {
+            "Scope": "比較",
+            "Question": "この街は私の故郷より騒がしいです。",
+            "Answer": "This city is noisier than my hometown.",
+            "Hint": "都市と故郷の騒音レベルを比較しています。",
+            "Explanation": "この都市と故郷の騒がしさについて比較しているので、比較級を用います。"
+        },
+        {
+            "Scope": "比較",
+            "Question": "彼は父親ほど背が高くありません。",
+            "Answer": "He is not as tall as his father.",
+            "Hint": "父親と息子の身長を比較しています。",
+            "Explanation": "「彼」と「父親」の身長を比較し、彼の方が背が低いことを述べているので、as tall asを用います。"
+        },
+        {
+            "Scope": "比較",
+            "Question": "この車はあの車の2倍の値段です。",
+            "Answer": "This car is twice as expensive as that one.",
+            "Hint": "2台の車の値段を比較し、倍数的な違いを述べています。",
+            "Explanation": "2台の車の値段を比較し、片方がもう片方の2倍の値段であることを述べているので、twice as expensive asを用います。"
+        },
+        {
+            "Scope": "比較",
+            "Question": "赤いドレスは青いドレスよりきれいです。",
+            "Answer": "The red dress is more beautiful than the blue one.",
+            "Hint": "色の異なる2つのドレスを比較し、どちらが美しいかを述べています。",
+            "Explanation": "2つのドレスの美しさを比較しているので、more beautifulを用います。"
+        }
+    ],
+    "high3": [
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "英語を学ぶことは重要です。",
+            "Answer": "To learn English is important.",
+            "Hint": "「英語を学ぶこと」は主語として使われています。",
+            "Explanation": "「英語を学ぶこと」は名詞的用法なので、不定詞を用いる。"
+        },
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "私は海外旅行をしたいです。",
+            "Answer": "I want to travel abroad.",
+            "Hint": "「～したい」という願望を表す表現に注目しましょう。",
+            "Explanation": "「海外旅行をする」という目的を表すために不定詞を用いる。"
+        },
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "彼はその本を読み終えました。",
+            "Answer": "He finished reading the book.",
+            "Hint": "「～を終える」という表現に注目しましょう。",
+            "Explanation": "「本を読む」という動作の完了を表すために動名詞を用いる。"
+        },
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "私はあなたに会うのを楽しみに待っています。",
+            "Answer": "I am looking forward to seeing you.",
+            "Hint": "「～を楽しみに待つ」という表現はどのような構文でしたか？",
+            "Explanation": "「あなたに会うこと」を目的を表すために動名詞を用いる。「look forward to ~ing」は固定表現。"
+        },
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "彼女はピアノが得意です。",
+            "Answer": "She is good at playing the piano.",
+            "Hint": "「～が得意だ」という表現に注目しましょう。",
+            "Explanation": "「ピアノを弾くこと」が得意であることを表すために動名詞を用いる。"
+        },
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "この問題を解くのは難しいです。",
+            "Answer": "It is difficult to solve this problem.",
+            "Hint": "「この問題を解くこと」はどのような品詞として機能していますか？",
+            "Explanation": "「この問題を解くこと」が主語となるため、不定詞を用いる。"
+        },
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "私の趣味は切手を集めることです。",
+            "Answer": "My hobby is collecting stamps.",
+            "Hint": "「私の趣味は～です」という文で、「～すること」は名詞的役割を果たしています。",
+            "Explanation": "「切手を集めること」が趣味であることを表すために動名詞を用いる。"
+        },
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "遅れてすみません。",
+            "Answer": "Excuse me for being late.",
+            "Hint": "「～することを謝罪する」という表現はどのような構文でしたか？",
+            "Explanation": "「遅れたこと」に対して謝罪するため、動名詞を用いる。"
+        },
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "私は間違いをするのを避けます。",
+            "Answer": "I avoid making mistakes.",
+            "Hint": "「～することを避ける」という表現はどのような構文でしたか？",
+            "Explanation": "「間違いをすること」を避けることを表すために動名詞を用いる。"
+        },
+        {
+            "Scope": "不定詞と動名詞",
+            "Question": "彼女は毎日バイオリンの練習をしました。",
+            "Answer": "She practiced playing the violin every day.",
+            "Hint": "毎日繰り返された動作を表すために、どのような動詞と組み合わせますか？",
+            "Explanation": "「バイオリンを弾く」という動作を繰り返すことを表すために動名詞を用いる。"
+        }
+    ]
+}

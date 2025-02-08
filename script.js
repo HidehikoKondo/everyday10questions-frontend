@@ -1,5 +1,5 @@
 
-
+// スプレッドシートからデータを取得する関数
 function fetchGASData() {
     const url = 'https://script.google.com/macros/s/AKfycbw-18UJfH0RQSG2MvBtPHL6Kq5Xh8p8zb16D2HwLZQIbYUwZGXDe3yrMS2wIGKOI-hqcQ/exec'; // GASのデプロイURL
 
@@ -26,26 +26,22 @@ function fetchGASData() {
         });
 }
 
-
-
-
-
 // 関数を実行
 // fetchGASData();
 
 
 // fnを使うための設定
-window.fn = {};
+// window.fn = {};
 
-window.fn.open = function () {
-    var menu = document.getElementById('menu');
-    menu.open();
-};
+// window.fn.open = function () {
+//     var menu = document.getElementById('menu');
+//     menu.open();
+// };
 
-window.fn.load = function (page) {
-    var content = document.getElementById('content');
-    var menu = document.getElementById('menu');
-    content.load(page)
-        .then(menu.close.bind(menu));
-};
+// window.fn.load = function (page) {
+//     var content = document.getElementById('content');
+//     var menu = document.getElementById('menu');
+//     content.load(page)
+//         .then(menu.close.bind(menu));
+// };
 
