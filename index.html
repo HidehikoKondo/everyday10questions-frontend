@@ -1,388 +1,691 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
-    <title>毎日10問</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毎日10問</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
-    <!-- Onsen UI -->
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
-
-    <!-- カスタムCSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-
-</head>
-
-<body>
-    <ons-splitter>
-        <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
-            <ons-page>
-                <label>学年選択</label>
-                <ons-list>
-                    <ons-list-item tappable>
-                        <label class="left">
-                            <ons-radio name="grade" input-id="junior1" checked onclick="getSelectedGrade();"
-                                class="checkbox"></ons-radio>
-                        </label>
-                        <label for="junior1" class="center">
-                            中1
-                        </label>
-                    </ons-list-item>
-                    <ons-list-item tappable>
-                        <label class="left">
-                            <ons-radio name="grade" input-id="junior2" class="checkbox"
-                                onclick="getSelectedGrade();"></ons-radio>
-                        </label>
-                        <label for="junior2" class="center">
-                            中2
-                        </label>
-                    </ons-list-item>
-                    <ons-list-item tappable>
-                        <label class="left">
-                            <ons-radio name="grade" input-id="junior3" class="checkbox"
-                                onclick="getSelectedGrade();"></ons-radio>
-                        </label>
-                        <label for="junior3" class="center">
-                            中3
-                        </label>
-                    </ons-list-item>
-                    <ons-list-item tappable>
-                        <label class="left">
-                            <ons-radio name="grade" input-id="high1" class="checkbox"
-                                onclick="getSelectedGrade();"></ons-radio>
-                        </label>
-                        <label for="high1" class="center">
-                            高1
-                        </label>
-                    </ons-list-item>
-                    <ons-list-item tappable>
-                        <label class="left">
-                            <ons-radio name="grade" input-id="high2" class="checkbox"
-                                onclick="getSelectedGrade();"></ons-radio>
-                        </label>
-                        <label for="high2" class="center">
-                            高2
-                        </label>
-                    </ons-list-item>
-                    <ons-list-item tappable>
-                        <label class="left">
-                            <ons-radio name="grade" input-id="high3" class="checkbox"
-                                onclick="getSelectedGrade();"></ons-radio>
-                        </label>
-                        <label for="high3" class="center">
-                            高3
-                        </label>
-                    </ons-list-item>
-                </ons-list>
-
-                <label>その他</label>
-                <ons-list>
-                    <ons-list-item onclick="fn.load('home.html')" tappable>
-                        最初から
-                    </ons-list-item>
-                    <ons-list-item onclick="fn.load('settings.html')" tappable>
-                        毎日10問シリーズとは
-                    </ons-list-item>
-                    <ons-list-item onclick="fn.load('about.html')" tappable>
-                        7日連続チャレンジとは
-                    </ons-list-item>
-                </ons-list>
-
-                <label>Copyright</label>
-                <ons-list>
-                    <ons-list-item onclick="document.location.href='https://udonko.net'" tappable>
-                        &copy; UDONKONET
-                    </ons-list-item>
-                    <ons-list-item onclick="fn.load('paypal.html')" tappable>
-                        PayPal Me
-                    </ons-list-item>
-                </ons-list>
-
-            </ons-page>
-        </ons-splitter-side>
-        <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
-    </ons-splitter>
-
-    <template id="home.html">
-        <ons-page>
-            <ons-toolbar>
-                <div class="left">
-                    <ons-toolbar-button onclick="fn.open()">
-                        <ons-icon icon="md-menu"></ons-icon>
-                    </ons-toolbar-button>
-                </div>
-                <div class="center">
-                    毎日10問 英訳 中1
-                </div>
-            </ons-toolbar>
-
-            <h1>今日の出題範囲：Be動詞</h1>
-            次の英文を英訳しましょう。
-
-            <!-- 見出し付きカードの追加 -->
-            <ons-card>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <h2 class="card__title" id="question-title">問題1</h2>
-                    <!-- ヒントボタンの追加 -->
-                    <ons-button onclick="showHint()">ヒント</ons-button>
-                </div>
-                <div class="card__content">
-                    <p id="question-text">これは彼のペンです。</p>
-                </div>
-            </ons-card>
-
-            <!-- 答え合わせボタンの追加 -->
-            <ons-button id="check-answer-button" modifier="large" onclick="showAnswer()">答え合わせ</ons-button>
-
-            <!-- 解答カードの追加 -->
-            <ons-card id="answer-card" style="display: none;">
-                <h2 class="card__title">解答</h2>
-                <div class="card__content">
-                    <p id="answer-text">This is his pen.</p>
-                </div>
-            </ons-card>
-
-            <!-- 解説カードの追加 -->
-            <ons-card id="explanation-card" style="display: none;">
-                <h2 class="card__title">解説</h2>
-                <div class="card__content">
-                    <p id="explanation-text">「これは彼のペンです。」という文の英訳です。主語は「これは」、動詞は「です」、所有格の「彼の」が続きます。</p>
-                </div>
-            </ons-card>
-
-            <!-- 次の問題ボタンの追加 -->
-            <ons-button id="next-question-button" style="display: none;" onclick="nextQuestion()">次の問題</ons-button>
-
-            <!-- ダイアログの追加 -->
-            <ons-dialog id="hint-dialog">
-                <div style="text-align: center; padding: 10px;">
-                    <p>これはヒントです。</p>
-                    <ons-button onclick="hideHint()">閉じる</ons-button>
-                </div>
-            </ons-dialog>
-
-        </ons-page>
-    </template>
-
-    <template id="settings.html">
-        <ons-page>
-            <ons-toolbar>
-                <div class="left">
-                    <ons-toolbar-button onclick="fn.open()">
-                        <ons-icon icon="md-menu"></ons-icon>
-                    </ons-toolbar-button>
-                </div>
-                <div class="center">
-                    毎日10問シリーズとは
-                </div>
-            </ons-toolbar>
-            <ons-card>
-                <p>毎日10問シリーズとは...</p>
-            </ons-card>
-        </ons-page>
-    </template>
-
-    <template id="about.html">
-        <ons-page>
-            <ons-toolbar>
-                <div class="left">
-                    <ons-toolbar-button onclick="fn.open()">
-                        <ons-icon icon="md-menu"></ons-icon>
-                    </ons-toolbar-button>
-                </div>
-                <div class="center">
-                    7日連続チャレンジとは
-                </div>
-            </ons-toolbar>
-            <ons-card>
-                <p>7日連続チャレンジとはとは...</p>
-            </ons-card>
-        </ons-page>
-    </template>
-
-    <template id="paypal.html">
-        <ons-page>
-            <ons-toolbar>
-                <div class="left">
-                    <ons-toolbar-button onclick="fn.open()">
-                        <ons-icon icon="md-menu"></ons-icon>
-                    </ons-toolbar-button>
-                </div>
-                <div class="center">
-                    PayPal Me
-                </div>
-            </ons-toolbar>
-            <ons-card>
-                <p>PayPal Meしてね</p>
-            </ons-card>
-        </ons-page>
-    </template>
-
-
-
-    <script>
-        //学年の初期値
-        let grade = "junior1";
-
-        //学年別の問題を取得
-        let questions = [];
-
-        //ハンバーガーメニュー
-        humbargerMenu()
-
-        //onload時に問題文読み込み
-        loadQuestions(grade);
-
-        //学年ごとに問題文の読み込み
-        function loadQuestions(gakunen) {
-
-            loadJSONFile().then(function (q) {
-                questions = q[gakunen];
-                console.log(questions); // 問題文の内容をコンソールに表示
-
-                // questions.forEach(function (question, index) {
-                //     console.log('Question ' + (index + 1) + ':', question);
-                // });
-            });
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
         }
 
-        //問題文のjsonファイルを読み込み
-        function loadJSONFile() {
-            return fetch('./questions/english_questions.json')
-                .then(function (response) {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(function (data) {
-                    return data;
-                })
-                .catch(function (error) {
-                    console.error('Error loading JSON file:', error);
-                });
+        body {
+            font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d3748;
         }
 
+        .main-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
 
-        //選択した学年を取得
-        function getSelectedGrade() {
-            let checkboxes = document.getElementsByClassName('checkbox');
-            for (let i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    //console.log('Checked Grade ID:', checkboxes[i].getAttribute('input-id'));
-                    grade = checkboxes[i].getAttribute('input-id');
-                    console.log(grade);
-                    break;
+        .quiz-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(4px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .card-header-custom {
+            background: rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 20px 30px;
+        }
+
+        .progress {
+            height: 10px;
+            border-radius: 10px;
+            background-color: #e2e8f0;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+        }
+
+        .choice-btn {
+            width: 100%;
+            text-align: left;
+            padding: 16px 24px;
+            margin-bottom: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            background: white;
+            color: #4a5568;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn:hover:not(:disabled) {
+            border-color: #667eea;
+            background: #f7fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .choice-btn.selected {
+            border-color: #667eea;
+            background-color: #ebf4ff;
+            color: #5a67d8;
+        }
+
+        .choice-btn.correct {
+            border-color: #48bb78;
+            background-color: #f0fff4;
+            color: #2f855a;
+        }
+
+        .choice-btn.incorrect {
+            border-color: #f56565;
+            background-color: #fff5f5;
+            color: #c53030;
+        }
+
+        .feedback-section {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 5px solid #667eea;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .feedback-section.correct {
+            border-left-color: #48bb78;
+            background-color: #f0fff4;
+        }
+
+        .feedback-section.incorrect {
+            border-left-color: #f56565;
+            background-color: #fff5f5;
+        }
+
+        .hint-box {
+            font-size: 0.9rem;
+            color: #718096;
+            background: #edf2f7;
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.6);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Result Screen Styles */
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#667eea var(--score-percent), #e2e8f0 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .score-text {
+            position: relative;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a5568;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+                --glass-bg: rgba(255, 255, 255, 0.95);
+                --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            }
+
+            body {
+                font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+                background: var(--primary-gradient);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #2d3748;
+            }
+
+            .main-container {
+                width: 100%;
+                max-width: 800px;
+                padding: 20px;
+            }
+
+            .quiz-card {
+                background: var(--glass-bg);
+                backdrop-filter: blur(4px);
+                border-radius: 24px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                box-shadow: var(--card-shadow);
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .card-header-custom {
+                background: rgba(255, 255, 255, 0.5);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                padding: 20px 30px;
+            }
+
+            .progress {
+                height: 10px;
+                border-radius: 10px;
+                background-color: #e2e8f0;
+                margin-top: 10px;
+            }
+
+            .progress-bar {
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+                border-radius: 10px;
+                transition: width 0.5s ease;
+            }
+
+            .question-text {
+                font-size: 1.25rem;
+                font-weight: 600;
+                line-height: 1.6;
+                color: #1a202c;
+                margin-bottom: 1.5rem;
+            }
+
+            .choice-btn {
+                width: 100%;
+                text-align: left;
+                padding: 16px 24px;
+                margin-bottom: 12px;
+                border: 2px solid #e2e8f0;
+                border-radius: 16px;
+                background: white;
+                color: #4a5568;
+                font-weight: 500;
+                transition: all 0.2s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .choice-btn:hover:not(:disabled) {
+                border-color: #667eea;
+                background: #f7fafc;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            }
+
+            .choice-btn.selected {
+                border-color: #667eea;
+                background-color: #ebf4ff;
+                color: #5a67d8;
+            }
+
+            .choice-btn.correct {
+                border-color: #48bb78;
+                background-color: #f0fff4;
+                color: #2f855a;
+            }
+
+            .choice-btn.incorrect {
+                border-color: #f56565;
+                background-color: #fff5f5;
+                color: #c53030;
+            }
+
+            .feedback-section {
+                background: #f8fafc;
+                border-radius: 16px;
+                padding: 20px;
+                margin-top: 20px;
+                border-left: 5px solid #667eea;
+                display: none;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            .feedback-section.correct {
+                border-left-color: #48bb78;
+                background-color: #f0fff4;
+            }
+
+            .feedback-section.incorrect {
+                border-left-color: #f56565;
+                background-color: #fff5f5;
+            }
+
+            .hint-box {
+                font-size: 0.9rem;
+                color: #718096;
+                background: #edf2f7;
+                padding: 12px;
+                border-radius: 12px;
+                margin-top: 10px;
+                display: none;
+            }
+
+            .btn-primary-custom {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border: none;
+                padding: 12px 32px;
+                border-radius: 50px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
+                transition: all 0.3s ease;
+            }
+
+            .btn-primary-custom:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(118, 75, 162, 0.6);
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
                 }
             }
 
-            //選択したが学年の問題に更新
-            loadQuestions(grade);
-            //第１問に更新
-            firstQuestion();
-        }
+            /* Result Screen Styles */
+            .score-circle {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background: conic-gradient(#667eea var(--score-percent), #e2e8f0 0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 2rem;
+                position: relative;
+            }
 
+            .score-circle::before {
+                content: "";
+                position: absolute;
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+                background: white;
+            }
 
+            .score-text {
+                position: relative;
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: #4a5568;
+            }
 
+            .fade-in {
+                animation: fadeIn 0.5s ease-in;
+            }
 
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
 
+                to {
+                    opacity: 1;
+                }
+            }
+    </style>
+</head>
 
+<body>
 
-        // const questions = [
-        //     { question: "これは彼のペンです。", answer: "This is his pen.", explanation: "「これは彼のペンです。」という文の英訳です。主語は「これは」、動詞は「です」、所有格の「彼の」が続きます。" },
-        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
-        //     { question: "彼は学生です。", answer: "He is a student.", explanation: "「彼は学生です。」という文の英訳です。主語は「彼」、動詞は「です」、補語の「学生」が続きます。" },
+    <div class="main-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="quiz-card p-5 text-center">
+            <h1 class="display-4 fw-bold mb-4" style="color: #4a5568;">毎日10問</h1>
+            <h2 class="display-6 fw-bold mb-4" style="color: #4a5568;">高校受験対策</h2>
+            <!-- <p class="lead text-muted mb-5">挑戦したい科目を選んでください。</p> -->
 
-        //     // 他の問題をここに追加
-        // ];
+            <div class="d-grid gap-3 col-lg-8 mx-auto">
+                <button class="btn btn-outline-primary btn-lg py-3 fw-bold"
+                    onclick="startQuiz('english_questions.json')">
+                    <i class="bi bi-alphabet-uppercase me-2"></i> 英語
+                </button>
+                <button class="btn btn-outline-success btn-lg py-3 fw-bold" onclick="startQuiz('math_questions.json')">
+                    <i class="bi bi-calculator me-2"></i> 数学
+                </button>
+                <button class="btn btn-outline-danger btn-lg py-3 fw-bold"
+                    onclick="startQuiz('science_questions.json')">
+                    <i class="bi bi-cloud me-2"></i> 理科
+                </button>
+                <button class="btn btn-outline-warning btn-lg py-3 fw-bold"
+                    onclick="startQuiz('history_questions.json')">
+                    <i class="bi bi-clock-history me-2"></i> 社会
+                </button>
+                <button class="btn btn-outline-info btn-lg py-3 fw-bold" onclick="startQuiz('japanese_questions.json')">
+                    <i class="bi bi-book me-2"></i> 国語
+                </button>
+            </div>
+        </div>
 
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="quiz-card d-none">
+            <div class="card-header-custom d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge bg-light text-dark border">Q.<span id="question-number">1</span></span>
+                    <span class="ms-2 text-muted small" id="question-scope">Category</span>
+                </div>
+                <div class="text-end">
+                    <span class="fw-bold" style="color: #667eea;">Score: <span id="current-score">0</span></span>
+                </div>
+            </div>
+            <div class="px-4 pb-2">
+                <div class="progress">
+                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="p-4 p-md-5">
+                <h2 class="question-text" id="question-text">Loading question...</h2>
+
+                <div class="d-flex justify-content-end mb-3">
+                    <button class="btn btn-sm btn-outline-info rounded-pill" onclick="toggleHint()">
+                        <i class="bi bi-lightbulb-fill"></i> ヒントを見る
+                    </button>
+                </div>
+                <div id="hint-box" class="hint-box mb-4">
+                    <i class="bi bi-info-circle me-2"></i><span id="hint-text"></span>
+                </div>
+
+                <div id="choices-container" class="d-grid gap-2">
+                    <!-- Choices will be inserted here -->
+                </div>
+
+                <!-- Feedback Section -->
+                <div id="feedback-section" class="feedback-section">
+                    <div class="d-flex align-items-start">
+                        <div class="me-3">
+                            <i id="feedback-icon" class="bi bi-check-circle-fill fs-3"></i>
+                        </div>
+                        <div>
+                            <h5 id="feedback-title" class="fw-bold mb-2">Correct!</h5>
+                            <p id="feedback-explanation" class="mb-0 text-muted small"></p>
+                        </div>
+                    </div>
+                    <div class="mt-3 text-end">
+                        <button class="btn btn-primary-custom text-white btn-sm" onclick="nextQuestion()">
+                            次へ <i class="bi bi-arrow-right ms-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="quiz-card p-5 text-center d-none">
+            <h2 class="fw-bold mb-4">Quiz Completed!</h2>
+
+            <div class="score-circle" id="final-score-circle">
+                <span class="score-text"><span id="final-score">0</span>/10</span>
+            </div>
+
+            <h3 class="mb-3" id="result-message">Great Job!</h3>
+            <p class="text-muted mb-5">お疲れ様でした！今回の結果はいかがでしたか？</p>
+
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-outline-secondary rounded-pill px-4" onclick="location.reload()">
+                    <i class="bi bi-arrow-repeat me-2"></i>もう一度挑戦
+                </button>
+                <!-- <button class="btn btn-primary-custom text-white" onclick="shareResult()">
+                    <i class="bi bi-share-fill me-2"></i>結果をシェア
+                </button> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const BASE_URL = "https://hidehikokondo.github.io/everyday10questions-frontend/questions/";
+        let questions = [];
         let currentQuestionIndex = 0;
+        let score = 0;
 
-        function handleSelectChange(event) {
-            const selectedValue = event.target.value;
-            console.log("選択された値:", selectedValue);
-            // 必要に応じて、選択された値に基づいて処理を追加
-        }
+        // DOM Elements
+        const startScreen = document.getElementById('start-screen');
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultScreen = document.getElementById('result-screen');
 
-        //第１問
-        function firstQuestion() {
-            document.getElementById('question-title').textContent = `問題${1}`;
-            document.getElementById('question-text').textContent = questions[0].Question;
-            document.getElementById('answer-text').textContent = questions[0].Answer;
-            document.getElementById('explanation-text').textContent = questions[0].Explanation;
-            document.getElementById('answer-card').style.display = 'none';
-            document.getElementById('explanation-card').style.display = 'none';
-            document.getElementById('next-question-button').style.display = 'none';
-            document.getElementById('check-answer-button').style.display = 'block';
-        }
+        const questionNumberEl = document.getElementById('question-number');
+        const questionScopeEl = document.getElementById('question-scope');
+        const currentScoreEl = document.getElementById('current-score');
+        const progressBar = document.getElementById('progress-bar');
+        const questionTextEl = document.getElementById('question-text');
+        const hintBox = document.getElementById('hint-box');
+        const hintTextEl = document.getElementById('hint-text');
+        const choicesContainer = document.getElementById('choices-container');
+        const feedbackSection = document.getElementById('feedback-section');
+        const feedbackTitle = document.getElementById('feedback-title');
+        const feedbackExplanation = document.getElementById('feedback-explanation');
+        const feedbackIcon = document.getElementById('feedback-icon');
 
-        //次の問題
-        function nextQuestion() {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                document.getElementById('question-title').textContent = `問題${currentQuestionIndex + 1}`;
-                document.getElementById('question-text').textContent = questions[currentQuestionIndex].Question;
-                document.getElementById('answer-text').textContent = questions[currentQuestionIndex].Answer;
-                document.getElementById('explanation-text').textContent = questions[currentQuestionIndex].Explanation;
-                document.getElementById('answer-card').style.display = 'none';
-                document.getElementById('explanation-card').style.display = 'none';
-                document.getElementById('next-question-button').style.display = 'none';
-                document.getElementById('check-answer-button').style.display = 'block';
-            } else {
-                ons.notification.alert('これで全ての問題が終了しました。');
+        async function startQuiz(filename) {
+            startScreen.classList.add('d-none');
+            quizScreen.classList.remove('d-none');
+            quizScreen.classList.add('fade-in');
+
+            // Show loading state
+            questionTextEl.innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div> Loading questions...';
+            choicesContainer.innerHTML = '';
+
+            try {
+                const response = await fetch(BASE_URL + filename);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                questions = data.questions;
+
+                currentQuestionIndex = 0;
+                score = 0;
+                updateScore();
+                showQuestion();
+            } catch (error) {
+                console.error('Error fetching quiz data:', error);
+                questionTextEl.innerHTML = `<div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    Failed to load questions. Please check your connection and try again.
+                    <br>
+                    <button class="btn btn-outline-danger btn-sm mt-3" onclick="location.reload()">Reload Page</button>
+                </div>`;
             }
         }
 
-        //ヒントを表示
-        function showHint() {
-            document.getElementById('hint-dialog').show();
+        function showQuestion() {
+            const question = questions[currentQuestionIndex];
+
+            // Reset UI
+            feedbackSection.style.display = 'none';
+            hintBox.style.display = 'none';
+            choicesContainer.innerHTML = '';
+
+            // Update Info
+            questionNumberEl.textContent = currentQuestionIndex + 1;
+            questionScopeEl.textContent = question.scope;
+            questionTextEl.textContent = question.question;
+            hintTextEl.textContent = question.hint;
+
+            // Update Progress
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            // Create Choices
+            const choices = ['choice1', 'choice2', 'choice3', 'choice4'];
+            choices.forEach((choiceKey, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'choice-btn';
+                btn.innerHTML = `<span class="badge bg-light text-dark border me-2">${index + 1}</span> ${question[choiceKey]}`;
+                btn.onclick = () => checkAnswer(choiceKey, btn);
+                choicesContainer.appendChild(btn);
+            });
         }
 
-        //ヒントを隠す
-        function hideHint() {
-            document.getElementById('hint-dialog').hide();
+        function toggleHint() {
+            if (hintBox.style.display === 'none' || hintBox.style.display === '') {
+                hintBox.style.display = 'block';
+            } else {
+                hintBox.style.display = 'none';
+            }
         }
 
-        //答え合わせ
-        function showAnswer() {
-            document.getElementById('answer-card').style.display = 'block';
-            document.getElementById('explanation-card').style.display = 'block';
-            document.getElementById('next-question-button').style.display = 'block';
-            document.getElementById('check-answer-button').style.display = 'none'; // 答え合わせボタンを非表示にする
+        function checkAnswer(selectedChoice, btnElement) {
+            // Disable all buttons
+            const buttons = choicesContainer.querySelectorAll('.choice-btn');
+            buttons.forEach(btn => btn.disabled = true);
+
+            const question = questions[currentQuestionIndex];
+            const isCorrect = selectedChoice === question.answer;
+
+            // Show Feedback
+            feedbackSection.style.display = 'block';
+            feedbackExplanation.textContent = question.explanation;
+
+            if (isCorrect) {
+                score++;
+                updateScore();
+                btnElement.classList.add('correct');
+                feedbackSection.classList.remove('incorrect');
+                feedbackSection.classList.add('correct');
+                feedbackTitle.textContent = "正解！ Excellent!";
+                feedbackTitle.style.color = "#2f855a";
+                feedbackIcon.className = "bi bi-check-circle-fill fs-3 text-success";
+            } else {
+                btnElement.classList.add('incorrect');
+                // Highlight correct answer
+                const correctBtnIndex = parseInt(question.answer.replace('choice', '')) - 1;
+                buttons[correctBtnIndex].classList.add('correct');
+
+                feedbackSection.classList.remove('correct');
+                feedbackSection.classList.add('incorrect');
+                feedbackTitle.textContent = "残念... Incorrect";
+                feedbackTitle.style.color = "#c53030";
+                feedbackIcon.className = "bi bi-x-circle-fill fs-3 text-danger";
+            }
         }
 
-
-        function humbargerMenu() {
-            // ハンバーガーメニューの表示・非表示を制御する関数
-            window.fn = {};
-
-            window.fn.open = function () {
-                var menu = document.getElementById('menu');
-                menu.open();
-            };
-
-            window.fn.load = function (page) {
-                var content = document.getElementById('content');
-                var menu = document.getElementById('menu');
-                content.load(page)
-                    .then(menu.close.bind(menu));
-            };
+        function updateScore() {
+            currentScoreEl.textContent = score;
         }
 
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
 
+        function showResult() {
+            quizScreen.classList.add('d-none');
+            resultScreen.classList.remove('d-none');
+            resultScreen.classList.add('fade-in');
+
+            const finalScoreEl = document.getElementById('final-score');
+            finalScoreEl.textContent = score;
+
+            // Update Score Circle
+            const percentage = (score / questions.length) * 100;
+            document.getElementById('final-score-circle').style.setProperty('--score-percent', `${percentage}%`);
+
+            // Message
+            const messageEl = document.getElementById('result-message');
+            if (score === 10) {
+                messageEl.textContent = "Perfect!! 素晴らしい！";
+            } else if (score >= 8) {
+                messageEl.textContent = "Excellent! とても良い成績です！";
+            } else if (score >= 6) {
+                messageEl.textContent = "Good Job! あと少しで満点です！";
+            } else {
+                messageEl.textContent = "Keep Trying! 復習してまた挑戦しましょう！";
+            }
+        }
     </script>
 
 </body>
-
-</html>
