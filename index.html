@@ -413,6 +413,37 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top"
+        style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" style="color: #4a5568;">
+                <i class="bi bi-pencil-square me-2"></i>毎日10問 高校受験対策
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">このアプリについて</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">チャレンジ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            ほかの問題
+                        </a>
+                        <ul class="dropdown-menu border-0 shadow">
+                            <li><a class="dropdown-item" href="#">大学受験対策</a></li>
+                            <li><a class="dropdown-item" href="#">ITパスポート試験対策</a></li>
+                            <li><a class="dropdown-item" href="#">FP3級対策</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <div class="main-container">
         <!-- Start Screen -->
@@ -422,18 +453,18 @@
             <!-- <p class="lead text-muted mb-5">挑戦したい科目を選んでください。</p> -->
 
             <div class="d-grid gap-3 col-lg-8 mx-auto">
-                <button class="btn btn-outline-danger btn-lg py-3 fw-bold"
+                <button class="btn btn-outline-primary btn-lg py-3 fw-bold"
                     onclick="startQuiz('english_questions.json')">
                     <i class="bi bi-alphabet-uppercase me-2"></i> 英語
                 </button>
-                <button class="btn btn-outline-primary btn-lg py-3 fw-bold" onclick="startQuiz('math_questions.json')">
+                <button class="btn btn-outline-success btn-lg py-3 fw-bold" onclick="startQuiz('math_questions.json')">
                     <i class="bi bi-calculator me-2"></i> 数学
                 </button>
-                <button class="btn btn-outline-warning btn-lg py-3 fw-bold"
+                <button class="btn btn-outline-danger btn-lg py-3 fw-bold"
                     onclick="startQuiz('science_questions.json')">
-                    <i class="bi bi-rulers me-2"></i> 理科
+                    <i class="bi bi-cloud me-2"></i> 理科
                 </button>
-                <button class="btn btn-outline-success btn-lg py-3 fw-bold"
+                <button class="btn btn-outline-warning btn-lg py-3 fw-bold"
                     onclick="startQuiz('history_questions.json')">
                     <i class="bi bi-clock-history me-2"></i> 社会
                 </button>
@@ -516,6 +547,9 @@
                 </button> -->
             </div>
         </div>
+        <footer class="text-center mt-4 text-white text-opacity-75">
+            <small>&copy; UDONKONET</small>
+        </footer>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
