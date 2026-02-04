@@ -508,7 +508,7 @@
         <!-- Start Screen -->
         <div id="start-screen" class="quiz-card p-5 text-center">
             <h1 class="display-4 fw-bold mb-4 start-screen-title">エイトレ</h1>
-            <h2 class="display-6 fw-bold mb-4 start-screen-title">大学受験英語問題トレーニング</h2>
+            <h2 class="display-6 fw-bold mb-4 start-screen-title">大学受験英語トレーニング</h2>
             <!-- <p class="lead text-muted mb-5">挑戦したい科目を選んでください。</p> -->
 
             <div class="d-grid gap-3 col-lg-8 mx-auto">
@@ -611,7 +611,7 @@
         <footer class="text-center">
             <div class="row justify-content-center mb-3">
                 <div class="col-auto">
-                    <h6 class="footer-category-title">毎日10問トレーニング</h6>
+                    <h6 class="footer-category-title">大学受験対策</h6>
                     <ul class="list-unstyled">
                         <li><a href="#" class="footer-link" onclick="showComingSoon(event)">エイトレ</a></li>
                         <li><a href="#" class="footer-link" onclick="showComingSoon(event)">レキトレ</a></li>
@@ -827,8 +827,33 @@
 
         function showComingSoon(event) {
             event.preventDefault();
-            alert('Coming Soon');
+            const comingSoonModal = new bootstrap.Modal(document.getElementById('comingSoonModal'));
+            comingSoonModal.show();
         }
     </script>
+
+    <!-- Coming Soon Modal -->
+    <div class="modal fade" id="comingSoonModal" tabindex="-1" aria-labelledby="comingSoonModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <i class="bi bi-rocket-takeoff text-primary" style="font-size: 4rem;"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Coming Soon!</h3>
+                    <p class="text-muted">
+                        この機能は現在準備中です。<br>
+                        公開までもうしばらくお待ちください。
+                    </p>
+                    <button type="button" class="btn btn-primary-custom text-white mt-4 px-5"
+                        data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
