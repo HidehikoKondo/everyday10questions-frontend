@@ -613,30 +613,30 @@
                 <div class="col-auto">
                     <h6 class="footer-category-title">毎日10問トレーニング</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link">エイトレ</a></li>
-                        <li><a href="#" class="footer-link">レキトレ</a></li>
-                        <li><a href="#" class="footer-link">コミトレ</a></li>
-                        <li><a href="#" class="footer-link">チリトレ</a></li>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">エイトレ</a></li>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">レキトレ</a></li>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">コミトレ</a></li>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">チリトレ</a></li>
                     </ul>
                 </div>
                 <div class="col-auto">
                     <h6 class="footer-category-title">資格対策</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link">ITパスポート</a>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">ITパスポート</a>
                         </li>
-                        <li><a href="#" class="footer-link">FP3級</a></li>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">FP3級</a></li>
                     </ul>
                 </div>
                 <div class="col-auto">
                     <h6 class="footer-category-title">毎日10問トレーニングについて</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link">毎日10問トレーニングとは</a></li>
-                        <li><a href="#" class="footer-link">デイリーミッション</a>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">毎日10問トレーニングとは</a></li>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">デイリーミッション</a>
                         </li>
-                        <li><a href="#" class="footer-link">運営</a></li>
-                        <li><a href="#" class="footer-link">プライバシーポリシー</a>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">運営</a></li>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">プライバシーポリシー</a>
                         </li>
-                        <li><a href="#" class="footer-link">利用規約</a></li>
+                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">利用規約</a></li>
                     </ul>
                 </div>
             </div>
@@ -823,6 +823,11 @@
             } else {
                 messageEl.textContent = "Keep Trying! 復習してまた挑戦しましょう！";
             }
+        }
+
+        function showComingSoon(event) {
+            event.preventDefault();
+            alert('Coming Soon');
         }
     </script>
 
