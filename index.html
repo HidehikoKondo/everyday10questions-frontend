@@ -217,6 +217,53 @@
             color: #cbd5e0;
         }
 
+        .navbar-brand {
+            color: #4a5568 !important;
+        }
+
+        .start-screen-title {
+            color: #4a5568;
+        }
+
+        .score-display {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .progress-bar-element {
+            width: 0%;
+        }
+
+        #text-box {
+            display: none;
+            background-color: #fff;
+            border-color: #9b6bde;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        #text-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+
+        .footer-category-title {
+            color: #cbd5e0;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer-link {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-divider {
+            border-color: #4a5568;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -428,7 +475,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top"
         style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#" style="color: #4a5568;">
+            <a class="navbar-brand fw-bold" href="#">
                 <i class="bi bi-pencil-square me-2"></i>毎日10問トレーニング
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -460,8 +507,8 @@
     <div class="main-container">
         <!-- Start Screen -->
         <div id="start-screen" class="quiz-card p-5 text-center">
-            <h1 class="display-4 fw-bold mb-4" style="color: #4a5568;">エイトレ</h1>
-            <h2 class="display-6 fw-bold mb-4" style="color: #4a5568;">大学受験英語問題トレーニング</h2>
+            <h1 class="display-4 fw-bold mb-4 start-screen-title">エイトレ</h1>
+            <h2 class="display-6 fw-bold mb-4 start-screen-title">大学受験英語問題トレーニング</h2>
             <!-- <p class="lead text-muted mb-5">挑戦したい科目を選んでください。</p> -->
 
             <div class="d-grid gap-3 col-lg-8 mx-auto">
@@ -493,20 +540,19 @@
                     <span class="ms-2 text-muted small" id="question-scope">Category</span>
                 </div>
                 <div class="text-end">
-                    <span class="fw-bold" style="color: #667eea;">Score: <span id="current-score">0</span></span>
+                    <span class="score-display">Score: <span id="current-score">0</span></span>
                 </div>
             </div>
             <div class="px-4 pb-2">
                 <div class="progress">
-                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                    <div id="progress-bar" class="progress-bar progress-bar-element" role="progressbar"></div>
                 </div>
             </div>
 
             <div class="p-4 p-md-5">
                 <h2 class="question-text" id="question-text">Loading question...</h2>
-                <div id="text-box" class="mb-4 p-3 rounded"
-                    style="display: none; background-color: #fff; border-color:#9b6bde; border-width: 1px; border-style: solid;">
-                    <p id="text-content" class="mb-0" style="font-size: 1.1rem; line-height: 1.8; color: #2d3748;"></p>
+                <div id="text-box" class="mb-4 p-3 rounded">
+                    <p id="text-content" class="mb-0"></p>
                 </div>
 
                 <div class="d-flex justify-content-end mb-3">
@@ -565,37 +611,36 @@
         <footer class="text-center">
             <div class="row justify-content-center mb-3">
                 <div class="col-auto">
-                    <h6 style="color: #cbd5e0; font-weight: 600; margin-bottom: 10px;">毎日10問トレーニング</h6>
+                    <h6 class="footer-category-title">毎日10問トレーニング</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">エイトレ</a></li>
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">レキトレ</a></li>
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">コミトレ</a></li>
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">チリトレ</a></li>
+                        <li><a href="#" class="footer-link">エイトレ</a></li>
+                        <li><a href="#" class="footer-link">レキトレ</a></li>
+                        <li><a href="#" class="footer-link">コミトレ</a></li>
+                        <li><a href="#" class="footer-link">チリトレ</a></li>
                     </ul>
                 </div>
                 <div class="col-auto">
-                    <h6 style="color: #cbd5e0; font-weight: 600; margin-bottom: 10px;">資格対策</h6>
+                    <h6 class="footer-category-title">資格対策</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">ITパスポート</a>
+                        <li><a href="#" class="footer-link">ITパスポート</a>
                         </li>
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">FP3級</a></li>
+                        <li><a href="#" class="footer-link">FP3級</a></li>
                     </ul>
                 </div>
                 <div class="col-auto">
-                    <h6 style="color: #cbd5e0; font-weight: 600; margin-bottom: 10px;">毎日10問トレーニングについて</h6>
+                    <h6 class="footer-category-title">毎日10問トレーニングについて</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#"
-                                style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">毎日10問トレーニングとは</a></li>
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">デイリーミッション</a>
+                        <li><a href="#" class="footer-link">毎日10問トレーニングとは</a></li>
+                        <li><a href="#" class="footer-link">デイリーミッション</a>
                         </li>
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">運営</a></li>
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">プライバシーポリシー</a>
+                        <li><a href="#" class="footer-link">運営</a></li>
+                        <li><a href="#" class="footer-link">プライバシーポリシー</a>
                         </li>
-                        <li><a href="#" style="color: #cbd5e0; text-decoration: none; font-size: 0.9rem;">利用規約</a></li>
+                        <li><a href="#" class="footer-link">利用規約</a></li>
                     </ul>
                 </div>
             </div>
-            <hr style="border-color: #4a5568;">
+            <hr class="footer-divider">
             <small>&copy; UDONKONET</small>
         </footer>
     </div>
