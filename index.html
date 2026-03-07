@@ -282,6 +282,134 @@
         .mission-icon-inactive {
             color: #cbd5e0 !important;
         }
+
+        /* Category Card Styles */
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .category-card:hover {
+            border-color: #667eea;
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(102, 126, 234, 0.25);
+        }
+
+        .category-card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.2rem;
+            color: white;
+        }
+
+        .category-card-icon.english {
+            background: linear-gradient(135deg, #48bb78, #276749);
+        }
+
+        .category-card h3 {
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .category-card p {
+            color: #718096;
+            font-size: 0.88rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .category-card-badge {
+            display: inline-block;
+            background: #ebf4ff;
+            color: #5a67d8;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .category-card-badge.green {
+            background: #f0fff4;
+            color: #276749;
+        }
+
+        .sub-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem 1.75rem;
+            cursor: pointer;
+            border: 2px solid #e2e8f0;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .sub-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .sub-card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .sub-card-icon.purple { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .sub-card-icon.green  { background: linear-gradient(135deg, #48bb78, #276749); }
+        .sub-card-icon.blue   { background: linear-gradient(135deg, #4299e1, #2b6cb0); }
+        .sub-card-icon.orange { background: linear-gradient(135deg, #ed8936, #c05621); }
+
+        .sub-card-body h5 {
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0 0 0.2rem;
+            font-size: 1rem;
+        }
+
+        .sub-card-body p {
+            font-size: 0.82rem;
+            color: #718096;
+            margin: 0;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: #718096;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 0 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover { color: #4a5568; }
     </style>
 </head>
 
@@ -302,30 +430,199 @@
     </nav>
 
     <div class="main-container">
-        <!-- Start Screen -->
-        <div id="start-screen" class="quiz-card p-5 text-center">
-            <h1 class="display-4 fw-bold mb-4 start-screen-title">エイトレ</h1>
-            <h2 class="display-6 fw-bold mb-4 start-screen-title">大学受験英語トレーニング</h2>
-            <!-- <p class="lead text-muted mb-5">挑戦したい科目を選んでください。</p> -->
+        <!-- Category Screen (TOP) -->
+        <div id="category-screen" class="quiz-card p-4 p-md-5">
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bold start-screen-title mb-2">毎日10問トレーニング</h1>
+                <p class="text-muted">カテゴリを選んでください</p>
+            </div>
+            <div class="d-flex flex-column gap-5">
+                <!-- 資格取得対策 -->
+                <div>
+                    <h2 class="fw-bold mb-3" style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #667eea; padding-left:0.75rem;">資格取得対策</h2>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-4">
+                            <div class="category-card" onclick="showSubScreen('itpassport')">
+                                <div class="category-card-icon">
+                                    <i class="bi bi-cpu-fill"></i>
+                                </div>
+                                <h3>ITパスポート</h3>
+                                <p>ITの基礎知識を問う国家試験。ストラテジ・マネジメント・テクノロジの3分野で対策。</p>
+                                <span class="category-card-badge">3カテゴリ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 受験対策 -->
+                <div>
+                    <h2 class="fw-bold mb-3" style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #48bb78; padding-left:0.75rem;">受験対策</h2>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-4">
+                            <div class="category-card" onclick="showSubScreen('english')">
+                                <div class="category-card-icon english">
+                                    <i class="bi bi-book-fill"></i>
+                                </div>
+                                <h3>大学受験英語</h3>
+                                <p>大学入試の英語問題でスコアアップ。英訳・和訳・単語・長文の4分野を網羅。</p>
+                                <span class="category-card-badge green">4カテゴリ</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="category-card" onclick="showSubScreen('koukoujuken')">
+                                <div class="category-card-icon" style="background: linear-gradient(135deg, #ed8936, #c05621);">
+                                    <i class="bi bi-mortarboard-fill"></i>
+                                </div>
+                                <h3>高校受験対策</h3>
+                                <p>高校入試の5教科を幅広くカバー。英語・数学・国語・理科・歴史に対応。</p>
+                                <span class="category-card-badge" style="background:#fff3e0; color:#c05621;">5カテゴリ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- IT Passport Sub Screen -->
+        <div id="itpassport-screen" class="quiz-card p-4 p-md-5 d-none">
+            <button class="back-btn" onclick="showCategoryScreen()">
+                <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
+            </button>
+            <div class="text-center mb-4">
+                <div class="category-card-icon mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;">
+                    <i class="bi bi-cpu-fill"></i>
+                </div>
+                <h2 class="fw-bold start-screen-title mb-1">ITパスポート</h2>
+                <p class="text-muted small">挑戦する分野を選んでください</p>
+            </div>
             <div class="d-grid gap-3 col-lg-8 mx-auto">
-                <button class="btn btn-outline-primary btn-lg py-3 fw-bold"
-                    onclick="startQuiz('english/eiyaku_questions.json')">
-                    <i class="bi bi-alphabet-uppercase me-2"></i> 英訳
-                </button>
-                <button class="btn btn-outline-success btn-lg py-3 fw-bold"
-                    onclick="startQuiz('english/tango_questions.json')">
-                    <i class="bi bi-calculator me-2"></i> 単語
-                </button>
-                <button class="btn btn-outline-danger btn-lg py-3 fw-bold"
-                    onclick="startQuiz('english/chobun_questions.json')">
-                    <i class="bi bi-cloud me-2"></i> 長文
-                </button>
-                <button class="btn btn-outline-warning btn-lg py-3 fw-bold"
-                    onclick="startQuiz('english/wayaku_questions.json')">
-                    <i class="bi bi-clock-history me-2"></i> 和訳
-                </button>
+                <div class="sub-card" onclick="startQuiz('itpassport/strategy_questions.json')">
+                    <div class="sub-card-icon purple"><i class="bi bi-bar-chart-fill"></i></div>
+                    <div class="sub-card-body">
+                        <h5>ストラテジ系</h5>
+                        <p>企業活動・経営戦略・システム戦略</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('itpassport/management_questions.json')">
+                    <div class="sub-card-icon green"><i class="bi bi-gear-fill"></i></div>
+                    <div class="sub-card-body">
+                        <h5>マネジメント系</h5>
+                        <p>開発技術・プロジェクトマネジメント・サービスマネジメント</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('itpassport/technology_questions.json')">
+                    <div class="sub-card-icon blue"><i class="bi bi-code-slash"></i></div>
+                    <div class="sub-card-body">
+                        <h5>テクノロジ系</h5>
+                        <p>基礎理論・コンピュータシステム・技術要素</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+            </div>
+        </div>
 
+        <!-- Koukoujuken Sub Screen -->
+        <div id="koukoujuken-screen" class="quiz-card p-4 p-md-5 d-none">
+            <button class="back-btn" onclick="showCategoryScreen()">
+                <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
+            </button>
+            <div class="text-center mb-4">
+                <div class="category-card-icon mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;background:linear-gradient(135deg,#ed8936,#c05621);">
+                    <i class="bi bi-mortarboard-fill"></i>
+                </div>
+                <h2 class="fw-bold start-screen-title mb-1">高校受験対策</h2>
+                <p class="text-muted small">挑戦する教科を選んでください</p>
+            </div>
+            <div class="d-grid gap-3 col-lg-8 mx-auto">
+                <div class="sub-card" onclick="startQuiz('koukoujuken/english_questions.json')">
+                    <div class="sub-card-icon purple"><i class="bi bi-alphabet-uppercase"></i></div>
+                    <div class="sub-card-body">
+                        <h5>英語</h5>
+                        <p>英語の基礎・文法・読解</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('koukoujuken/math_questions.json')">
+                    <div class="sub-card-icon blue"><i class="bi bi-calculator-fill"></i></div>
+                    <div class="sub-card-body">
+                        <h5>数学</h5>
+                        <p>計算・関数・図形・確率</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('koukoujuken/japanese_questions.json')">
+                    <div class="sub-card-icon green"><i class="bi bi-pencil-fill"></i></div>
+                    <div class="sub-card-body">
+                        <h5>国語</h5>
+                        <p>読解・文法・古典</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('koukoujuken/science_questions.json')">
+                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#38b2ac,#2c7a7b);"><i class="bi bi-flask-fill"></i></div>
+                    <div class="sub-card-body">
+                        <h5>理科</h5>
+                        <p>物理・化学・生物・地学</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('koukoujuken/history_questions.json')">
+                    <div class="sub-card-icon orange"><i class="bi bi-hourglass-split"></i></div>
+                    <div class="sub-card-body">
+                        <h5>歴史</h5>
+                        <p>日本史・世界史の重要事項</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Sub Screen -->
+        <div id="start-screen" class="quiz-card p-4 p-md-5 d-none">
+            <button class="back-btn" onclick="showCategoryScreen()">
+                <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
+            </button>
+            <div class="text-center mb-4">
+                <div class="category-card-icon english mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;">
+                    <i class="bi bi-book-fill"></i>
+                </div>
+                <h2 class="fw-bold start-screen-title mb-1">大学受験英語</h2>
+                <p class="text-muted small">挑戦する分野を選んでください</p>
+            </div>
+            <div class="d-grid gap-3 col-lg-8 mx-auto">
+                <div class="sub-card" onclick="startQuiz('english/eiyaku_questions.json')">
+                    <div class="sub-card-icon purple"><i class="bi bi-alphabet-uppercase"></i></div>
+                    <div class="sub-card-body">
+                        <h5>英訳</h5>
+                        <p>日本語を英語に訳す練習</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('english/wayaku_questions.json')">
+                    <div class="sub-card-icon orange"><i class="bi bi-translate"></i></div>
+                    <div class="sub-card-body">
+                        <h5>和訳</h5>
+                        <p>英語を日本語に訳す練習</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('english/tango_questions.json')">
+                    <div class="sub-card-icon green"><i class="bi bi-card-text"></i></div>
+                    <div class="sub-card-body">
+                        <h5>単語</h5>
+                        <p>重要英単語の意味を問う練習</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('english/chobun_questions.json')">
+                    <div class="sub-card-icon blue"><i class="bi bi-file-text"></i></div>
+                    <div class="sub-card-body">
+                        <h5>長文</h5>
+                        <p>長文読解・内容把握の練習</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
             </div>
         </div>
 
@@ -478,6 +775,9 @@
         let score = 0;
 
         // DOM Elements
+        const categoryScreen = document.getElementById('category-screen');
+        const itpassportScreen = document.getElementById('itpassport-screen');
+        const koukoujukenScreen = document.getElementById('koukoujuken-screen');
         const startScreen = document.getElementById('start-screen');
         const quizScreen = document.getElementById('quiz-screen');
         const resultScreen = document.getElementById('result-screen');
@@ -497,8 +797,33 @@
         const feedbackExplanation = document.getElementById('feedback-explanation');
         const feedbackIcon = document.getElementById('feedback-icon');
 
-        async function startQuiz(filename) {
+        function showSubScreen(category) {
+            categoryScreen.classList.add('d-none');
+            if (category === 'english') {
+                startScreen.classList.remove('d-none');
+                startScreen.classList.add('fade-in');
+            } else if (category === 'itpassport') {
+                itpassportScreen.classList.remove('d-none');
+                itpassportScreen.classList.add('fade-in');
+            } else if (category === 'koukoujuken') {
+                koukoujukenScreen.classList.remove('d-none');
+                koukoujukenScreen.classList.add('fade-in');
+            }
+        }
+
+        function showCategoryScreen() {
             startScreen.classList.add('d-none');
+            itpassportScreen.classList.add('d-none');
+            koukoujukenScreen.classList.add('d-none');
+            categoryScreen.classList.remove('d-none');
+            categoryScreen.classList.add('fade-in');
+        }
+
+        async function startQuiz(filename) {
+            categoryScreen.classList.add('d-none');
+            startScreen.classList.add('d-none');
+            itpassportScreen.classList.add('d-none');
+            koukoujukenScreen.classList.add('d-none');
             quizScreen.classList.remove('d-none');
             quizScreen.classList.add('fade-in');
 
