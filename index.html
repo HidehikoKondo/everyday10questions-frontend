@@ -439,7 +439,7 @@
             <div class="d-flex flex-column gap-5">
                 <!-- 資格取得対策 -->
                 <div>
-                    <h2 class="fw-bold mb-3" style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #667eea; padding-left:0.75rem;">資格取得対策</h2>
+                    <h2 class="fw-bold mb-3" style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #667eea; padding-left:0.75rem;">資格試験</h2>
                     <div class="row g-3">
                         <div class="col-6 col-md-4">
                             <div class="category-card" onclick="showSubScreen('itpassport')">
@@ -451,30 +451,34 @@
                                 <span class="category-card-badge">3カテゴリ</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- 受験対策 -->
-                <div>
-                    <h2 class="fw-bold mb-3" style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #48bb78; padding-left:0.75rem;">受験対策</h2>
-                    <div class="row g-3">
                         <div class="col-6 col-md-4">
-                            <div class="category-card" onclick="showSubScreen('english')">
-                                <div class="category-card-icon english">
-                                    <i class="bi bi-book-fill"></i>
+                            <div class="category-card" onclick="showSubScreen('sg')">
+                                <div class="category-card-icon" style="background: linear-gradient(135deg, #4299e1, #2b6cb0);">
+                                    <i class="bi bi-shield-lock-fill"></i>
                                 </div>
-                                <h3>大学受験英語</h3>
-                                <p>大学入試の英語問題でスコアアップ。英訳・和訳・単語・長文の4分野を網羅。</p>
-                                <span class="category-card-badge green">4カテゴリ</span>
+                                <h3>情報セキュリティマネジメント</h3>
+                                <p>情報セキュリティの管理・運用を問う国家試験。セキュリティの基礎から実践まで対策。</p>
+                                <span class="category-card-badge" style="background:#ebf8ff; color:#2b6cb0;">準備中</span>
                             </div>
                         </div>
                         <div class="col-6 col-md-4">
-                            <div class="category-card" onclick="showSubScreen('koukoujuken')">
-                                <div class="category-card-icon" style="background: linear-gradient(135deg, #ed8936, #c05621);">
-                                    <i class="bi bi-mortarboard-fill"></i>
+                            <div class="category-card" onclick="showSubScreen('fe')">
+                                <div class="category-card-icon" style="background: linear-gradient(135deg, #48bb78, #276749);">
+                                    <i class="bi bi-pc-display-horizontal"></i>
                                 </div>
-                                <h3>高校受験対策</h3>
-                                <p>高校入試の5教科を幅広くカバー。英語・数学・国語・理科・歴史に対応。</p>
-                                <span class="category-card-badge" style="background:#fff3e0; color:#c05621;">5カテゴリ</span>
+                                <h3>基本情報技術者試験</h3>
+                                <p>ITエンジニアの登竜門。科目Aの基礎知識から科目Bのプログラミングまで幅広く対策。</p>
+                                <span class="category-card-badge" style="background:#f0fff4; color:#276749;">準備中</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="category-card" onclick="showSubScreen('sc')">
+                                <div class="category-card-icon" style="background: linear-gradient(135deg, #e53e3e, #9b2c2c);">
+                                    <i class="bi bi-shield-fill-check"></i>
+                                </div>
+                                <h3>情報処理安全確保支援士</h3>
+                                <p>セキュリティの高度専門資格。午前・午後の幅広い知識と実践力を問う試験に対策。</p>
+                                <span class="category-card-badge" style="background:#fff5f5; color:#9b2c2c;">準備中</span>
                             </div>
                         </div>
                     </div>
@@ -522,104 +526,72 @@
             </div>
         </div>
 
-        <!-- Koukoujuken Sub Screen -->
-        <div id="koukoujuken-screen" class="quiz-card p-4 p-md-5 d-none">
+        <!-- SG Sub Screen -->
+        <div id="sg-screen" class="quiz-card p-4 p-md-5 d-none">
             <button class="back-btn" onclick="showCategoryScreen()">
                 <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
             </button>
             <div class="text-center mb-4">
-                <div class="category-card-icon mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;background:linear-gradient(135deg,#ed8936,#c05621);">
-                    <i class="bi bi-mortarboard-fill"></i>
+                <div class="category-card-icon mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;background:linear-gradient(135deg,#4299e1,#2b6cb0);">
+                    <i class="bi bi-shield-lock-fill"></i>
                 </div>
-                <h2 class="fw-bold start-screen-title mb-1">高校受験対策</h2>
-                <p class="text-muted small">挑戦する教科を選んでください</p>
+                <h2 class="fw-bold start-screen-title mb-1">情報セキュリティマネジメント</h2>
+                <p class="text-muted small">挑戦する分野を選んでください</p>
             </div>
             <div class="d-grid gap-3 col-lg-8 mx-auto">
-                <div class="sub-card" onclick="startQuiz('koukoujuken/english_questions.json')">
-                    <div class="sub-card-icon purple"><i class="bi bi-alphabet-uppercase"></i></div>
+                <div class="sub-card disabled" style="opacity:0.5; pointer-events:none;">
+                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#4299e1,#2b6cb0);"><i class="bi bi-shield-lock-fill"></i></div>
                     <div class="sub-card-body">
-                        <h5>英語</h5>
-                        <p>英語の基礎・文法・読解</p>
-                    </div>
-                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
-                </div>
-                <div class="sub-card" onclick="startQuiz('koukoujuken/math_questions.json')">
-                    <div class="sub-card-icon blue"><i class="bi bi-calculator-fill"></i></div>
-                    <div class="sub-card-body">
-                        <h5>数学</h5>
-                        <p>計算・関数・図形・確率</p>
-                    </div>
-                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
-                </div>
-                <div class="sub-card" onclick="startQuiz('koukoujuken/japanese_questions.json')">
-                    <div class="sub-card-icon green"><i class="bi bi-pencil-fill"></i></div>
-                    <div class="sub-card-body">
-                        <h5>国語</h5>
-                        <p>読解・文法・古典</p>
-                    </div>
-                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
-                </div>
-                <div class="sub-card" onclick="startQuiz('koukoujuken/science_questions.json')">
-                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#38b2ac,#2c7a7b);"><i class="bi bi-flask-fill"></i></div>
-                    <div class="sub-card-body">
-                        <h5>理科</h5>
-                        <p>物理・化学・生物・地学</p>
-                    </div>
-                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
-                </div>
-                <div class="sub-card" onclick="startQuiz('koukoujuken/history_questions.json')">
-                    <div class="sub-card-icon orange"><i class="bi bi-hourglass-split"></i></div>
-                    <div class="sub-card-body">
-                        <h5>歴史</h5>
-                        <p>日本史・世界史の重要事項</p>
+                        <h5>情報セキュリティ</h5>
+                        <p>準備中</p>
                     </div>
                     <i class="bi bi-chevron-right ms-auto text-muted"></i>
                 </div>
             </div>
         </div>
 
-        <!-- English Sub Screen -->
-        <div id="start-screen" class="quiz-card p-4 p-md-5 d-none">
+        <!-- FE Sub Screen -->
+        <div id="fe-screen" class="quiz-card p-4 p-md-5 d-none">
             <button class="back-btn" onclick="showCategoryScreen()">
                 <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
             </button>
             <div class="text-center mb-4">
-                <div class="category-card-icon english mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;">
-                    <i class="bi bi-book-fill"></i>
+                <div class="category-card-icon mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;background:linear-gradient(135deg,#48bb78,#276749);">
+                    <i class="bi bi-pc-display-horizontal"></i>
                 </div>
-                <h2 class="fw-bold start-screen-title mb-1">大学受験英語</h2>
+                <h2 class="fw-bold start-screen-title mb-1">基本情報技術者試験</h2>
                 <p class="text-muted small">挑戦する分野を選んでください</p>
             </div>
             <div class="d-grid gap-3 col-lg-8 mx-auto">
-                <div class="sub-card" onclick="startQuiz('english/eiyaku_questions.json')">
-                    <div class="sub-card-icon purple"><i class="bi bi-alphabet-uppercase"></i></div>
+                <div class="sub-card disabled" style="opacity:0.5; pointer-events:none;">
+                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#48bb78,#276749);"><i class="bi bi-pc-display-horizontal"></i></div>
                     <div class="sub-card-body">
-                        <h5>英訳</h5>
-                        <p>日本語を英語に訳す練習</p>
+                        <h5>科目A・科目B</h5>
+                        <p>準備中</p>
                     </div>
                     <i class="bi bi-chevron-right ms-auto text-muted"></i>
                 </div>
-                <div class="sub-card" onclick="startQuiz('english/wayaku_questions.json')">
-                    <div class="sub-card-icon orange"><i class="bi bi-translate"></i></div>
-                    <div class="sub-card-body">
-                        <h5>和訳</h5>
-                        <p>英語を日本語に訳す練習</p>
-                    </div>
-                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+            </div>
+        </div>
+
+        <!-- SC Sub Screen -->
+        <div id="sc-screen" class="quiz-card p-4 p-md-5 d-none">
+            <button class="back-btn" onclick="showCategoryScreen()">
+                <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
+            </button>
+            <div class="text-center mb-4">
+                <div class="category-card-icon mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;background:linear-gradient(135deg,#e53e3e,#9b2c2c);">
+                    <i class="bi bi-shield-fill-check"></i>
                 </div>
-                <div class="sub-card" onclick="startQuiz('english/tango_questions.json')">
-                    <div class="sub-card-icon green"><i class="bi bi-card-text"></i></div>
+                <h2 class="fw-bold start-screen-title mb-1">情報処理安全確保支援士</h2>
+                <p class="text-muted small">挑戦する分野を選んでください</p>
+            </div>
+            <div class="d-grid gap-3 col-lg-8 mx-auto">
+                <div class="sub-card disabled" style="opacity:0.5; pointer-events:none;">
+                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#e53e3e,#9b2c2c);"><i class="bi bi-shield-fill-check"></i></div>
                     <div class="sub-card-body">
-                        <h5>単語</h5>
-                        <p>重要英単語の意味を問う練習</p>
-                    </div>
-                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
-                </div>
-                <div class="sub-card" onclick="startQuiz('english/chobun_questions.json')">
-                    <div class="sub-card-icon blue"><i class="bi bi-file-text"></i></div>
-                    <div class="sub-card-body">
-                        <h5>長文</h5>
-                        <p>長文読解・内容把握の練習</p>
+                        <h5>午前・午後</h5>
+                        <p>準備中</p>
                     </div>
                     <i class="bi bi-chevron-right ms-auto text-muted"></i>
                 </div>
@@ -631,7 +603,8 @@
             <div class="card-header-custom d-flex justify-content-between align-items-center">
                 <div>
                     <span class="badge bg-light text-dark border">Q.<span id="question-number">1</span></span>
-                    <span class="ms-2 text-muted small" id="question-scope">Category</span>
+                    <span class="ms-1 text-muted small" id="question-scope">Category</span>
+                    <span class="ms-1 badge bg-secondary text-white" id="text-content" style="display:none;"></span>
                 </div>
                 <div class="text-end">
                     <span class="score-display">Score: <span id="current-score">0</span></span>
@@ -645,9 +618,6 @@
 
             <div class="p-4 p-md-5">
                 <h2 class="question-text" id="question-text">Loading question...</h2>
-                <div id="text-box" class="mb-4 p-3 rounded">
-                    <p id="text-content" class="mb-0"></p>
-                </div>
 
                 <div class="d-flex justify-content-end mb-3">
                     <button class="btn btn-sm btn-outline-info rounded-pill" onclick="toggleHint()">
@@ -730,16 +700,7 @@
         </div>
         <footer class="text-center">
             <div class="row justify-content-center mb-3">
-                <div class="col-auto">
-                    <h6 class="footer-category-title">大学受験対策</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">エイトレ</a></li>
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">レキトレ</a></li>
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">コミトレ</a></li>
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">チリトレ</a></li>
-                    </ul>
-                </div>
-                <div class="col-auto">
+<div class="col-auto">
                     <h6 class="footer-category-title">資格対策</h6>
                     <ul class="list-unstyled">
                         <li><a href="#" class="footer-link" onclick="showComingSoon(event)">ITパスポート</a>
@@ -777,8 +738,9 @@
         // DOM Elements
         const categoryScreen = document.getElementById('category-screen');
         const itpassportScreen = document.getElementById('itpassport-screen');
-        const koukoujukenScreen = document.getElementById('koukoujuken-screen');
-        const startScreen = document.getElementById('start-screen');
+        const sgScreen = document.getElementById('sg-screen');
+        const feScreen = document.getElementById('fe-screen');
+        const scScreen = document.getElementById('sc-screen');
         const quizScreen = document.getElementById('quiz-screen');
         const resultScreen = document.getElementById('result-screen');
 
@@ -787,7 +749,6 @@
         const currentScoreEl = document.getElementById('current-score');
         const progressBar = document.getElementById('progress-bar');
         const questionTextEl = document.getElementById('question-text');
-        const textBox = document.getElementById('text-box');
         const textContentEl = document.getElementById('text-content');
         const hintBox = document.getElementById('hint-box');
         const hintTextEl = document.getElementById('hint-text');
@@ -799,31 +760,36 @@
 
         function showSubScreen(category) {
             categoryScreen.classList.add('d-none');
-            if (category === 'english') {
-                startScreen.classList.remove('d-none');
-                startScreen.classList.add('fade-in');
-            } else if (category === 'itpassport') {
+            if (category === 'itpassport') {
                 itpassportScreen.classList.remove('d-none');
                 itpassportScreen.classList.add('fade-in');
-            } else if (category === 'koukoujuken') {
-                koukoujukenScreen.classList.remove('d-none');
-                koukoujukenScreen.classList.add('fade-in');
+            } else if (category === 'sg') {
+                sgScreen.classList.remove('d-none');
+                sgScreen.classList.add('fade-in');
+            } else if (category === 'fe') {
+                feScreen.classList.remove('d-none');
+                feScreen.classList.add('fade-in');
+            } else if (category === 'sc') {
+                scScreen.classList.remove('d-none');
+                scScreen.classList.add('fade-in');
             }
         }
 
         function showCategoryScreen() {
-            startScreen.classList.add('d-none');
             itpassportScreen.classList.add('d-none');
-            koukoujukenScreen.classList.add('d-none');
+            sgScreen.classList.add('d-none');
+            feScreen.classList.add('d-none');
+            scScreen.classList.add('d-none');
             categoryScreen.classList.remove('d-none');
             categoryScreen.classList.add('fade-in');
         }
 
         async function startQuiz(filename) {
             categoryScreen.classList.add('d-none');
-            startScreen.classList.add('d-none');
             itpassportScreen.classList.add('d-none');
-            koukoujukenScreen.classList.add('d-none');
+            sgScreen.classList.add('d-none');
+            feScreen.classList.add('d-none');
+            scScreen.classList.add('d-none');
             quizScreen.classList.remove('d-none');
             quizScreen.classList.add('fade-in');
 
@@ -867,12 +833,12 @@
             questionScopeEl.textContent = question.scope;
             questionTextEl.textContent = question.question;
 
-            // Update Text Box if text exists
+            // テキストフィールドがあればバッジに表示
             if (question.text) {
                 textContentEl.textContent = question.text;
-                textBox.style.display = 'block';
+                textContentEl.style.display = '';
             } else {
-                textBox.style.display = 'none';
+                textContentEl.style.display = 'none';
             }
 
             hintTextEl.textContent = question.hint;
