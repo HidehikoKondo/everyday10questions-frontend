@@ -436,6 +436,7 @@
                 <h1 class="display-5 fw-bold start-screen-title mb-2">毎日10問トレーニング</h1>
                 <p class="text-muted">試験を選択してください</p>
             </div> -->
+
             <div class="d-flex flex-column gap-5">
                 <!-- 資格取得対策 -->
                 <div>
@@ -626,7 +627,7 @@
                 </div>
                 <div id="hint-box" class="hint-box mb-4">
                     <i class="bi bi-info-circle me-2"></i><span id="hint-text"></span>
-                    <div class="ad">
+                    <div class="ad" id="ad-hint">
                         広告スペース
                         <script type="text/javascript">
                             var adstir_vars = {
@@ -684,7 +685,7 @@
                 </button> -->
             </div>
 
-            <div class="ad">
+            <div class="ad" id="ad-result">
                 広告スペース
                 <script type="text/javascript">
                     var adstir_vars = {
@@ -725,6 +726,23 @@
             <hr class="footer-divider">
             <small>&copy; UDONKONET</small>
         </footer>
+    </div>
+
+    <!-- デイリーミッションクリアモーダル -->
+    <div class="modal fade" id="missionClearModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-body py-5">
+                    <div class="mb-3" style="font-size:3.5rem;">🎉</div>
+                    <h4 class="fw-bold mb-2">デイリーミッションクリア！</h4>
+                    <p class="text-muted mb-1">10問全問正解おめでとうございます！</p>
+                    <p class="text-muted mb-4">本日の広告が非表示になりました。<br>また明日もチャレンジしよう！</p>
+                    <button type="button" class="btn btn-primary-custom text-white px-5" data-bs-dismiss="modal">
+                        閉じる
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 利用規約モーダル -->
@@ -1035,6 +1053,68 @@
             }
         }
 
+        // --- デイリーミッション ---
+
+        const MISSION_KEY = 'dailyMissionCleared';
+
+        // 今日の日付文字列を返す（YYYY-MM-DD）
+        function getTodayStr() {
+            return new Date().toLocaleDateString('sv-SE');
+        }
+
+        // ミッションクリア済みかどうかを判定
+        function isMissionCleared() {
+            return localStorage.getItem(MISSION_KEY) === getTodayStr();
+        }
+
+        // 広告を非表示にする
+        function hideAds() {
+            document.querySelectorAll('.ad').forEach(el => el.style.display = 'none');
+        }
+
+        // 広告を表示する
+        function showAds() {
+            document.querySelectorAll('.ad').forEach(el => el.style.display = '');
+        }
+
+        // ナビゲーションのミッション状態を更新
+        function updateMissionBadge() {
+            const icon = document.getElementById('mission-icon');
+            const label = document.getElementById('mission-label');
+            if (isMissionCleared()) {
+                icon.classList.remove('mission-icon-inactive');
+                icon.style.color = '#48bb78';
+                label.textContent = 'ミッションクリア';
+                label.classList.remove('text-muted');
+                label.style.color = '#48bb78';
+            } else {
+                icon.classList.add('mission-icon-inactive');
+                icon.style.color = '';
+                label.textContent = 'ミッション';
+                label.classList.add('text-muted');
+                label.style.color = '';
+            }
+        }
+
+        // ミッションをクリアして保存
+        function clearMission() {
+            localStorage.setItem(MISSION_KEY, getTodayStr());
+            hideAds();
+            updateMissionBadge();
+            const modal = new bootstrap.Modal(document.getElementById('missionClearModal'));
+            modal.show();
+        }
+
+        // 起動時の初期化
+        (function initDailyMission() {
+            if (isMissionCleared()) {
+                hideAds();
+            }
+            updateMissionBadge();
+        })();
+
+        // --- ここまでデイリーミッション ---
+
         function showResult() {
             quizScreen.classList.add('d-none');
             resultScreen.classList.remove('d-none');
@@ -1051,6 +1131,10 @@
             const messageEl = document.getElementById('result-message');
             if (score === 10) {
                 messageEl.textContent = "Perfect!! 素晴らしい！";
+                // デイリーミッション未クリアの場合はクリア処理
+                if (!isMissionCleared()) {
+                    clearMission();
+                }
             } else if (score >= 8) {
                 messageEl.textContent = "Excellent! とても良い成績です！";
             } else if (score >= 6) {
