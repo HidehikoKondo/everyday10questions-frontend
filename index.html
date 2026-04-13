@@ -1085,6 +1085,7 @@
 
         function nextQuestion() {
             currentQuestionIndex++;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             if (currentQuestionIndex < questions.length) {
                 showQuestion();
             } else {
