@@ -457,7 +457,7 @@
                         style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #667eea; padding-left:0.75rem;">
                         情報処理技術者試験</h2>
                     <div class="row g-3">
-                        <div class="col-6 col-md-4">
+                        <div class="col-12 col-md-4">
                             <div class="category-card" onclick="showSubScreen('itpassport')">
                                 <div class="category-card-icon">
                                     <i class="bi bi-cpu-fill"></i>
@@ -467,7 +467,7 @@
                                 <span class="category-card-badge">3カテゴリ</span>
                             </div>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-12 col-md-4">
                             <div class="category-card" onclick="showSubScreen('sg')">
                                 <div class="category-card-icon"
                                     style="background: linear-gradient(135deg, #4299e1, #2b6cb0);">
@@ -478,7 +478,7 @@
                                 <span class="category-card-badge" style="background:#ebf8ff; color:#2b6cb0;">準備中</span>
                             </div>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-12 col-md-4">
                             <div class="category-card" onclick="showSubScreen('fe')">
                                 <div class="category-card-icon"
                                     style="background: linear-gradient(135deg, #48bb78, #276749);">
@@ -489,7 +489,7 @@
                                 <span class="category-card-badge" style="background:#f0fff4; color:#276749;">準備中</span>
                             </div>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-12 col-md-4">
                             <div class="category-card" onclick="showSubScreen('sc')">
                                 <div class="category-card-icon"
                                     style="background: linear-gradient(135deg, #e53e3e, #9b2c2c);">
@@ -1050,6 +1050,11 @@
             // Show Feedback
             feedbackSection.style.display = 'block';
             feedbackExplanation.textContent = question.explanation;
+
+            // スマホで次へボタンが見えるようにフィードバック欄までスクロール
+            setTimeout(() => {
+                feedbackSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
 
             if (isCorrect) {
                 score++;
