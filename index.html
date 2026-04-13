@@ -432,14 +432,14 @@
     <div class="main-container">
         <!-- Category Screen (TOP) -->
         <div id="category-screen" class="quiz-card p-4 p-md-5">
-            <div class="text-center mb-5">
+            <!-- <div class="text-center mb-5">
                 <h1 class="display-5 fw-bold start-screen-title mb-2">毎日10問トレーニング</h1>
                 <p class="text-muted">試験を選択してください</p>
-            </div>
+            </div> -->
             <div class="d-flex flex-column gap-5">
                 <!-- 資格取得対策 -->
                 <div>
-                    <h2 class="fw-bold mb-3" style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #667eea; padding-left:0.75rem;">資格試験</h2>
+                    <h2 class="fw-bold mb-3" style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #667eea; padding-left:0.75rem;">情報処理技術者試験</h2>
                     <div class="row g-3">
                         <div class="col-6 col-md-4">
                             <div class="category-card" onclick="showSubScreen('itpassport')">
@@ -666,7 +666,7 @@
 
         <!-- Result Screen -->
         <div id="result-screen" class="quiz-card p-5 text-center d-none">
-            <h2 class="fw-bold mb-4">Quiz Completed!</h2>
+            <h2 class="fw-bold mb-4">結果発表</h2>
 
             <div class="score-circle" id="final-score-circle">
                 <span class="score-text"><span id="final-score">0</span>/10</span>
@@ -703,27 +703,148 @@
 <div class="col-auto">
                     <h6 class="footer-category-title">資格対策</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">ITパスポート</a>
-                        </li>
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">FP3級</a></li>
+                        <li><a href="#" class="footer-link" onclick="footerNav(event, 'itpassport')">ITパスポート</a></li>
+                        <li><a href="#" class="footer-link" onclick="footerNav(event, 'sg')">情報セキュリティマネジメント</a></li>
+                        <li><a href="#" class="footer-link" onclick="footerNav(event, 'fe')">基本情報技術者試験</a></li>
+                        <li><a href="#" class="footer-link" onclick="footerNav(event, 'sc')">情報処理安全確保支援士</a></li>
                     </ul>
                 </div>
                 <div class="col-auto">
-                    <h6 class="footer-category-title">毎日10問トレーニングについて</h6>
+                    <h6 class="footer-category-title">当アプリについて</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">毎日10問トレーニングとは</a></li>
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">デイリーミッション</a>
+                        <li><a href="#" class="footer-link" onclick="showAbout(event)">毎日10問トレーニングとは</a></li>
+                        <li><a href="#" class="footer-link" onclick="showDailyMission(event)">デイリーミッション</a>
                         </li>
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">運営</a></li>
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">プライバシーポリシー</a>
+                        <li><a href="https://www.udonko.net" class="footer-link" target="_blank" rel="noopener noreferrer">運営</a></li>
+                        <li><a href="#" class="footer-link" onclick="showPrivacyPolicy(event)">プライバシーポリシー</a>
                         </li>
-                        <li><a href="#" class="footer-link" onclick="showComingSoon(event)">利用規約</a></li>
+                        <li><a href="#" class="footer-link" onclick="showTerms(event)">利用規約</a></li>
                     </ul>
                 </div>
             </div>
             <hr class="footer-divider">
             <small>&copy; UDONKONET</small>
         </footer>
+    </div>
+
+    <!-- 利用規約モーダル -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">利用規約</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted small">毎日10問トレーニング（以下「当アプリ」）をご利用いただく前に、以下の利用規約をお読みください。当アプリを利用した時点で、本規約に同意したものとみなします。</p>
+
+                    <h6 class="fw-bold">1. サービスの内容</h6>
+                    <p>当アプリは、各種IT系資格試験の予想問題を無料で提供する学習支援サービスです。問題はAIが過去の出題傾向を分析して作成しており、試験合格を保証するものではありません。</p>
+
+                    <h6 class="fw-bold">2. 禁止事項</h6>
+                    <p>以下の行為を禁止します。</p>
+                    <ul>
+                        <li>当アプリのコンテンツ（問題文・解説等）の無断転載・複製・販売</li>
+                        <li>当アプリの運営を妨害する行為</li>
+                        <li>その他、法令または公序良俗に違反する行為</li>
+                    </ul>
+
+                    <h6 class="fw-bold">3. 免責事項</h6>
+                    <p>当アプリで提供する問題・解説はAIによる予想問題であり、内容の正確性・完全性を保証するものではありません。当アプリの利用により生じた損害について、運営は一切の責任を負いません。</p>
+                    <p>当アプリの利用によってユーザーが被った不利益・損害・損失に対して、開発者およびその関係者は一切の対応・補償を行いません。</p>
+
+                    <h6 class="fw-bold">4. 広告について</h6>
+                    <p>当アプリは第三者の広告サービスを利用しており、広告が表示されます。広告内容については運営が関与するものではありません。</p>
+
+                    <h6 class="fw-bold">5. サービスの変更・停止</h6>
+                    <p>運営は予告なくサービスの内容変更・停止・終了を行う場合があります。これによりユーザーに損害が生じた場合も、運営は責任を負いません。</p>
+
+                    <h6 class="fw-bold">6. 規約の変更</h6>
+                    <p>本規約は予告なく変更する場合があります。変更後はページ上に掲載した時点で効力を生じます。</p>
+
+                    <h6 class="fw-bold">7. お問い合わせ</h6>
+                    <p class="mb-0">本規約に関するお問い合わせは運営サイトよりご連絡ください。<br>
+                    運営サイト：<a href="https://www.udonko.net" target="_blank" rel="noopener noreferrer">https://www.udonko.net</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary-custom text-white" data-bs-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- プライバシーポリシーモーダル -->
+    <div class="modal fade" id="privacyPolicyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">プライバシーポリシー</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="fw-bold">1. 収集する情報について</h6>
+                    <p>当アプリ自体はユーザーの個人情報を収集・取得しません。スコアや学習履歴などのデータはブラウザのローカルストレージに保存され、運営サーバーには送信されません。</p>
+
+                    <h6 class="fw-bold">2. アクセス解析（Google Analytics）について</h6>
+                    <p>当アプリはGoogle Analyticsを使用してアクセス状況を解析しています。Google AnalyticsはCookieを使用してデータを収集します。収集されたデータはGoogleのプライバシーポリシーに基づき管理されます。ユーザーはGoogleアナリティクスのオプトアウト機能で収集を無効化できます。</p>
+
+                    <h6 class="fw-bold">3. 広告について</h6>
+                    <p>当アプリは第三者の広告サービス（アドネットワーク）を利用しています。広告配信のため、Cookieや広告識別子等のデータが広告事業者に送信される場合があります。広告事業者のデータ取り扱いは各社のプライバシーポリシーに従います。</p>
+
+                    <h6 class="fw-bold">4. Cookieについて</h6>
+                    <p>Google AnalyticsおよびアドネットワークがCookieを使用します。ブラウザの設定からCookieを無効化できますが、一部機能に影響が出る場合があります。</p>
+
+                    <h6 class="fw-bold">5. プライバシーポリシーの変更について</h6>
+                    <p>本ポリシーは予告なく変更する場合があります。変更後はページ上に掲載した時点で効力を生じます。</p>
+
+                    <h6 class="fw-bold">6. お問い合わせ</h6>
+                    <p class="mb-0">プライバシーに関するお問い合わせは運営サイトよりご連絡ください。<br>
+                    運営サイト：<a href="https://www.udonko.net" target="_blank" rel="noopener noreferrer">https://www.udonko.net</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary-custom text-white" data-bs-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- デイリーミッションモーダル -->
+    <div class="modal fade" id="dailyMissionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">デイリーミッション</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>10問全問正解出来たらデイリーミッションのクリア報酬として、広告が非表示になります。</p>
+                    <p class="mb-0">日付が変わったら広告は再度表示されますので、デイリーミッションクリアを目指しましょう。</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary-custom text-white" data-bs-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 毎日10問トレーニングとはモーダル -->
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">毎日10問トレーニングとは</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>各種資格試験の予想問題を毎日10問出題します。</p>
+                    <p>AIが過去の傾向を分析してよく出題される問題を予想して作成しています。</p>
+                    <p class="mb-0">毎日日付が変わったら新しい問題に更新されますので、試験対策のトレーニングとして毎日取り組みましょう。</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary-custom text-white" data-bs-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
@@ -942,6 +1063,38 @@
         function showMissionInfo() {
             const modal = new bootstrap.Modal(document.getElementById('missionInfoModal'));
             modal.show();
+        }
+
+        // フッターのリンクからカテゴリサブ画面に遷移
+        function footerNav(event, category) {
+            event.preventDefault();
+            showCategoryScreen();
+            showSubScreen(category);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showTerms(event) {
+            event.preventDefault();
+            const termsModal = new bootstrap.Modal(document.getElementById('termsModal'));
+            termsModal.show();
+        }
+
+        function showPrivacyPolicy(event) {
+            event.preventDefault();
+            const privacyPolicyModal = new bootstrap.Modal(document.getElementById('privacyPolicyModal'));
+            privacyPolicyModal.show();
+        }
+
+        function showDailyMission(event) {
+            event.preventDefault();
+            const dailyMissionModal = new bootstrap.Modal(document.getElementById('dailyMissionModal'));
+            dailyMissionModal.show();
+        }
+
+        function showAbout(event) {
+            event.preventDefault();
+            const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'));
+            aboutModal.show();
         }
 
         function showComingSoon(event) {
