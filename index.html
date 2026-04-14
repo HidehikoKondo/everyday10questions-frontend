@@ -443,6 +443,9 @@
                     <i id="mission-icon" class="bi bi-check-circle-fill mission-icon-inactive"></i>
                 </div>
             </div>
+            <button class="btn btn-link ms-2 p-1" onclick="showSettings()" style="color:#4a5568;" aria-label="設定">
+                <i class="bi bi-list fs-4"></i>
+            </button>
         </div>
     </nav>
 
@@ -1240,6 +1243,98 @@
             const comingSoonModal = new bootstrap.Modal(document.getElementById('comingSoonModal'));
             comingSoonModal.show();
         }
+
+        // --- 設定・PWAインストール ---
+
+        let deferredInstallPrompt = null;
+
+        // Android Chrome: インストールプロンプトを事前に保持
+        window.addEventListener('beforeinstallprompt', event => {
+            event.preventDefault();
+            deferredInstallPrompt = event;
+        });
+
+        // iOSのSafariかどうかを判定
+        function isIosSafari() {
+            const ua = navigator.userAgent;
+            return /iP(hone|ad|od)/.test(ua) && /WebKit/.test(ua) && !/CriOS|FxiOS|OPiOS/.test(ua);
+        }
+
+        // インストール済みかどうかを判定
+        function isPwaInstalled() {
+            return window.matchMedia('(display-mode: standalone)').matches
+                || navigator.standalone === true;
+        }
+
+        // 設定モーダルを開くときにPWAインストールボタンの状態を更新
+        function showSettings() {
+            const installBtn = document.getElementById('pwa-install-btn');
+            const installedLabel = document.getElementById('pwa-installed-label');
+            const iosHint = document.getElementById('pwa-ios-hint');
+
+            const unavailableLabel = document.getElementById('pwa-unavailable-label');
+
+            // すべて非表示にリセット
+            installBtn.classList.add('d-none');
+            installedLabel.classList.add('d-none');
+            iosHint.classList.add('d-none');
+            unavailableLabel.classList.add('d-none');
+
+            if (isPwaInstalled()) {
+                // インストール済み
+                installedLabel.classList.remove('d-none');
+            } else if (deferredInstallPrompt) {
+                // Android Chrome / PC Edge: インストール可能
+                installBtn.classList.remove('d-none');
+            } else if (isIosSafari()) {
+                // iOS Safari: 手動手順を案内
+                iosHint.classList.remove('d-none');
+            } else {
+                // ブラウザがbeforeinstallpromptを発火しない場合
+                unavailableLabel.classList.remove('d-none');
+            }
+
+            // おじさん設定のラジオボタンを復元
+            const ojisanValue = getOjisanSetting();
+            document.querySelector(`input[name="ojisan"][value="${ojisanValue}"]`).checked = true;
+
+            const modal = new bootstrap.Modal(document.getElementById('settingsModal'));
+            modal.show();
+        }
+
+        // Android: インストールダイアログを表示
+        function triggerPwaInstall() {
+            if (!deferredInstallPrompt) return;
+            deferredInstallPrompt.prompt();
+            deferredInstallPrompt.userChoice.then(() => {
+                deferredInstallPrompt = null;
+                // 設定モーダルのボタン表示を更新
+                showSettings();
+            });
+        }
+
+        // iOS: 手順モーダルを表示
+        function showIosInstallGuide() {
+            bootstrap.Modal.getInstance(document.getElementById('settingsModal')).hide();
+            const modal = new bootstrap.Modal(document.getElementById('iosInstallModal'));
+            modal.show();
+        }
+
+        // --- おじさん表示設定 ---
+
+        const OJISAN_KEY = 'ojisanVisible';
+
+        // 設定を保存
+        function saveOjisanSetting(value) {
+            localStorage.setItem(OJISAN_KEY, value);
+        }
+
+        // 設定値を取得（デフォルト: on）
+        function getOjisanSetting() {
+            return localStorage.getItem(OJISAN_KEY) || 'on';
+        }
+
+        // --- ここまで設定・PWAインストール ---
     </script>
 
     <!-- Mission Info Modal -->
@@ -1285,6 +1380,86 @@
                     </p>
                     <button type="button" class="btn btn-primary-custom text-white mt-4 px-5"
                         data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 設定モーダル -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-gear-fill me-2"></i>設定</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <!-- ホーム画面に追加 -->
+                    <div class="p-3 border-bottom">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <div class="fw-bold small">ホーム画面に追加</div>
+                                <div class="text-muted" style="font-size:0.8rem;">アプリのように起動できます</div>
+                            </div>
+                            <button id="pwa-install-btn" class="btn btn-sm btn-primary-custom text-white d-none"
+                                onclick="triggerPwaInstall()">
+                                追加する
+                            </button>
+                            <span id="pwa-installed-label" class="text-success small d-none">
+                                <i class="bi bi-check-circle-fill me-1"></i>追加済み
+                            </span>
+                            <span id="pwa-ios-hint" class="d-none">
+                                <button class="btn btn-sm btn-outline-secondary" onclick="showIosInstallGuide()">
+                                    手順を見る
+                                </button>
+                            </span>
+                            <span id="pwa-unavailable-label" class="text-muted small d-none">
+                                ブラウザのアドレスバーから追加できます
+                            </span>
+                        </div>
+                    </div>
+                    <!-- おじさん表示設定 -->
+                    <div class="p-3 border-bottom">
+                        <div class="fw-bold small mb-2">おじさんを表示する</div>
+                        <div class="d-flex gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ojisan" id="ojisan-on" value="on"
+                                    onchange="saveOjisanSetting(this.value)">
+                                <label class="form-check-label small" for="ojisan-on">表示する</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="ojisan" id="ojisan-off" value="off"
+                                    onchange="saveOjisanSetting(this.value)">
+                                <label class="form-check-label small" for="ojisan-off">表示しない</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 今後の設定項目はここに追加 -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- iOSインストール手順モーダル -->
+    <div class="modal fade" id="iosInstallModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">ホーム画面への追加手順</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ol class="ps-3" style="line-height:2rem;">
+                        <li>Safariの画面下部の <i class="bi bi-box-arrow-up"></i>（共有）ボタンをタップ</li>
+                        <li>「ホーム画面に追加」を選択</li>
+                        <li>右上の「追加」をタップ</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary-custom text-white" data-bs-dismiss="modal">閉じる</button>
                 </div>
             </div>
         </div>
