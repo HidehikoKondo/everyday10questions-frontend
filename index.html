@@ -13,6 +13,10 @@
         rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <link rel="apple-touch-icon" href="icons/icon-192.svg">
 
     <style>
         :root {
@@ -899,6 +903,16 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Service Worker登録 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/everyday10questions-frontend/sw.js')
+                    .catch(err => console.error('Service Worker登録失敗:', err));
+            });
+        }
+    </script>
 
     <script>
         const BASE_URL = "https://hidehikokondo.github.io/everyday10questions-frontend/questions/";
