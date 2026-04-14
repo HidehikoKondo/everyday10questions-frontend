@@ -1251,9 +1251,10 @@
             deferredInstallPrompt = event;
         });
 
-        // Androidかどうかを判定
-        function isAndroid() {
-            return /Android/.test(navigator.userAgent);
+        // Android Chromeかどうかを判定
+        function isAndroidChrome() {
+            const ua = navigator.userAgent;
+            return /Android/.test(ua) && /Chrome/.test(ua) && !/EdgA|OPR|SamsungBrowser/.test(ua);
         }
 
         // iOSのSafariかどうかを判定
@@ -1275,8 +1276,8 @@
             const installedLabel = document.getElementById('pwa-installed-label');
             const unavailableLabel = document.getElementById('pwa-unavailable-label');
 
-            // Androidのみインストールセクションを表示
-            if (isAndroid()) {
+            // Android Chromeのみインストールセクションを表示
+            if (isAndroidChrome()) {
                 installSection.classList.remove('d-none');
 
                 // ボタン類をすべて非表示にリセット
