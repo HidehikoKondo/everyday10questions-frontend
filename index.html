@@ -17,417 +17,8 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#667eea">
     <link rel="apple-touch-icon" href="icons/icon-192.svg">
-
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --glass-bg: rgba(255, 255, 255, 0.95);
-            --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-        }
-
-        .ad {
-            margin: 0px;
-            padding: 5px;
-            width: 100%;
-            text-align: center;
-        }
-
-        body {
-            font-family: 'Poppins', 'Noto Sans JP', sans-serif;
-            background: var(--primary-gradient);
-            min-height: 100vh;
-            padding-top: 50px;
-            color: #2d3748;
-        }
-
-        .main-container {
-            width: 100%;
-            max-width: 800px;
-            padding: 20px;
-            margin: 0 auto;
-        }
-
-        .quiz-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(4px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .card-header-custom {
-            background: rgba(255, 255, 255, 0.5);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 20px 30px;
-        }
-
-        .progress {
-            height: 10px;
-            border-radius: 10px;
-            background-color: #e2e8f0;
-            margin-top: 10px;
-        }
-
-        .progress-bar {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            transition: width 0.5s ease;
-        }
-
-        .question-text {
-            font-size: 1.25rem;
-            font-weight: 600;
-            line-height: 1.6;
-            color: #1a202c;
-            margin-bottom: 1.5rem;
-        }
-
-        .choice-btn {
-            width: 100%;
-            text-align: left;
-            padding: 16px 24px;
-            margin-bottom: 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            background: white;
-            color: #4a5568;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .choice-btn:hover:not(:disabled) {
-            border-color: #667eea;
-            background: #f7fafc;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .choice-btn.selected {
-            border-color: #667eea;
-            background-color: #ebf4ff;
-            color: #5a67d8;
-        }
-
-        .choice-btn.correct {
-            border-color: #48bb78;
-            background-color: #f0fff4;
-            color: #2f855a;
-        }
-
-        .choice-btn.incorrect {
-            border-color: #f56565;
-            background-color: #fff5f5;
-            color: #c53030;
-        }
-
-        .feedback-section {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 20px;
-            border-left: 5px solid #667eea;
-            display: none;
-            animation: slideDown 0.3s ease-out;
-        }
-
-        .feedback-section.correct {
-            border-left-color: #48bb78;
-            background-color: #f0fff4;
-        }
-
-        .feedback-section.incorrect {
-            border-left-color: #f56565;
-            background-color: #fff5f5;
-        }
-
-        .hint-box {
-            font-size: 0.9rem;
-            color: #718096;
-            background: #edf2f7;
-            padding: 12px;
-            border-radius: 12px;
-            margin-top: 10px;
-            display: none;
-        }
-
-        .btn-primary-custom {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            padding: 12px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.6);
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .score-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: conic-gradient(#667eea var(--score-percent), #e2e8f0 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            position: relative;
-        }
-
-        .score-circle::before {
-            content: "";
-            position: absolute;
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background: white;
-        }
-
-        .score-text {
-            position: relative;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #4a5568;
-        }
-
-        footer {
-            background-color: #2d3748;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-
-        footer small {
-            color: #cbd5e0;
-        }
-
-        .footer-category-title {
-            color: #cbd5e0;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .footer-link {
-            color: #cbd5e0;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .footer-divider {
-            border-color: #4a5568;
-        }
-
-        .navbar-brand {
-            color: #4a5568 !important;
-        }
-
-        .start-screen-title {
-            color: #4a5568;
-        }
-
-        .score-display {
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .mission-icon-container {
-            cursor: pointer;
-            padding: 5px 12px;
-            border-radius: 50px;
-            background: rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .mission-icon-container:hover {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .mission-text {
-            font-size: 0.9rem;
-            color: #4a5568;
-            font-weight: 500;
-        }
-
-        .mission-icon-inactive {
-            color: #cbd5e0 !important;
-        }
-
-        /* Category Card Styles */
-        .category-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            cursor: pointer;
-            border: 2px solid #e2e8f0;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .category-card:hover {
-            border-color: #667eea;
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(102, 126, 234, 0.25);
-        }
-
-        .category-card-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2.2rem;
-            color: white;
-        }
-
-        .category-card-icon.english {
-            background: linear-gradient(135deg, #48bb78, #276749);
-        }
-
-        .category-card h3 {
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 0.75rem;
-            font-size: 1.3rem;
-        }
-
-        .category-card p {
-            color: #718096;
-            font-size: 0.88rem;
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
-        }
-
-        .category-card-badge {
-            display: inline-block;
-            background: #ebf4ff;
-            color: #5a67d8;
-            padding: 5px 14px;
-            border-radius: 50px;
-            font-size: 0.78rem;
-            font-weight: 600;
-        }
-
-        .category-card-badge.green {
-            background: #f0fff4;
-            color: #276749;
-        }
-
-        .sub-card {
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem 1.75rem;
-            cursor: pointer;
-            border: 2px solid #e2e8f0;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-align: left;
-        }
-
-        .sub-card:hover {
-            border-color: #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
-        }
-
-        .sub-card-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .sub-card-icon.purple {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-        }
-
-        .sub-card-icon.green {
-            background: linear-gradient(135deg, #48bb78, #276749);
-        }
-
-        .sub-card-icon.blue {
-            background: linear-gradient(135deg, #4299e1, #2b6cb0);
-        }
-
-        .sub-card-icon.orange {
-            background: linear-gradient(135deg, #ed8936, #c05621);
-        }
-
-        .sub-card-body h5 {
-            font-weight: 700;
-            color: #2d3748;
-            margin: 0 0 0.2rem;
-            font-size: 1rem;
-        }
-
-        .sub-card-body p {
-            font-size: 0.82rem;
-            color: #718096;
-            margin: 0;
-        }
-
-        .back-btn {
-            background: none;
-            border: none;
-            color: #718096;
-            font-size: 0.9rem;
-            cursor: pointer;
-            padding: 0 0 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: color 0.2s;
-        }
-
-        .back-btn:hover {
-            color: #4a5568;
-        }
-    </style>
+    <!-- アプリスタイル -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -447,15 +38,14 @@
     </nav>
 
     <div class="main-container">
-        <!-- Category Screen (TOP) -->
+        <!-- カテゴリ選択画面 (TOP) -->
         <div id="category-screen" class="quiz-card p-4 p-md-5">
             <div class="text-center mb-5">
                 <h1 class="display-5 fw-bold start-screen-title mb-2">毎日10問トレーニング</h1>
-                <!-- <p class="text-muted">試験を選択してください</p> -->
             </div>
 
             <div class="d-flex flex-column gap-5">
-                <!-- 資格取得対策 -->
+                <!-- 情報処理技術者試験 -->
                 <div>
                     <h2 class="fw-bold mb-3"
                         style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #667eea; padding-left:0.75rem;">
@@ -479,7 +69,8 @@
                                 </div>
                                 <h3>情報セキュリティマネジメント</h3>
                                 <p>情報セキュリティの管理・運用を問う国家試験。セキュリティの基礎から実践まで対策。</p>
-                                <span class="category-card-badge" style="background:#ebf8ff; color:#2b6cb0;">準備中</span>
+                                <span class="category-card-badge"
+                                    style="background:#ebf8ff; color:#2b6cb0;">1カテゴリ</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-4">
@@ -509,7 +100,7 @@
             </div>
         </div>
 
-        <!-- IT Passport Sub Screen -->
+        <!-- ITパスポート サブ画面 -->
         <div id="itpassport-screen" class="quiz-card p-4 p-md-5 d-none">
             <button class="back-btn" onclick="showCategoryScreen()">
                 <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
@@ -549,7 +140,7 @@
             </div>
         </div>
 
-        <!-- SG Sub Screen -->
+        <!-- 情報セキュリティマネジメント サブ画面 -->
         <div id="sg-screen" class="quiz-card p-4 p-md-5 d-none">
             <button class="back-btn" onclick="showCategoryScreen()">
                 <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
@@ -563,19 +154,18 @@
                 <p class="text-muted small">挑戦する分野を選んでください</p>
             </div>
             <div class="d-grid gap-3 col-lg-8 mx-auto">
-                <div class="sub-card disabled" style="opacity:0.5; pointer-events:none;">
-                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#4299e1,#2b6cb0);"><i
-                            class="bi bi-shield-lock-fill"></i></div>
+                <div class="sub-card" onclick="startQuiz('sg/sg_questions.json')">
+                    <div class="sub-card-icon blue"><i class="bi bi-shield-lock-fill"></i></div>
                     <div class="sub-card-body">
                         <h5>情報セキュリティ</h5>
-                        <p>準備中</p>
+                        <p>セキュリティ管理・暗号・法規・ネットワークセキュリティ</p>
                     </div>
                     <i class="bi bi-chevron-right ms-auto text-muted"></i>
                 </div>
             </div>
         </div>
 
-        <!-- FE Sub Screen -->
+        <!-- 基本情報技術者試験 サブ画面 -->
         <div id="fe-screen" class="quiz-card p-4 p-md-5 d-none">
             <button class="back-btn" onclick="showCategoryScreen()">
                 <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
@@ -601,7 +191,7 @@
             </div>
         </div>
 
-        <!-- SC Sub Screen -->
+        <!-- 情報処理安全確保支援士 サブ画面 -->
         <div id="sc-screen" class="quiz-card p-4 p-md-5 d-none">
             <button class="back-btn" onclick="showCategoryScreen()">
                 <i class="bi bi-arrow-left"></i> カテゴリ選択に戻る
@@ -627,7 +217,7 @@
             </div>
         </div>
 
-        <!-- Quiz Screen -->
+        <!-- クイズ画面 -->
         <div id="quiz-screen" class="quiz-card d-none">
             <div class="card-header-custom d-flex justify-content-between align-items-center">
                 <div>
@@ -671,10 +261,10 @@
                 </div>
 
                 <div id="choices-container" class="d-grid gap-2">
-                    <!-- Choices will be inserted here -->
+                    <!-- 選択肢はJSで挿入 -->
                 </div>
 
-                <!-- Feedback Section -->
+                <!-- フィードバックセクション -->
                 <div id="feedback-section" class="feedback-section">
                     <div class="d-flex align-items-start">
                         <div class="me-3">
@@ -694,7 +284,7 @@
             </div>
         </div>
 
-        <!-- Result Screen -->
+        <!-- 結果画面 -->
         <div id="result-screen" class="quiz-card p-5 text-center d-none">
             <h2 class="fw-bold mb-4">結果発表</h2>
 
@@ -709,9 +299,6 @@
                 <button class="btn btn-outline-secondary rounded-pill px-4" onclick="location.reload()">
                     <i class="bi bi-arrow-repeat me-2"></i>もう一度挑戦
                 </button>
-                <!-- <button class="btn btn-primary-custom text-white" onclick="shareResult()">
-                    <i class="bi bi-share-fill me-2"></i>結果をシェア
-                </button> -->
             </div>
 
             <div class="ad" id="ad-result">
@@ -901,447 +488,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Service Worker登録 -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/everyday10questions-frontend/sw.js')
-                    .catch(err => console.error('Service Worker登録失敗:', err));
-            });
-        }
-    </script>
-
-    <script>
-        const BASE_URL = "https://hidehikokondo.github.io/everyday10questions-frontend/questions/";
-        let questions = [];
-        let currentQuestionIndex = 0;
-        let score = 0;
-
-        // DOM Elements
-        const categoryScreen = document.getElementById('category-screen');
-        const itpassportScreen = document.getElementById('itpassport-screen');
-        const sgScreen = document.getElementById('sg-screen');
-        const feScreen = document.getElementById('fe-screen');
-        const scScreen = document.getElementById('sc-screen');
-        const quizScreen = document.getElementById('quiz-screen');
-        const resultScreen = document.getElementById('result-screen');
-
-        const questionNumberEl = document.getElementById('question-number');
-        const questionScopeEl = document.getElementById('question-scope');
-        const currentScoreEl = document.getElementById('current-score');
-        const progressBar = document.getElementById('progress-bar');
-        const questionTextEl = document.getElementById('question-text');
-        const textContentEl = document.getElementById('text-content');
-        const hintBox = document.getElementById('hint-box');
-        const hintTextEl = document.getElementById('hint-text');
-        const choicesContainer = document.getElementById('choices-container');
-        const feedbackSection = document.getElementById('feedback-section');
-        const feedbackTitle = document.getElementById('feedback-title');
-        const feedbackExplanation = document.getElementById('feedback-explanation');
-        const feedbackIcon = document.getElementById('feedback-icon');
-
-        function showSubScreen(category) {
-            categoryScreen.classList.add('d-none');
-            if (category === 'itpassport') {
-                itpassportScreen.classList.remove('d-none');
-                itpassportScreen.classList.add('fade-in');
-            } else if (category === 'sg') {
-                sgScreen.classList.remove('d-none');
-                sgScreen.classList.add('fade-in');
-            } else if (category === 'fe') {
-                feScreen.classList.remove('d-none');
-                feScreen.classList.add('fade-in');
-            } else if (category === 'sc') {
-                scScreen.classList.remove('d-none');
-                scScreen.classList.add('fade-in');
-            }
-        }
-
-        function showCategoryScreen() {
-            itpassportScreen.classList.add('d-none');
-            sgScreen.classList.add('d-none');
-            feScreen.classList.add('d-none');
-            scScreen.classList.add('d-none');
-            quizScreen.classList.add('d-none');
-            resultScreen.classList.add('d-none');
-            categoryScreen.classList.remove('d-none');
-            categoryScreen.classList.add('fade-in');
-        }
-
-        async function startQuiz(filename) {
-            categoryScreen.classList.add('d-none');
-            itpassportScreen.classList.add('d-none');
-            sgScreen.classList.add('d-none');
-            feScreen.classList.add('d-none');
-            scScreen.classList.add('d-none');
-            quizScreen.classList.remove('d-none');
-            quizScreen.classList.add('fade-in');
-
-            // Show loading state
-            questionTextEl.innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div> Loading questions...';
-            choicesContainer.innerHTML = '';
-
-            try {
-                const response = await fetch(BASE_URL + filename);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                questions = data.questions;
-
-                currentQuestionIndex = 0;
-                score = 0;
-                updateScore();
-                showQuestion();
-            } catch (error) {
-                console.error('Error fetching quiz data:', error);
-                questionTextEl.innerHTML = `<div class="alert alert-danger">
-                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                    Failed to load questions. Please check your connection and try again.
-                    <br>
-                    <button class="btn btn-outline-danger btn-sm mt-3" onclick="location.reload()">Reload Page</button>
-                </div>`;
-            }
-        }
-
-        function showQuestion() {
-            const question = questions[currentQuestionIndex];
-
-            // Reset UI
-            feedbackSection.style.display = 'none';
-            hintBox.style.display = 'none';
-            choicesContainer.innerHTML = '';
-
-            // Update Info
-            questionNumberEl.textContent = currentQuestionIndex + 1;
-            questionScopeEl.textContent = question.scope;
-            questionTextEl.textContent = question.question;
-
-            // テキストフィールドがあればバッジに表示
-            if (question.text) {
-                textContentEl.textContent = question.text;
-                textContentEl.style.display = '';
-            } else {
-                textContentEl.style.display = 'none';
-            }
-
-            hintTextEl.textContent = question.hint;
-
-            // Update Progress
-            const progress = ((currentQuestionIndex) / questions.length) * 100;
-            progressBar.style.width = `${progress}%`;
-
-            // Create Choices
-            const choices = ['choice1', 'choice2', 'choice3', 'choice4'];
-            choices.forEach((choiceKey, index) => {
-                const btn = document.createElement('button');
-                btn.className = 'choice-btn';
-                btn.innerHTML = `<span class="badge bg-light text-dark border me-2">${index + 1}</span> ${question[choiceKey]}`;
-                btn.onclick = () => checkAnswer(choiceKey, btn);
-                choicesContainer.appendChild(btn);
-            });
-        }
-
-        function toggleHint() {
-            if (hintBox.style.display === 'none' || hintBox.style.display === '') {
-                hintBox.style.display = 'block';
-            } else {
-                hintBox.style.display = 'none';
-            }
-        }
-
-        function checkAnswer(selectedChoice, btnElement) {
-            // Disable all buttons
-            const buttons = choicesContainer.querySelectorAll('.choice-btn');
-            buttons.forEach(btn => btn.disabled = true);
-
-            const question = questions[currentQuestionIndex];
-            const isCorrect = selectedChoice === question.answer;
-
-            // Show Feedback
-            feedbackSection.style.display = 'block';
-            feedbackExplanation.textContent = question.explanation;
-
-            // スマホで次へボタンが見えるようにフィードバック欄までスクロール
-            setTimeout(() => {
-                feedbackSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 100);
-
-            if (isCorrect) {
-                score++;
-                updateScore();
-                btnElement.classList.add('correct');
-                feedbackSection.classList.remove('incorrect');
-                feedbackSection.classList.add('correct');
-                feedbackTitle.textContent = "正解！ Excellent!";
-                feedbackTitle.style.color = "#2f855a";
-                feedbackIcon.className = "bi bi-check-circle-fill fs-3 text-success";
-            } else {
-                btnElement.classList.add('incorrect');
-                // Highlight correct answer
-                const correctBtnIndex = parseInt(question.answer.replace('choice', '')) - 1;
-                buttons[correctBtnIndex].classList.add('correct');
-
-                feedbackSection.classList.remove('correct');
-                feedbackSection.classList.add('incorrect');
-                feedbackTitle.textContent = "残念... Incorrect";
-                feedbackTitle.style.color = "#c53030";
-                feedbackIcon.className = "bi bi-x-circle-fill fs-3 text-danger";
-            }
-        }
-
-        function updateScore() {
-            currentScoreEl.textContent = score;
-        }
-
-        function nextQuestion() {
-            currentQuestionIndex++;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            if (currentQuestionIndex < questions.length) {
-                showQuestion();
-            } else {
-                showResult();
-            }
-        }
-
-        // --- デイリーミッション ---
-
-        const MISSION_KEY = 'dailyMissionCleared';
-
-        // 今日の日付文字列を返す（YYYY-MM-DD）
-        function getTodayStr() {
-            return new Date().toLocaleDateString('sv-SE');
-        }
-
-        // ミッションクリア済みかどうかを判定
-        function isMissionCleared() {
-            return localStorage.getItem(MISSION_KEY) === getTodayStr();
-        }
-
-        // 広告を非表示にする
-        function hideAds() {
-            document.querySelectorAll('.ad').forEach(el => el.style.display = 'none');
-        }
-
-        // 広告を表示する
-        function showAds() {
-            document.querySelectorAll('.ad').forEach(el => el.style.display = '');
-        }
-
-        // ナビゲーションのミッション状態を更新
-        function updateMissionBadge() {
-            const icon = document.getElementById('mission-icon');
-            const label = document.getElementById('mission-label');
-            if (isMissionCleared()) {
-                icon.classList.remove('mission-icon-inactive');
-                icon.style.color = '#48bb78';
-                label.textContent = 'ミッションクリア';
-                label.classList.remove('text-muted');
-                label.style.color = '#48bb78';
-            } else {
-                icon.classList.add('mission-icon-inactive');
-                icon.style.color = '';
-                label.textContent = 'デイリーミッション';
-                label.classList.add('text-muted');
-                label.style.color = '';
-            }
-        }
-
-        // ミッションをクリアして保存
-        function clearMission() {
-            localStorage.setItem(MISSION_KEY, getTodayStr());
-            hideAds();
-            updateMissionBadge();
-            const modal = new bootstrap.Modal(document.getElementById('missionClearModal'));
-            modal.show();
-        }
-
-        // 起動時の初期化
-        (function initDailyMission() {
-            if (isMissionCleared()) {
-                hideAds();
-            }
-            updateMissionBadge();
-        })();
-
-        // --- ここまでデイリーミッション ---
-
-        function showResult() {
-            quizScreen.classList.add('d-none');
-            resultScreen.classList.remove('d-none');
-            resultScreen.classList.add('fade-in');
-
-            const finalScoreEl = document.getElementById('final-score');
-            finalScoreEl.textContent = score;
-
-            // Update Score Circle
-            const percentage = (score / questions.length) * 100;
-            document.getElementById('final-score-circle').style.setProperty('--score-percent', `${percentage}%`);
-
-            // Message
-            const messageEl = document.getElementById('result-message');
-            if (score === 10) {
-                messageEl.textContent = "Perfect!! 素晴らしい！";
-                // デイリーミッション未クリアの場合はクリア処理
-                if (!isMissionCleared()) {
-                    clearMission();
-                }
-            } else if (score >= 8) {
-                messageEl.textContent = "Excellent! とても良い成績です！";
-            } else if (score >= 6) {
-                messageEl.textContent = "Good Job! あと少しで満点です！";
-            } else {
-                messageEl.textContent = "Keep Trying! 復習してまた挑戦しましょう！";
-            }
-        }
-
-        function showMissionInfo() {
-            const modal = new bootstrap.Modal(document.getElementById('missionInfoModal'));
-            modal.show();
-        }
-
-        // フッターのリンクからカテゴリサブ画面に遷移
-        function footerNav(event, category) {
-            event.preventDefault();
-            showCategoryScreen();
-            showSubScreen(category);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function showTerms(event) {
-            event.preventDefault();
-            const termsModal = new bootstrap.Modal(document.getElementById('termsModal'));
-            termsModal.show();
-        }
-
-        function showPrivacyPolicy(event) {
-            event.preventDefault();
-            const privacyPolicyModal = new bootstrap.Modal(document.getElementById('privacyPolicyModal'));
-            privacyPolicyModal.show();
-        }
-
-        function showDailyMission(event) {
-            event.preventDefault();
-            const dailyMissionModal = new bootstrap.Modal(document.getElementById('dailyMissionModal'));
-            dailyMissionModal.show();
-        }
-
-        function showAbout(event) {
-            event.preventDefault();
-            const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'));
-            aboutModal.show();
-        }
-
-        function showComingSoon(event) {
-            event.preventDefault();
-            const comingSoonModal = new bootstrap.Modal(document.getElementById('comingSoonModal'));
-            comingSoonModal.show();
-        }
-
-        // --- 設定・PWAインストール ---
-
-        let deferredInstallPrompt = null;
-
-        // Android Chrome: インストールプロンプトを事前に保持
-        window.addEventListener('beforeinstallprompt', event => {
-            event.preventDefault();
-            deferredInstallPrompt = event;
-        });
-
-        // Android Chromeかどうかを判定
-        function isAndroidChrome() {
-            const ua = navigator.userAgent;
-            return /Android/.test(ua) && /Chrome/.test(ua) && !/EdgA|OPR|SamsungBrowser/.test(ua);
-        }
-
-        // iOSのSafariかどうかを判定
-        function isIosSafari() {
-            const ua = navigator.userAgent;
-            return /iP(hone|ad|od)/.test(ua) && /WebKit/.test(ua) && !/CriOS|FxiOS|OPiOS/.test(ua);
-        }
-
-        // インストール済みかどうかを判定
-        function isPwaInstalled() {
-            return window.matchMedia('(display-mode: standalone)').matches
-                || navigator.standalone === true;
-        }
-
-        // 設定モーダルを開くときにPWAインストールボタンの状態を更新
-        function showSettings() {
-            const installSection = document.getElementById('pwa-install-section');
-            const installBtn = document.getElementById('pwa-install-btn');
-            const installedLabel = document.getElementById('pwa-installed-label');
-            const unavailableLabel = document.getElementById('pwa-unavailable-label');
-
-            // Android Chromeのみインストールセクションを表示
-            if (isAndroidChrome()) {
-                installSection.classList.remove('d-none');
-
-                // ボタン類をすべて非表示にリセット
-                installBtn.classList.add('d-none');
-                installedLabel.classList.add('d-none');
-                unavailableLabel.classList.add('d-none');
-
-                if (isPwaInstalled()) {
-                    installedLabel.classList.remove('d-none');
-                } else if (deferredInstallPrompt) {
-                    installBtn.classList.remove('d-none');
-                } else {
-                    unavailableLabel.classList.remove('d-none');
-                }
-            } else {
-                installSection.classList.add('d-none');
-            }
-
-            // おじさん設定のラジオボタンを復元
-            const ojisanValue = getOjisanSetting();
-            document.querySelector(`input[name="ojisan"][value="${ojisanValue}"]`).checked = true;
-
-            const modal = new bootstrap.Modal(document.getElementById('settingsModal'));
-            modal.show();
-        }
-
-        // Android: インストールダイアログを表示
-        function triggerPwaInstall() {
-            if (!deferredInstallPrompt) return;
-            deferredInstallPrompt.prompt();
-            deferredInstallPrompt.userChoice.then(() => {
-                deferredInstallPrompt = null;
-                // モーダルを再オープンせず、ボタン表示だけ更新する
-                document.getElementById('pwa-install-btn').classList.add('d-none');
-                document.getElementById('pwa-unavailable-label').classList.add('d-none');
-                document.getElementById('pwa-installed-label').classList.remove('d-none');
-            });
-        }
-
-        // iOS: 手順モーダルを表示
-        function showIosInstallGuide() {
-            bootstrap.Modal.getInstance(document.getElementById('settingsModal')).hide();
-            const modal = new bootstrap.Modal(document.getElementById('iosInstallModal'));
-            modal.show();
-        }
-
-        // --- おじさん表示設定 ---
-
-        const OJISAN_KEY = 'ojisanVisible';
-
-        // 設定を保存
-        function saveOjisanSetting(value) {
-            localStorage.setItem(OJISAN_KEY, value);
-        }
-
-        // 設定値を取得（デフォルト: on）
-        function getOjisanSetting() {
-            return localStorage.getItem(OJISAN_KEY) || 'on';
-        }
-
-        // --- ここまで設定・PWAインストール ---
-    </script>
-
-    <!-- Mission Info Modal -->
+    <!-- デイリーミッション詳細モーダル -->
     <div class="modal fade" id="missionInfoModal" tabindex="-1" aria-labelledby="missionInfoModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -1365,7 +512,7 @@
         </div>
     </div>
 
-    <!-- Coming Soon Modal -->
+    <!-- Coming Soonモーダル -->
     <div class="modal fade" id="comingSoonModal" tabindex="-1" aria-labelledby="comingSoonModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -1398,7 +545,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
-                    <!-- ホーム画面に追加（Androidのみ表示） -->
+                    <!-- ホーム画面に追加（Android Chromeのみ表示） -->
                     <div id="pwa-install-section" class="p-3 border-bottom d-none">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
@@ -1412,7 +559,6 @@
                             <span id="pwa-installed-label" class="text-success small d-none">
                                 <i class="bi bi-check-circle-fill me-1"></i>追加済み
                             </span>
-
                             <span id="pwa-unavailable-label" class="text-muted small d-none">
                                 ブラウザのアドレスバーから追加できます
                             </span>
@@ -1443,7 +589,7 @@
         </div>
     </div>
 
-    <!-- iOSインストール手順モーダル -->
+    <!-- iOSインストール手順モーダル（将来のiOS対応用に残存） -->
     <div class="modal fade" id="iosInstallModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -1465,4 +611,10 @@
         </div>
     </div>
 
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- アプリスクリプト -->
+    <script src="script.js"></script>
 </body>
+
+</html>
