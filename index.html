@@ -1251,6 +1251,11 @@
             deferredInstallPrompt = event;
         });
 
+        // Androidかどうかを判定
+        function isAndroid() {
+            return /Android/.test(navigator.userAgent);
+        }
+
         // iOSのSafariかどうかを判定
         function isIosSafari() {
             const ua = navigator.userAgent;
@@ -1265,30 +1270,29 @@
 
         // 設定モーダルを開くときにPWAインストールボタンの状態を更新
         function showSettings() {
+            const installSection = document.getElementById('pwa-install-section');
             const installBtn = document.getElementById('pwa-install-btn');
             const installedLabel = document.getElementById('pwa-installed-label');
-            const iosHint = document.getElementById('pwa-ios-hint');
-
             const unavailableLabel = document.getElementById('pwa-unavailable-label');
 
-            // すべて非表示にリセット
-            installBtn.classList.add('d-none');
-            installedLabel.classList.add('d-none');
-            iosHint.classList.add('d-none');
-            unavailableLabel.classList.add('d-none');
+            // Androidのみインストールセクションを表示
+            if (isAndroid()) {
+                installSection.classList.remove('d-none');
 
-            if (isPwaInstalled()) {
-                // インストール済み
-                installedLabel.classList.remove('d-none');
-            } else if (deferredInstallPrompt) {
-                // Android Chrome / PC Edge: インストール可能
-                installBtn.classList.remove('d-none');
-            } else if (isIosSafari()) {
-                // iOS Safari: 手動手順を案内
-                iosHint.classList.remove('d-none');
+                // ボタン類をすべて非表示にリセット
+                installBtn.classList.add('d-none');
+                installedLabel.classList.add('d-none');
+                unavailableLabel.classList.add('d-none');
+
+                if (isPwaInstalled()) {
+                    installedLabel.classList.remove('d-none');
+                } else if (deferredInstallPrompt) {
+                    installBtn.classList.remove('d-none');
+                } else {
+                    unavailableLabel.classList.remove('d-none');
+                }
             } else {
-                // ブラウザがbeforeinstallpromptを発火しない場合
-                unavailableLabel.classList.remove('d-none');
+                installSection.classList.add('d-none');
             }
 
             // おじさん設定のラジオボタンを復元
@@ -1305,8 +1309,10 @@
             deferredInstallPrompt.prompt();
             deferredInstallPrompt.userChoice.then(() => {
                 deferredInstallPrompt = null;
-                // 設定モーダルのボタン表示を更新
-                showSettings();
+                // モーダルを再オープンせず、ボタン表示だけ更新する
+                document.getElementById('pwa-install-btn').classList.add('d-none');
+                document.getElementById('pwa-unavailable-label').classList.add('d-none');
+                document.getElementById('pwa-installed-label').classList.remove('d-none');
             });
         }
 
@@ -1391,8 +1397,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
-                    <!-- ホーム画面に追加 -->
-                    <div class="p-3 border-bottom">
+                    <!-- ホーム画面に追加（Androidのみ表示） -->
+                    <div id="pwa-install-section" class="p-3 border-bottom d-none">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
                                 <div class="fw-bold small">ホーム画面に追加</div>
@@ -1405,11 +1411,7 @@
                             <span id="pwa-installed-label" class="text-success small d-none">
                                 <i class="bi bi-check-circle-fill me-1"></i>追加済み
                             </span>
-                            <span id="pwa-ios-hint" class="d-none">
-                                <button class="btn btn-sm btn-outline-secondary" onclick="showIosInstallGuide()">
-                                    手順を見る
-                                </button>
-                            </span>
+
                             <span id="pwa-unavailable-label" class="text-muted small d-none">
                                 ブラウザのアドレスバーから追加できます
                             </span>
