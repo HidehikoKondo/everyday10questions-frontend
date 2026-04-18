@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>毎日10問</title>
+    <title>毎日10問トレーニング | IT資格試験の無料問題演習アプリ</title>
+    <meta name="description"
+        content="ITパスポート・情報セキュリティマネジメントなどIT資格試験の予想問題を毎日10問出題。AIが作成した解説・ヒント付きの無料練習問題アプリ。登録不要でスマホからすぐ使えます。">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -42,14 +44,18 @@
         <div id="category-screen" class="quiz-card p-4 p-md-5">
             <div class="text-center mb-5">
                 <h1 class="display-5 fw-bold start-screen-title mb-2">毎日10問トレーニング</h1>
+                <button class="btn btn-primary-custom text-white mt-3 px-5 py-3 fs-6"
+                    onclick="document.getElementById('exam-section').scrollIntoView({behavior:'smooth'})">
+                    いますぐ始める！ <i class="bi bi-arrow-down ms-1"></i>
+                </button>
             </div>
 
             <div class="d-flex flex-column gap-5">
                 <!-- 情報処理技術者試験 -->
-                <div>
+                <div id="exam-section">
                     <h2 class="fw-bold mb-3"
                         style="font-size:1.1rem; color:#4a5568; letter-spacing:0.05em; border-left:4px solid #667eea; padding-left:0.75rem;">
-                        情報処理技術者試験</h2>
+                        情報処理技術者試験予想問題</h2>
                     <div class="row g-3">
                         <div class="col-12 col-md-4">
                             <div class="category-card" onclick="showSubScreen('itpassport')">
@@ -98,6 +104,108 @@
                     </div>
                 </div>
             </div>
+
+            <!-- LP: アプリの特徴 -->
+            <section class="lp-section mt-5" aria-label="アプリの特徴">
+                <h2 class="lp-section-title text-center">毎日10問トレーニングの特徴</h2>
+                <p class="text-center text-muted small mb-4">IT資格試験合格を目指す方のための、無料・登録不要の問題演習アプリです</p>
+                <div class="row g-3">
+                    <div class="col-12 col-md-4">
+                        <div class="lp-feature-card">
+                            <div class="lp-feature-icon"><i class="bi bi-arrow-repeat"></i></div>
+                            <h3>AIが毎日問題を更新</h3>
+                            <p>最新の出題傾向を分析したAI作成の予想問題を毎日更新。常に新鮮な問題で試験対策できます。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="lp-feature-card">
+                            <div class="lp-feature-icon"><i class="bi bi-lightbulb-fill"></i></div>
+                            <h3>ヒント＆解説付き</h3>
+                            <p>全問題にヒントと詳しい解説を掲載。間違えた問題もすぐに理解でき、知識の定着が加速します。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="lp-feature-card">
+                            <div class="lp-feature-icon"><i class="bi bi-phone-fill"></i></div>
+                            <h3>完全無料・スマホ対応</h3>
+                            <p>登録不要・完全無料。PWA対応でホーム画面に追加するとアプリのように快適に使えます。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LP: こんな方におすすめ -->
+            <section class="lp-section" aria-label="おすすめ対象">
+                <h2 class="lp-section-title text-center">こんな方におすすめ</h2>
+                <div class="row g-2 mt-2">
+                    <div class="col-12 col-md-6">
+                        <div class="lp-recommend-item">
+                            <i class="bi bi-check-circle-fill me-2" style="color:#667eea;flex-shrink:0;"></i>
+                            ITパスポート・情報セキュリティマネジメント試験を受験予定の方
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="lp-recommend-item">
+                            <i class="bi bi-check-circle-fill me-2" style="color:#667eea;flex-shrink:0;"></i>
+                            通勤・通学のスキマ時間に効率よく学習したい方
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="lp-recommend-item">
+                            <i class="bi bi-check-circle-fill me-2" style="color:#667eea;flex-shrink:0;"></i>
+                            IT業界への転職・就職を目指す学生・社会人
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="lp-recommend-item">
+                            <i class="bi bi-check-circle-fill me-2" style="color:#667eea;flex-shrink:0;"></i>
+                            毎日の学習習慣を楽しく継続したい方
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LP: 使い方 -->
+            <section class="lp-section" aria-label="使い方">
+                <h2 class="lp-section-title text-center">使い方はかんたん3ステップ</h2>
+                <div class="row g-3 mt-1 text-center">
+                    <div class="col-12 col-md-4">
+                        <div class="lp-step-number">1</div>
+                        <h3 class="lp-step-title">試験・カテゴリを選ぶ</h3>
+                        <p class="text-muted small">受験する試験と出題カテゴリを選択します。</p>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="lp-step-number">2</div>
+                        <h3 class="lp-step-title">10問に挑戦する</h3>
+                        <p class="text-muted small">本番形式の予想問題10問に答えましょう。</p>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="lp-step-number">3</div>
+                        <h3 class="lp-step-title">解説で理解を深める</h3>
+                        <p class="text-muted small">各問題の解説を読んで知識を定着させます。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LP: デイリーミッション -->
+            <section class="lp-section" aria-label="デイリーミッション">
+                <div class="lp-mission-section">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <i class="bi bi-trophy-fill lp-mission-icon"></i>
+                        <h2 class="lp-section-title mb-0">デイリーミッションで広告非表示</h2>
+                    </div>
+                    <p>10問全問正解でデイリーミッションクリア！達成した日は広告が非表示になります。毎日挑戦して合格をつかみましょう。</p>
+                </div>
+            </section>
+
+            <!-- LP: CTA -->
+            <div class="text-center lp-section pb-2">
+                <button class="btn btn-primary-custom text-white px-5 py-3 fs-6"
+                    onclick="document.getElementById('exam-section').scrollIntoView({behavior:'smooth'})">
+                    いますぐ始める！ <i class="bi bi-arrow-up ms-1"></i>
+                </button>
+            </div>
+
         </div>
 
         <!-- ITパスポート サブ画面 -->
@@ -564,9 +672,25 @@
                             </span>
                         </div>
                     </div>
+                    <!-- 効果音設定 -->
+                    <div class="p-3 border-bottom">
+                        <div class="fw-bold small mb-2">効果音の再生</div>
+                        <div class="d-flex gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sound" id="sound-on" value="on"
+                                    onchange="saveSoundSetting(this.value)">
+                                <label class="form-check-label small" for="sound-on">オン</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sound" id="sound-off" value="off"
+                                    onchange="saveSoundSetting(this.value)">
+                                <label class="form-check-label small" for="sound-off">オフ</label>
+                            </div>
+                        </div>
+                    </div>
                     <!-- おじさん表示設定 -->
                     <div class="p-3 border-bottom">
-                        <div class="fw-bold small mb-2">おじさんを表示する</div>
+                        <div class="fw-bold small mb-2">おじさんの表示</div>
                         <div class="d-flex gap-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="ojisan" id="ojisan-on" value="on"

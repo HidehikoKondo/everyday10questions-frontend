@@ -349,6 +349,10 @@ function showSettings() {
         installSection.classList.add('d-none');
     }
 
+    // 効果音設定のラジオボタンを復元
+    const soundValue = getSoundSetting();
+    document.querySelector(`input[name="sound"][value="${soundValue}"]`).checked = true;
+
     // おじさん設定のラジオボタンを復元
     const ojisanValue = getOjisanSetting();
     document.querySelector(`input[name="ojisan"][value="${ojisanValue}"]`).checked = true;
@@ -372,6 +376,18 @@ function triggerPwaInstall() {
 function showIosInstallGuide() {
     bootstrap.Modal.getInstance(document.getElementById('settingsModal')).hide();
     showModal('iosInstallModal');
+}
+
+// --- 効果音設定 ---
+
+const SOUND_KEY = 'soundEnabled';
+
+function saveSoundSetting(value) {
+    localStorage.setItem(SOUND_KEY, value);
+}
+
+function getSoundSetting() {
+    return localStorage.getItem(SOUND_KEY) || 'on';
 }
 
 // --- おじさん表示設定 ---
