@@ -244,6 +244,7 @@ function clearMission() {
     hideAds();
     updateMissionBadge();
     showModal('missionClearModal');
+    showCutin();
 }
 
 // 起動時の初期化
@@ -410,20 +411,32 @@ const cutinInner = document.getElementById('cutin-inner');
 const cutin1 = document.getElementById('cutin1');
 const cutin2 = document.getElementById('cutin2');
 
-// 1フレーム待ってからスライドイン開始（CSSトランジションを確実に発火させる）
-requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-        cutinInner.classList.add('centered');
-    });
-});
+function showCutin() {
+    if (getOjisanSetting() !== 'on') return;
 
-// cutin1.gif再生後にcutin2.pngへ切り替え、タップを有効化
-setTimeout(() => {
-    cutin1.style.display = 'none';
-    cutin2.style.visibility = 'visible';
-    cutinContainer.style.pointerEvents = 'auto';
-    cutinContainer.style.cursor = 'pointer';
-}, 1200);
+    // 状態をリセット
+    cutinInner.classList.remove('centered');
+    cutin1.style.display = '';
+    cutin2.style.visibility = 'hidden';
+    cutinContainer.style.pointerEvents = 'none';
+    cutinContainer.style.cursor = 'default';
+    cutinContainer.style.display = 'flex';
+
+    // 1フレーム待ってからスライドイン開始
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            cutinInner.classList.add('centered');
+        });
+    });
+
+    // cutin1.gif再生後にcutin2.pngへ切り替え、タップを有効化
+    setTimeout(() => {
+        cutin1.style.display = 'none';
+        cutin2.style.visibility = 'visible';
+        cutinContainer.style.pointerEvents = 'auto';
+        cutinContainer.style.cursor = 'pointer';
+    }, 1200);
+}
 
 // クリックでカットインを非表示
 cutinContainer.addEventListener('click', () => {

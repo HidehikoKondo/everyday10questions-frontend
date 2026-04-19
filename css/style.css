@@ -524,7 +524,7 @@ footer small {
     z-index: 9999;
     cursor: default;
     pointer-events: none;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
