@@ -515,3 +515,42 @@ footer small {
     font-size: 2rem;
     color: #fcd34d;
 }
+
+/* カットインアニメーション */
+#cutin-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    cursor: default;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cutin-inner {
+    width: 100%;
+    position: relative;
+    transform: translateX(100vw);
+    transition: transform 0.2s ease-out;
+}
+
+#cutin-inner.centered {
+    transform: translateX(0);
+}
+
+#cutin-container #cutin1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+#cutin-container #cutin2 {
+    display: block;
+    width: 100%;
+    height: auto;
+    visibility: hidden;
+}

@@ -403,3 +403,29 @@ function saveOjisanSetting(value) {
 function getOjisanSetting() {
     return localStorage.getItem(OJISAN_KEY) || 'on';
 }
+
+// カットイン演出
+const cutinContainer = document.getElementById('cutin-container');
+const cutinInner = document.getElementById('cutin-inner');
+const cutin1 = document.getElementById('cutin1');
+const cutin2 = document.getElementById('cutin2');
+
+// 1フレーム待ってからスライドイン開始（CSSトランジションを確実に発火させる）
+requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+        cutinInner.classList.add('centered');
+    });
+});
+
+// cutin1.gif再生後にcutin2.pngへ切り替え、タップを有効化
+setTimeout(() => {
+    cutin1.style.display = 'none';
+    cutin2.style.visibility = 'visible';
+    cutinContainer.style.pointerEvents = 'auto';
+    cutinContainer.style.cursor = 'pointer';
+}, 1200);
+
+// クリックでカットインを非表示
+cutinContainer.addEventListener('click', () => {
+    cutinContainer.style.display = 'none';
+});
