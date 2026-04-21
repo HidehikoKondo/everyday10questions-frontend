@@ -10,6 +10,7 @@ const BASE_URL = "https://hidehikokondo.github.io/everyday10questions-frontend/q
 let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
+let incorrectGenres = [];
 
 // DOM要素
 const questionNumberEl = document.getElementById('question-number');
@@ -66,6 +67,7 @@ async function startQuiz(filename) {
         questions = data.questions;
         currentQuestionIndex = 0;
         score = 0;
+        incorrectGenres = [];
         updateScore();
         showQuestion();
     } catch (error) {
@@ -157,6 +159,8 @@ function checkAnswer(selectedChoice, btnElement) {
         feedbackTitle.textContent = "残念... Incorrect";
         feedbackTitle.style.color = "#c53030";
         feedbackIcon.className = "bi bi-x-circle-fill fs-3 text-danger";
+        // 間違えたジャンルを記録
+        if (question.text) incorrectGenres.push(question.text);
     }
 }
 
@@ -192,6 +196,25 @@ function showResult() {
         messageEl.textContent = "Good Job! あと少しで満点です！";
     } else {
         messageEl.textContent = "Keep Trying! 復習してまた挑戦しましょう！";
+    }
+
+    // 苦手ジャンルの表示
+    const weakGenresEl = document.getElementById('weak-genres');
+    const uniqueGenres = [...new Set(incorrectGenres)];
+    if (uniqueGenres.length > 0) {
+        const badgeHtml = uniqueGenres.map(g => `<span class="badge bg-danger-subtle text-danger-emphasis border border-danger-subtle me-1 mb-1">${g}</span>`).join('');
+        weakGenresEl.innerHTML = `
+            <div class="alert alert-warning text-start mt-4 mb-0">
+                <p class="fw-bold mb-2"><i class="bi bi-exclamation-triangle-fill me-1"></i>ここを克服しよう！</p>
+                <div class="mb-2">${badgeHtml}</div>
+                <p class="small mb-0 text-muted">これらのジャンルを中心に復習して、次回はパーフェクトを目指しましょう！</p>
+            </div>
+            <div class="mt-3">
+                <p class="fw-bold mb-2"><i class="bi bi-book-fill me-1"></i>あなたにおすすめの書籍</p>
+            </div>`;
+        weakGenresEl.classList.remove('d-none');
+    } else {
+        weakGenresEl.classList.add('d-none');
     }
 }
 
