@@ -6,7 +6,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-const BASE_URL = "https://hidehikokondo.github.io/everyday10questions-frontend/questions/";
+const BASE_URL = "https://mainichi10.page/questions/";
 let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
