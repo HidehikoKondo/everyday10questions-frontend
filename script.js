@@ -328,58 +328,10 @@ function footerNav(event, category) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- 設定・PWAインストール ---
+// --- 設定 ---
 
-let deferredInstallPrompt = null;
-
-// Android Chrome: インストールプロンプトを事前に保持
-window.addEventListener('beforeinstallprompt', event => {
-    event.preventDefault();
-    deferredInstallPrompt = event;
-});
-
-// Android Chromeかどうかを判定
-function isAndroidChrome() {
-    const ua = navigator.userAgent;
-    return /Android/.test(ua) && /Chrome/.test(ua) && !/EdgA|OPR|SamsungBrowser/.test(ua);
-}
-
-// iOSのSafariかどうかを判定（将来のiOS対応用に残存）
-function isIosSafari() {
-    const ua = navigator.userAgent;
-    return /iP(hone|ad|od)/.test(ua) && /WebKit/.test(ua) && !/CriOS|FxiOS|OPiOS/.test(ua);
-}
-
-// インストール済みかどうかを判定
-function isPwaInstalled() {
-    return window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-}
-
-// 設定モーダルを開くときにPWAインストールボタンの状態を更新
+// 設定モーダルを開く
 function showSettings() {
-    const installSection = document.getElementById('pwa-install-section');
-    const installBtn = document.getElementById('pwa-install-btn');
-    const installedLabel = document.getElementById('pwa-installed-label');
-    const unavailableLabel = document.getElementById('pwa-unavailable-label');
-
-    // Android Chromeのみインストールセクションを表示
-    if (isAndroidChrome()) {
-        installSection.classList.remove('d-none');
-        installBtn.classList.add('d-none');
-        installedLabel.classList.add('d-none');
-        unavailableLabel.classList.add('d-none');
-
-        if (isPwaInstalled()) {
-            installedLabel.classList.remove('d-none');
-        } else if (deferredInstallPrompt) {
-            installBtn.classList.remove('d-none');
-        } else {
-            unavailableLabel.classList.remove('d-none');
-        }
-    } else {
-        installSection.classList.add('d-none');
-    }
-
     // 効果音設定のラジオボタンを復元
     const soundValue = getSoundSetting();
     document.querySelector(`input[name="sound"][value="${soundValue}"]`).checked = true;
@@ -389,24 +341,6 @@ function showSettings() {
     document.querySelector(`input[name="ojisan"][value="${ojisanValue}"]`).checked = true;
 
     showModal('settingsModal');
-}
-
-// Android: インストールダイアログを表示
-function triggerPwaInstall() {
-    if (!deferredInstallPrompt) return;
-    deferredInstallPrompt.prompt();
-    deferredInstallPrompt.userChoice.then(() => {
-        deferredInstallPrompt = null;
-        document.getElementById('pwa-install-btn').classList.add('d-none');
-        document.getElementById('pwa-unavailable-label').classList.add('d-none');
-        document.getElementById('pwa-installed-label').classList.remove('d-none');
-    });
-}
-
-// iOS: 手順モーダルを表示（将来のiOS対応用に残存）
-function showIosInstallGuide() {
-    bootstrap.Modal.getInstance(document.getElementById('settingsModal')).hide();
-    showModal('iosInstallModal');
 }
 
 // --- 効果音設定 ---
