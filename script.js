@@ -1,7 +1,7 @@
 // Service Worker登録
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/everyday10questions-frontend/sw.js')
+        navigator.serviceWorker.register('/sw.js')
             .catch(err => console.error('Service Worker登録失敗:', err));
     });
 }
