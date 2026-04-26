@@ -369,40 +369,22 @@ function getOjisanSetting() {
     return localStorage.getItem(OJISAN_KEY) || 'on';
 }
 
-// カットイン演出
-const cutinContainer = document.getElementById('cutin-container');
-const cutinInner = document.getElementById('cutin-inner');
-const cutin1 = document.getElementById('cutin1');
-const cutin2 = document.getElementById('cutin2');
-
+// ミッションクリアモーダル内のおじさん演出
 function showCutin() {
-    if (getOjisanSetting() !== 'on') return;
+    const wrap = document.getElementById('modal-ojisan-wrap');
+    const img = document.getElementById('modal-ojisan');
 
-    // 状態をリセット
-    cutinInner.classList.remove('centered');
-    cutin1.style.display = '';
-    cutin2.style.visibility = 'hidden';
-    cutinContainer.style.pointerEvents = 'none';
-    cutinContainer.style.cursor = 'default';
-    cutinContainer.style.display = 'flex';
+    if (getOjisanSetting() !== 'on') {
+        wrap.style.display = 'none';
+        return;
+    }
 
-    // 1フレーム待ってからスライドイン開始
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            cutinInner.classList.add('centered');
-        });
-    });
+    wrap.style.display = '';
+    // タイムスタンプを付与してgifを先頭から再生
+    img.src = 'images/cutin1.gif?' + Date.now();
 
-    // cutin1.gif再生後にcutin2.pngへ切り替え、タップを有効化
+    // gif再生後にcutin2.pngへ切り替え
     setTimeout(() => {
-        cutin1.style.display = 'none';
-        cutin2.style.visibility = 'visible';
-        cutinContainer.style.pointerEvents = 'auto';
-        cutinContainer.style.cursor = 'pointer';
-    }, 1200);
+        img.src = 'images/cutin2.png';
+    }, 2000);
 }
-
-// クリックでカットインを非表示
-cutinContainer.addEventListener('click', () => {
-    cutinContainer.style.display = 'none';
-});

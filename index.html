@@ -477,9 +477,11 @@
     <!-- デイリーミッションクリアモーダル -->
     <div class="modal fade" id="missionClearModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <div class="modal-body py-5">
-                    <div class="mb-3" style="font-size:3.5rem;">🎉</div>
+            <div class="modal-content text-center overflow-hidden">
+                <div id="modal-ojisan-wrap" style="padding-top:1.5rem;">
+                    <img id="modal-ojisan" src="images/cutin1.gif" alt="" style="width:100%; display:block;">
+                </div>
+                <div class="modal-body py-4">
                     <h4 class="fw-bold mb-2">デイリーミッションクリア！</h4>
                     <p class="text-muted mb-1">10問全問正解おめでとうございます！</p>
                     <p class="text-muted mb-4">本日の広告が非表示になりました。<br>また明日もチャレンジしよう！</p>
@@ -714,15 +716,6 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- iOSインストール手順モーダル（将来のiOS対応用に残存） -->
-    <!-- カットインアニメーション -->
-    <div id="cutin-container">
-        <div id="cutin-inner">
-            <img id="cutin2" src="images/cutin2.png" alt="">
-            <img id="cutin1" src="images/cutin1.gif" alt="">
         </div>
     </div>
 
