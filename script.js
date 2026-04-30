@@ -91,12 +91,12 @@ function showQuestion() {
 
     // 情報更新
     questionNumberEl.textContent = currentQuestionIndex + 1;
-    questionScopeEl.textContent = question.scope;
+    questionScopeEl.textContent = question.category;
     questionTextEl.textContent = question.question;
 
-    // テキストフィールドがあればバッジに表示
-    if (question.text) {
-        textContentEl.textContent = question.text;
+    // トピックフィールドがあればバッジに表示
+    if (question.topic) {
+        textContentEl.textContent = question.topic;
         textContentEl.style.display = '';
     } else {
         textContentEl.style.display = 'none';
@@ -160,7 +160,7 @@ function checkAnswer(selectedChoice, btnElement) {
         feedbackTitle.style.color = "#c53030";
         feedbackIcon.className = "bi bi-x-circle-fill fs-3 text-danger";
         // 間違えたジャンルを記録
-        if (question.text) incorrectGenres.push(question.text);
+        if (question.topic) incorrectGenres.push(question.topic);
     }
 }
 
