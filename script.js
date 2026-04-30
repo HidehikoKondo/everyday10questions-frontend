@@ -159,8 +159,8 @@ function checkAnswer(selectedChoice, btnElement) {
         feedbackTitle.textContent = "残念... Incorrect";
         feedbackTitle.style.color = "#c53030";
         feedbackIcon.className = "bi bi-x-circle-fill fs-3 text-danger";
-        // 間違えたジャンルを記録
-        if (question.topic) incorrectGenres.push(question.topic);
+        // 間違えたキーワードを記録
+        if (question.keyword) incorrectGenres.push(question.keyword);
     }
 }
 
