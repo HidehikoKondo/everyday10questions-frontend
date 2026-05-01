@@ -207,7 +207,7 @@ function showResult() {
             <div class="alert alert-warning text-start mt-4 mb-0">
                 <p class="fw-bold mb-2"><i class="bi bi-exclamation-triangle-fill me-1"></i>ここを克服しよう！</p>
                 <div class="mb-2">${badgeHtml}</div>
-                <p class="small mb-0 text-muted">これらのジャンルを中心に復習して、次回はパーフェクトを目指しましょう！</p>
+                <p class="small mb-0 text-muted">これらのキーワードを復習して、次回はパーフェクトを目指しましょう！</p>
             </div>
             <div class="mt-3">
                 <p class="fw-bold mb-2"><i class="bi bi-book-fill me-1"></i>学習サービスや参考書で確実に合格を目指そう</p>
