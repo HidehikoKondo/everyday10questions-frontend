@@ -11,6 +11,8 @@ let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 let incorrectGenres = [];
+let currentQuizLabel = '';
+let currentQuizHashtag = '';
 
 // DOM要素
 const questionNumberEl = document.getElementById('question-number');
@@ -53,8 +55,26 @@ function showSubScreen(category) {
 
 // --- クイズ ---
 
+// ファイル名から表示用カテゴリ名へのマッピング
+const QUIZ_LABEL_MAP = {
+    'itpassport/strategy_questions.json': 'ITパスポート ストラテジ系',
+    'itpassport/management_questions.json': 'ITパスポート マネジメント系',
+    'itpassport/technology_questions.json': 'ITパスポート テクノロジ系',
+    'sg/sg_questions.json': '情報セキュリティマネジメント',
+};
+
+// ファイル名からハッシュタグ用資格名へのマッピング
+const QUIZ_HASHTAG_MAP = {
+    'itpassport/strategy_questions.json': 'ITパスポート',
+    'itpassport/management_questions.json': 'ITパスポート',
+    'itpassport/technology_questions.json': 'ITパスポート',
+    'sg/sg_questions.json': '情報セキュリティマネジメント',
+};
+
 async function startQuiz(filename) {
     showScreen('quiz-screen');
+    currentQuizLabel = QUIZ_LABEL_MAP[filename] || '';
+    currentQuizHashtag = QUIZ_HASHTAG_MAP[filename] || '';
 
     // ローディング状態を表示
     questionTextEl.innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div> Loading questions...';
@@ -223,6 +243,17 @@ function showResult() {
     } else {
         weakGenresEl.classList.add('d-none');
     }
+}
+
+// X（Twitter）にスコアをシェアする
+function openTweetWindow() {
+    const label = currentQuizLabel ? `【${currentQuizLabel}】` : '';
+    const examName = currentQuizHashtag || 'IT資格';
+    const text = `【毎日10問】\n ${examName}予想問題集に挑戦！\n${score}/10問正解！🎯\n\n`;
+    const url = 'https://mainichi10.page/\n\n';
+    const hashtags = currentQuizHashtag ? `${currentQuizHashtag},毎日10問,勉強垢` : '毎日10問,勉強垢';
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&hashtags=${encodeURIComponent(hashtags)}&url=${encodeURIComponent(url)}`;
+    window.open(tweetUrl, '_blank', 'noopener,noreferrer');
 }
 
 // --- デイリーミッション ---
