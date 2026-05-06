@@ -104,7 +104,7 @@
                                 <h3>情報セキュリティマネジメント</h3>
                                 <p>情報セキュリティの管理・運用を問う国家試験。セキュリティの基礎から実践まで対策。</p>
                                 <span class="category-card-badge"
-                                    style="background:#ebf8ff; color:#2b6cb0;">1カテゴリ</span>
+                                    style="background:#ebf8ff; color:#2b6cb0;">2カテゴリ</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -115,7 +115,7 @@
                                 </div>
                                 <h3>基本情報技術者試験</h3>
                                 <p>ITエンジニアの登竜門。科目Aの基礎知識から科目Bのプログラミングまで幅広く対策。</p>
-                                <span class="category-card-badge" style="background:#f0fff4; color:#276749;">準備中</span>
+                                <span class="category-card-badge" style="background:#f0fff4; color:#276749;">4カテゴリ</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -126,7 +126,7 @@
                                 </div>
                                 <h3>情報処理安全確保支援士</h3>
                                 <p>セキュリティの高度専門資格。午前・午後の幅広い知識と実践力を問う試験に対策。</p>
-                                <span class="category-card-badge" style="background:#fff5f5; color:#9b2c2c;">準備中</span>
+                                <span class="category-card-badge" style="background:#fff5f5; color:#9b2c2c;">2カテゴリ</span>
                             </div>
                         </div>
                     </div>
@@ -289,14 +289,30 @@
                 <h2 class="fw-bold start-screen-title mb-1">情報セキュリティマネジメント</h2>
                 <p class="text-muted small">挑戦する分野を選んでください</p>
             </div>
-            <div class="d-grid gap-3 col-lg-8 mx-auto">
-                <div class="sub-card" onclick="startQuiz('sg/sg_questions.json')">
-                    <div class="sub-card-icon blue"><i class="bi bi-shield-lock-fill"></i></div>
-                    <div class="sub-card-body">
-                        <h5>情報セキュリティ</h5>
-                        <p>セキュリティ管理・暗号・法規・ネットワークセキュリティ</p>
+            <div class="mb-3 col-lg-8 mx-auto">
+                <p class="text-muted small fw-bold mb-2" style="letter-spacing:0.05em;">科目A</p>
+                <div class="d-grid gap-3">
+                    <div class="sub-card" onclick="startQuiz('sg/sg_questions.json')">
+                        <div class="sub-card-icon blue"><i class="bi bi-shield-lock-fill"></i></div>
+                        <div class="sub-card-body">
+                            <h5>情報セキュリティ</h5>
+                            <p>セキュリティ管理・暗号・法規・ネットワークセキュリティ</p>
+                        </div>
+                        <i class="bi bi-chevron-right ms-auto text-muted"></i>
                     </div>
-                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <p class="text-muted small fw-bold mb-2" style="letter-spacing:0.05em;">科目B</p>
+                <div class="d-grid gap-3">
+                    <div class="sub-card" onclick="startQuiz('sg/scienceb_questions.json')">
+                        <div class="sub-card-icon" style="background:linear-gradient(135deg,#63b3ed,#2b6cb0);"><i class="bi bi-file-earmark-text-fill"></i></div>
+                        <div class="sub-card-body">
+                            <h5>情報セキュリティ管理（事例）</h5>
+                            <p>インシデント対応・リスクアセスメント・BCP・委託先管理</p>
+                        </div>
+                        <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -314,15 +330,46 @@
                 <h2 class="fw-bold start-screen-title mb-1">基本情報技術者試験</h2>
                 <p class="text-muted small">挑戦する分野を選んでください</p>
             </div>
-            <div class="d-grid gap-3 col-lg-8 mx-auto">
-                <div class="sub-card disabled" style="opacity:0.5; pointer-events:none;">
-                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#48bb78,#276749);"><i
-                            class="bi bi-pc-display-horizontal"></i></div>
-                    <div class="sub-card-body">
-                        <h5>科目A・科目B</h5>
-                        <p>準備中</p>
+            <div class="mb-3 col-lg-8 mx-auto">
+                <p class="text-muted small fw-bold mb-2" style="letter-spacing:0.05em;">科目A</p>
+                <div class="d-grid gap-3">
+                    <div class="sub-card" onclick="startQuiz('fe/strategy_questions.json')">
+                        <div class="sub-card-icon" style="background:linear-gradient(135deg,#48bb78,#276749);"><i class="bi bi-bar-chart-fill"></i></div>
+                        <div class="sub-card-body">
+                            <h5>ストラテジ系</h5>
+                            <p>経営戦略・法務・システム戦略・企業活動</p>
+                        </div>
+                        <i class="bi bi-chevron-right ms-auto text-muted"></i>
                     </div>
-                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                    <div class="sub-card" onclick="startQuiz('fe/management_questions.json')">
+                        <div class="sub-card-icon" style="background:linear-gradient(135deg,#68d391,#276749);"><i class="bi bi-gear-fill"></i></div>
+                        <div class="sub-card-body">
+                            <h5>マネジメント系</h5>
+                            <p>開発技術・プロジェクトマネジメント・システム監査</p>
+                        </div>
+                        <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                    </div>
+                    <div class="sub-card" onclick="startQuiz('fe/technology_questions.json')">
+                        <div class="sub-card-icon" style="background:linear-gradient(135deg,#9ae6b4,#276749);"><i class="bi bi-code-slash"></i></div>
+                        <div class="sub-card-body">
+                            <h5>テクノロジ系</h5>
+                            <p>基礎理論・DB・ネットワーク・セキュリティ</p>
+                        </div>
+                        <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <p class="text-muted small fw-bold mb-2" style="letter-spacing:0.05em;">科目B</p>
+                <div class="d-grid gap-3">
+                    <div class="sub-card" onclick="startQuiz('fe/scienceb_questions.json')">
+                        <div class="sub-card-icon" style="background:linear-gradient(135deg,#48bb78,#22543d);"><i class="bi bi-terminal-fill"></i></div>
+                        <div class="sub-card-body">
+                            <h5>アルゴリズム・情報セキュリティ</h5>
+                            <p>擬似言語プログラムの読解・セキュリティ実践</p>
+                        </div>
+                        <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -341,12 +388,19 @@
                 <p class="text-muted small">挑戦する分野を選んでください</p>
             </div>
             <div class="d-grid gap-3 col-lg-8 mx-auto">
-                <div class="sub-card disabled" style="opacity:0.5; pointer-events:none;">
-                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#e53e3e,#9b2c2c);"><i
-                            class="bi bi-shield-fill-check"></i></div>
+                <div class="sub-card" onclick="startQuiz('sc/gozen1_questions.json')">
+                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#e53e3e,#9b2c2c);"><i class="bi bi-journals"></i></div>
                     <div class="sub-card-body">
-                        <h5>午前・午後</h5>
-                        <p>準備中</p>
+                        <h5>午前Ⅰ</h5>
+                        <p>高度試験共通・テクノロジ・マネジメント・ストラテジ</p>
+                    </div>
+                    <i class="bi bi-chevron-right ms-auto text-muted"></i>
+                </div>
+                <div class="sub-card" onclick="startQuiz('sc/gozen2_questions.json')">
+                    <div class="sub-card-icon" style="background:linear-gradient(135deg,#fc8181,#9b2c2c);"><i class="bi bi-shield-fill-exclamation"></i></div>
+                    <div class="sub-card-body">
+                        <h5>午前Ⅱ</h5>
+                        <p>情報セキュリティ専門・暗号・攻撃手法・法規</p>
                     </div>
                     <i class="bi bi-chevron-right ms-auto text-muted"></i>
                 </div>

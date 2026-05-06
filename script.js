@@ -6,7 +6,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-const BASE_URL = "https://mainichi10.page/questions/";
+const BASE_URL = "questions/";
 let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
@@ -60,7 +60,14 @@ const QUIZ_LABEL_MAP = {
     'itpassport/strategy_questions.json': 'ITパスポート ストラテジ系',
     'itpassport/management_questions.json': 'ITパスポート マネジメント系',
     'itpassport/technology_questions.json': 'ITパスポート テクノロジ系',
-    'sg/sg_questions.json': '情報セキュリティマネジメント',
+    'sg/sg_questions.json': '情報セキュリティマネジメント 科目A',
+    'sg/scienceb_questions.json': '情報セキュリティマネジメント 科目B',
+    'fe/strategy_questions.json': '基本情報技術者 ストラテジ系',
+    'fe/management_questions.json': '基本情報技術者 マネジメント系',
+    'fe/technology_questions.json': '基本情報技術者 テクノロジ系',
+    'fe/scienceb_questions.json': '基本情報技術者 科目B',
+    'sc/gozen1_questions.json': '情報処理安全確保支援士 午前Ⅰ',
+    'sc/gozen2_questions.json': '情報処理安全確保支援士 午前Ⅱ',
 };
 
 // ファイル名からハッシュタグ用資格名へのマッピング
@@ -69,6 +76,13 @@ const QUIZ_HASHTAG_MAP = {
     'itpassport/management_questions.json': 'ITパスポート',
     'itpassport/technology_questions.json': 'ITパスポート',
     'sg/sg_questions.json': '情報セキュリティマネジメント',
+    'sg/scienceb_questions.json': '情報セキュリティマネジメント',
+    'fe/strategy_questions.json': '基本情報技術者試験',
+    'fe/management_questions.json': '基本情報技術者試験',
+    'fe/technology_questions.json': '基本情報技術者試験',
+    'fe/scienceb_questions.json': '基本情報技術者試験',
+    'sc/gozen1_questions.json': '情報処理安全確保支援士',
+    'sc/gozen2_questions.json': '情報処理安全確保支援士',
 };
 
 async function startQuiz(filename) {
