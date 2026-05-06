@@ -126,7 +126,12 @@ function showQuestion() {
     // 情報更新
     questionNumberEl.textContent = currentQuestionIndex + 1;
     questionScopeEl.textContent = question.category;
-    questionTextEl.textContent = question.question;
+    questionTextEl.innerHTML = question.question
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/\n/g, '<br>');
 
     // トピックフィールドがあればバッジに表示
     if (question.topic) {
