@@ -95,9 +95,3 @@ CLAUDE.md に記載されている参照資料URLが利用可能であれば、W
 `questions/itpassport/strategy_questions.json`
 `questions/itpassport/management.json`
 
-### 6. 完了報告
-
-3ファイルの更新が完了したら、以下を報告する：
-- 更新したファイル名と問題数
-- 各カテゴリで含めた出題範囲の一覧
-- 更新日時（today's date）
